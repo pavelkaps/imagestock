@@ -1,0 +1,31 @@
+.flex{
+    width: 1024px;
+    height: 768px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.cell{
+    box-sizing: border-box;
+    border: 8px solid white;
+    background-color: blue ;
+
+}
+
+.cell-w25{
+    width: 25%;
+}
+
+.cell-w50{
+    width: 50%;
+}
+
+.cell-h33{
+    height: 33%;
+}
+
+.cell-h66{
+    height:66%;
+}

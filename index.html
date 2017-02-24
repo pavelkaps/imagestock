@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="ImageGallery">
+<head>
+  <script>document.write('<base href="' + document.location + '" />');</script>
+  <meta charset="utf-8">
+  <title>ImageGallery</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h1>ImageGallery</h1>
+  <ng-view></ng-view>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-css/angular-css.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="route/app.routing.js"></script>
+  <script src="factory/image-factory.js"></script>
+
+  <script src="controllers/gallery-controller/gallery-controller.js"></script>
+  <script src="controllers/image-detail-controller/image-detail-controller.js"></script>
+</body>
+</html>
