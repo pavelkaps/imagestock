@@ -4,15 +4,22 @@
 (function () {
     'use strict';
     angular.module('ImageGallery')
-        .controller('GalleryController',['$scope','imageService', function ($scope, imageService) {
+        .controller('GalleryController',['$scope','imageService','detailImageService', function ($scope, imageService,detailImageService) {
+
             imageService.getAll().then(
                 function (data) {
-                    console.log(data);
+                    $scope.images = data.data;
                 },
 
                 function (err) {
                     console.log(err);
                 }
-            )
+            );
+            
+            $scope.toDetail = function (image) {
+                detailImageService.sendToDetailImageController(image);
+                console.log('image set');
+            };
+            
         }]);
 })();

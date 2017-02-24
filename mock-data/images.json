@@ -1,6 +1,221 @@
 [
   {
-    "image_url": "",
+    "image_url": "./mock-data/image/Layer3.jpg",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  },
+  {
+    "image_url": "./mock-data/image/Layer4.jpg",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  },
+  {
+    "image_url": "./mock-data/image/Layer21.jpg",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  },
+  {
+    "image_url": "./mock-data/image/Layer22.jpg",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  },
+  {
+    "image_url": "./mock-data/image/Layer41.jpg",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  },
+  {
+    "image_url": "./mock-data/image/Layer123.jpg",
     "image_likes": [
       {
         "own": "id",
