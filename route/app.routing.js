@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('ImageGallery').
-    config(['$resourceProvider','$locationProvider', function($routeProvider, $locationProvider) {
+    config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/',{

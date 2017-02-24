@@ -4,7 +4,15 @@
 (function () {
     'use strict';
     angular.module('ImageGallery')
-        .controller('GalleryController',['$scope', function ($scope) {
-            
+        .controller('GalleryController',['$scope','imageService', function ($scope, imageService) {
+            imageService.getAll().then(
+                function (data) {
+                    console.log(data);
+                },
+
+                function (err) {
+                    console.log(err);
+                }
+            )
         }]);
 })();

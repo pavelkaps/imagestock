@@ -1,0 +1,45 @@
+[
+  {
+    "image_url": "",
+    "image_likes": [
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      }
+    ],
+    "comments": [
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "own": "id",
+        "text": "some text",
+        "data": "2012-04-23T18:25:43.511Z"
+      }
+    ]
+  }
+]
