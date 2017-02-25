@@ -59,6 +59,17 @@ md-dialog.dialog-detail md-dialog-content{
     height: 12%;
     bottom: -12%;
     transition: bottom 0.3s, opacity 0.2s;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-actions > div{
+    position: relative;
+    top: -5px;
+    width: 15%;
+    margin-right: 5px;
+    opacity: 1;
+    background-color: #e0e5e9;
 }
 
 .image-block:hover .image-actions{
@@ -125,8 +136,6 @@ md-dialog.dialog-detail md-dialog-content{
     margin-bottom: 5px ;
 }
 
-
-
 .nickname-input{
     width: 100%;
     border: none;
@@ -137,4 +146,8 @@ md-dialog.dialog-detail md-dialog-content{
 .comment-input{
     width: 100%;
     border: 2px solid #f3f5f8;
+}
+
+.count{
+    height: inherit;
 }
