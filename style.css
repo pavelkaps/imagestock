@@ -1,5 +1,6 @@
 body{
     font-family: 'Open Sans', sans-serif;
+    background-color: #f0f3f6;
 }
 
 .title-app{
@@ -65,13 +66,11 @@ md-dialog.dialog-detail md-dialog-content{
     bottom: 0;
 }
 
-.comments-block{
-    margin-top: 30px;
-}
-
 .comment-header{
+    font-size: 10px;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 3px;
 }
 
 .comment-owner{
@@ -79,28 +78,63 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .comment-date{
+    margin-left: auto;
     align-self: flex-end;
 }
 
+.comment-text{
+    font-size: 14px;
+}
+
 .comments-block{
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
     width: 40%;
-    height: 95%;
     padding-right: 4%;
     padding-left: 4%;
+    height: 100%;
     box-sizing: border-box;
 }
 
+.comments{
+    border-bottom: 2px solid #f3f5f8;
+    overflow: auto;
+    height: 70%;
+}
+
 .comments-count{
+    font-size: 25px;
+    color: #8b9ea9;
     margin: 10px 0;
+}
+
+.add-comment-form{
+    margin-top: auto;
+    font-size: 14px;
 }
 
 .comment-text{
     padding: 5px;
     box-sizing: border-box;
-    border: 2px solid ghostwhite;
+    border: 2px solid #eff3f6;
 }
 
 .comment{
     margin-top:5px ;
     margin-bottom: 5px ;
+}
+
+
+
+.nickname-input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #f3f5f8;
+    margin-bottom: 10px;
+}
+
+.comment-input{
+    width: 100%;
+    border: 2px solid #f3f5f8;
 }
