@@ -1,5 +1,41 @@
-<div ng-controller="ImageDetailController">
-    <h1 ng-click="show()">Detail</h1>
-    <div class="square" ng-style="{'background-image':'url(' + image.image_url + ')'}" ></div>
+<md-dialog ng-controller="ImageDetailController" class="dialog-detail">
+    <md-dialog-content>
+        <div class="dialog-content-flex">
+            <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
+                <div class="image-actions">
+                    <div class="like">
+                        <div class="count">4</div>
+                    </div>
+                    <div class="dislike">
+                        <div class="count">5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comments-block">
+                <div class="comments-count">
+                    Comments: {{image.comments.length}}
+                </div>
 
-</div>
+                <div class="comments">
+                    <div ng-repeat="comment in image.comments" class="comment">
+                        <div class="comment-header">
+                            <div class="comment-owner">
+                                By {{comment.own}}
+                            </div>
+                            <div class="comment-date">
+                                {{comment.data | date: 'shortTime'}}
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            {{comment.text}}
+                        </div>
+                    </div>
+                </div>
+                <input>
+                <textarea>
+
+                </textarea>
+            </div>
+        </div>
+    </md-dialog-content>
+</md-dialog>

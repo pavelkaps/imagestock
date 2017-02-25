@@ -4,7 +4,7 @@
 (function () {
     'use strict';
     angular.module('ImageGallery')
-        .controller('GalleryController',['$scope','imageService','detailImageService', function ($scope, imageService,detailImageService) {
+        .controller('GalleryController', ['$scope', 'imageService', 'detailImageService', '$mdDialog', function ($scope, imageService, detailImageService, $mdDialog) {
 
             imageService.getAll().then(
                 function (data) {
@@ -15,11 +15,28 @@
                     console.log(err);
                 }
             );
-            
-            $scope.toDetail = function (image) {
+
+            $scope.c = function (image) {
                 detailImageService.sendToDetailImageController(image);
                 console.log('image set');
             };
-            
+
+            $scope.toDetail = function (ev, image) {
+                detailImageService.setImage(image);
+
+                $mdDialog.show({
+                    templateUrl: './controllers/image-detail-controller/image-detail-controller.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: false
+                })
+                    .then(function (answer) {
+                        $scope.status = 'You said the information was "' + answer + '".';
+                    }, function () {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+            };
+
         }]);
 })();
