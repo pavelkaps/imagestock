@@ -101,8 +101,8 @@ md-dialog.dialog-detail md-dialog-content{
     padding-top: 15px;
     display: flex;
     flex-direction: column;
-    width: 40%;
-    padding-right: 4%;
+    width: 45%;
+    padding-right: 3%;
     padding-left: 4%;
     height: 100%;
     box-sizing: border-box;
@@ -111,6 +111,7 @@ md-dialog.dialog-detail md-dialog-content{
 .comments{
     border-bottom: 2px solid #f3f5f8;
     overflow: auto;
+    padding-right: 20px;
     height: 70%;
 }
 
@@ -150,4 +151,27 @@ md-dialog.dialog-detail md-dialog-content{
 
 .count{
     height: inherit;
+}
+
+.comments::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: #d1dae3;
+}
+
+.comments::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.comments::-webkit-scrollbar-thumb
+{
+    border-radius: 4px;
+    background-color: #52c6d3;
+}
+
+md-backdrop.md-opaque{
+    opacity: .70;
+    background-color: ghostwhite;
 }
