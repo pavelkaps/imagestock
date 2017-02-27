@@ -3,11 +3,15 @@
         <div class="dialog-content-flex">
             <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
                 <div class="image-actions">
-                    <div class="like">
-                        <div class="count">4</div>
+                    <div class="dislike" ng-click="setDislike()" >
+                        <div class="gray-background" ng-class="{'action-active': dislike}">
+                            <div class="count">4</div>
+                        </div>
                     </div>
-                    <div class="dislike">
-                        <div class="count">5</div>
+                    <div class="like" ng-click="setLike()" >
+                        <div class="gray-background" ng-class="{'action-active': like}">
+                            <div class="count">5</div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -57,18 +57,25 @@ md-dialog.dialog-detail md-dialog-content{
     width: 100%;
     height: 12%;
     bottom: -12%;
-    transition: bottom 0.3s, background-color 0.2s;
+    transition: bottom 0.3s, background-color 0.2s,background 0.2s ;
     display: flex;
     justify-content: flex-end;
 }
 
 .image-actions > div{
     position: relative;
-    top: -5px;
     width: 15%;
     margin-right: 5px;
-    opacity: 1;
-    background-color: rgba(218, 223, 240 , 0);
+}
+
+.dislike{
+    background: rgba(209, 35, 36, 0)
+    url("./assets/img/dislike_icon_active.png") no-repeat center;
+}
+
+.like{
+    background: rgba(35, 209, 207, 0)
+    url("./assets/img/like icon_active.png") no-repeat center;
 }
 
 .image-block:hover .image-actions{
@@ -76,11 +83,40 @@ md-dialog.dialog-detail md-dialog-content{
     bottom: 0;
 }
 
-.image-block:hover .image-actions div{
-    background-color: rgba(218, 223, 240 , 1);
+.image-block:hover .image-actions .dislike{
+    background-color: rgba(209, 35, 36 , 1);
     bottom: 0;
 }
 
+.image-block:hover .image-actions .like{
+    background-color: rgba(35, 209, 207 , 1);
+    bottom: 0;
+}
+
+.dislike .gray-background{
+    background: rgba(224, 229, 233, 1) url("./assets/img/dislike_icon_normal.png") no-repeat center;;
+}
+
+.like .gray-background{
+    background: rgba(224, 229, 233, 1) url("./assets/img/like_icon_normal.png") no-repeat center;;
+}
+
+.gray-background{
+    opacity: 1 ;
+    position: relative;
+    top: -5px;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(224, 229, 233, 0);
+    transition: top 0.6s, opacity 0.6s;
+}
+
+.action-active
+{
+    top: 0;
+    opacity: 0;
+    background-color: rgba(224, 229, 233, 0);
+}
 
 .comment-header{
     font-size: 10px;
