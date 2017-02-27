@@ -69,12 +69,14 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .dislike{
+    cursor: pointer;
     opacity: 0;
-    background: rgba(209, 35, 36, 0)
+    background: rgba(35, 209, 207, 0)
     url("./assets/img/dislike_icon_active.png") no-repeat center;
 }
 
 .like{
+    cursor: pointer;
     opacity: 0;
     background: rgba(35, 209, 207, 0)
     url("./assets/img/like icon_active.png") no-repeat center;
@@ -229,6 +231,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .send-btn{
+    cursor: pointer;
     width: 50px;
     border-radius: 2px;
     background: #21b8c6 url("./assets/img/send icon.png") no-repeat center;
@@ -237,6 +240,25 @@ md-dialog.dialog-detail md-dialog-content{
 
 .send-btn:hover{
     background-color: #2199ff;
+}
+
+.close-btn{
+    background:
+    url("./assets/img/close icon.png") no-repeat center;
+    cursor: pointer;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 10px;
+    top: 10px;
+}
+
+input[class='nickname-input']{
+
+}
+
+input[class='nickname-input']:focus{
+
 }
 
 
@@ -268,4 +290,8 @@ textarea{
 md-backdrop.md-opaque{
     opacity: .70;
     background-color: ghostwhite;
+}
+
+*:focus {
+    outline: none;
 }

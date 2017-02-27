@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('ImageGallery')
-        .controller('ImageDetailController', ['$scope', 'imageService', 'detailImageService', function ($scope, imageService, detailImageService) {
+        .controller('ImageDetailController', ['$scope', 'imageService', 'detailImageService', '$mdDialog', function ($scope, imageService, detailImageService, $mdDialog) {
 
             $scope.like = false;
             $scope.dislike = false;
@@ -20,6 +20,12 @@
 
             $scope.setDislike = function () {
                 $scope.dislike = !$scope.dislike;
-            }
+            };
+
+            $scope.close = function() {
+                $mdDialog.cancel();
+            };
+
+
         }]);
 })();
