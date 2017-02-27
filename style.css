@@ -149,10 +149,6 @@ md-dialog.dialog-detail md-dialog-content{
     border: 2px solid white;
 }
 
-.action-active .count{
-
-}
-
 .comment-header{
     font-size: 10px;
     display: flex;
@@ -178,7 +174,7 @@ md-dialog.dialog-detail md-dialog-content{
     display: flex;
     flex-direction: column;
     width: 45%;
-    padding-right: 3%;
+    padding-right: 2%;
     padding-left: 4%;
     height: 100%;
     box-sizing: border-box;
@@ -187,7 +183,7 @@ md-dialog.dialog-detail md-dialog-content{
 .comments{
     border-bottom: 2px solid #f3f5f8;
     overflow: auto;
-    padding-right: 20px;
+    padding-right: calc(8% - 6px);
     height: 70%;
 }
 
@@ -214,34 +210,59 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .nickname-input{
-    width: 100%;
+    width: 92%;
     border: none;
     border-bottom: 2px solid #f3f5f8;
     margin-bottom: 10px;
 }
 
 .comment-input{
-    width: 100%;
     border: 2px solid #f3f5f8;
+    border-right: none;
+    height: 40px;
+    flex-grow: 1;
+}
+
+.add-comment-text{
+    display: flex;
+    width: 92%;
+}
+
+.send-btn{
+    width: 50px;
+    border-radius: 2px;
+    background: #21b8c6 url("./assets/img/send icon.png") no-repeat center;
+    transition: background-color 0.4s;
+}
+
+.send-btn:hover{
+    background-color: #2199ff;
 }
 
 
-.comments::-webkit-scrollbar-track
+.comments::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track
 {
     border-radius: 10px;
     background-color: #d1dae3;
 }
 
-.comments::-webkit-scrollbar
+.comments::-webkit-scrollbar,
+textarea::-webkit-scrollbar
 {
     width: 6px;
     background-color: #F5F5F5;
 }
 
-.comments::-webkit-scrollbar-thumb
+.comments::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb
 {
     border-radius: 4px;
     background-color: #52c6d3;
+}
+
+textarea{
+    resize: none;
 }
 
 md-backdrop.md-opaque{

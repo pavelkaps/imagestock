@@ -3,13 +3,13 @@
         <div class="dialog-content-flex">
             <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
                 <div class="image-actions">
-                    <div class="dislike" ng-click="setDislike()" >
+                    <div class="dislike" ng-click="setDislike()">
                         <div class="gray-background" ng-class="{'action-active': dislike}">
                             <div class="count count-normal">4</div>
                         </div>
                         <div class="count count-active">4</div>
                     </div>
-                    <div class="like" ng-click="setLike()" >
+                    <div class="like" ng-click="setLike()">
                         <div class="gray-background" ng-class="{'action-active': like}">
                             <div class="count count-normal">5</div>
                         </div>
@@ -39,7 +39,10 @@
                 </div>
                 <div class="add-comment-form">
                     <input type="text" placeholder="Type your nickname..." class="nickname-input">
-                    <textarea class="comment-input" placeholder="Write your comment here..."></textarea>
+                    <div class="add-comment-text">
+                        <textarea class="comment-input" placeholder="Write your comment here..."></textarea>
+                        <div class="send-btn"></div>
+                    </div>
                 </div>
 
             </div>
