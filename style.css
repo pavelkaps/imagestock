@@ -314,11 +314,30 @@ input[class='nickname-input']:focus{
 }
 
 .rounded-block-with-plus{
-    margin: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     background: #21b8c6 url("./assets/img/plus_icon.png") no-repeat center;
+}
+
+.description-card{
+    color: #aebcc4;
+    font-size: 14px;
+}
+
+.height-block-btn{
+    display: flex;
+    height: calc(50% + 25px);
+}
+
+.height-block-description{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    text-align: center;
 }
 
 .comments::-webkit-scrollbar-track,
