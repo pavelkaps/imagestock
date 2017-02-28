@@ -1,11 +1,18 @@
 
 <div class="container">
     <md-card class="card " ng-repeat="image in images" ng-style="{'background-image':'url({{image.image_url}})'}" ng-click="toDetail($event, image)">
-        <md-content>
-        </md-content>
+            <div class="detail-img-bar">
+                <div class="detail-bar-item comment-count"><div class="count count-normal count-small">{{image.comments.length}}</div></div>
+                <div class="detail-bar-item dislike-count"><div class="count count-normal count-small">4</div></div>
+                <div class="detail-bar-item like-count"><div class="count count-normal count-small">4</div></div>
+            </div>
     </md-card>
     <md-card class="card " ng-repeat="image in images" ng-style="{'background-image':'url({{image.image_url}})'}" ng-click="toDetail($event, image)">
-        <md-content>
-        </md-content>
+        <div class="detail-img-bar">
+            <div class="detail-bar-item comment-count"><div class="count count-normal count-small">{{image.comments.length}}</div></div>
+            <div class="detail-bar-item dislike-count"><div class="count count-normal count-small">4</div></div>
+            <div class="detail-bar-item like-count"><div class="count count-normal count-small">4</div></div>
+        </div>
     </md-card>
+    <md-card class="card"><div class="rounded-block-with-plus"></div></md-card>
 </div>

@@ -23,6 +23,9 @@ body{
 }
 
 .card{
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
     box-sizing: border-box;
     background-size: cover;
     width: 238px;
@@ -130,15 +133,15 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .count{
-    padding: 3px;
     position: absolute;
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
     text-align: center;
+    line-height: 16px;
     top: 17%;
     left: 60%;
     color: #48949d;
-    font-size: 9px;
+    font-size: 10px;
     background-color: white;
     border-radius: 50%;
 }
@@ -203,6 +206,7 @@ md-dialog.dialog-detail md-dialog-content{
 .comment-text{
     padding: 5px;
     box-sizing: border-box;
+    border-radius: 2px;
     border: 2px solid #eff3f6;
 }
 
@@ -212,6 +216,8 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .nickname-input{
+    box-sizing: border-box;
+    padding-left: 5px;
     width: 92%;
     border: none;
     border-bottom: 2px solid #f3f5f8;
@@ -261,6 +267,59 @@ input[class='nickname-input']:focus{
 
 }
 
+.detail-img-bar{
+    position: absolute;
+    background-color: rgba(245, 247, 245, 0);
+    width: 100%;
+    height: 30%;
+    opacity: 0;
+    bottom: -30%;
+    transition: bottom 0.3s, background-color 0.2s,background 0.2s, opacity 0.2s ;
+    display: flex;
+}
+
+.detail-img-bar .detail-bar-item{
+    position: relative;
+    width: 25%;
+}
+
+.detail-img-bar .like-count{
+    background: url("./assets/img/like_icon_normal.png") no-repeat center;
+}
+
+.detail-img-bar .dislike-count{
+    margin-left: auto;
+    background: url("./assets/img/dislike_icon_normal.png") no-repeat center;
+}
+
+.detail-img-bar .comment-count{
+    background: url("./assets/img/comment icon.png") no-repeat center;
+}
+
+.card:hover .detail-img-bar{
+    background-color: rgba(245, 247, 245, 0.95);
+    bottom: 0;
+    opacity: 1;
+}
+
+.count-small{
+    line-height: 14px;
+    height: 14px;
+    width: 14px;
+    font-size: 9px;
+}
+
+.img-add-card{
+    display: flex;
+}
+
+.rounded-block-with-plus{
+    margin: auto;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: #21b8c6 url("./assets/img/plus_icon.png") no-repeat center;
+}
 
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track
@@ -283,8 +342,13 @@ textarea::-webkit-scrollbar-thumb
     background-color: #52c6d3;
 }
 
+
 textarea{
     resize: none;
+}
+
+html{
+    background: none;
 }
 
 md-backdrop.md-opaque{
