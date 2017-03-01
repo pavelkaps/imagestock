@@ -17,18 +17,19 @@
                     console.log("directive");
                     wall.reset({
                         selector: '.card',
-                        draggable: true,
                         animate: true,
                         cellW: 238,
                         cellH: 190,
+                        gutterX: 10,
+                        gutterY: 10,
                         onResize: function() {
-                            wall.fitHeight($window.innerHeight);
+                            wall.fitHeight(590);
                         }
                         
                     });
 
                     wall.container.find('.card').on('load', (function() {
-                        wall.fitHeight($window.innerHeight);
+                        wall.fitHeight(590);
                     }));
 
                     $window.dispatchEvent(new Event('resize'));

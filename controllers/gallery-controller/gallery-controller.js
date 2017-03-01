@@ -51,25 +51,6 @@
                     $scope.resizingImages = resizeImages(data.data);
                     console.log($scope.resizingImages);
 
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
-                    $scope.addImage();
                 },
 
                 function (err) {
@@ -84,10 +65,8 @@
                 });
             }
             
-
             $scope.toDetail = function (ev, image) {
                 detailImageService.setImage(image);
-
                 $mdDialog.show({
                     templateUrl: './controllers/image-detail-controller/image-detail-controller.html',
                     parent: angular.element(document.body),

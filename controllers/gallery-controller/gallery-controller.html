@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
     <md-card class="card " ng-repeat="image in images" ng-style="{'background-image':'url({{image.image_url}})'}"
              ng-click="toDetail($event, image)">
         <div class="detail-img-bar">
@@ -21,12 +21,12 @@
             <span class="description-card">Add your Picture</span>
         </div>
     </md-card>
-</div>
+</div>-->
 
 
-<div style="height: 680px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; " id="freewall" the-freewall="">
+<div style="height: 600px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; " id="freewall" the-freewall="">
     <md-card class="card float" ng-class="[image.width, image.height]" ng-repeat="image in resizingImages" ng-style="{'background-image':'url({{image.image.image_url}})'}" repeat-brick=""
-             ng-dblclick="toDetail($event, image.image)">
+             ng-click="toDetail($event, image.image)">
         <div class="detail-img-bar">
             <div class="detail-bar-item comment-count">
                 <div class="count count-normal count-small">{{image.image.comments.length}}</div>
@@ -39,7 +39,7 @@
             </div>
         </div>
     </md-card>
-    <md-card class="card" ng-click="addImage()">
+    <md-card class="card" ng-click="addImage()" data-position="0-0">
         <div class="height-block-btn">
             <div class="rounded-block-with-plus"></div>
         </div>
@@ -49,22 +49,3 @@
     </md-card>
 </div>
 
-<script type="text/javascript">
-
-    $(function() {
-        var wall = new Freewall("#freewall");
-        wall.reset({
-            selector: '.card',
-            cellW: 238,
-            draggable: true,
-            cellH: 190,
-            onResize: function() {
-                wall.fitHeight($(window).height());
-            }
-        });
-
-        wall.fitHeight($(window).height());
-        $(window).trigger("resize");
-    });
-
-</script>
