@@ -13,20 +13,6 @@
             </div>
         </div>
     </md-card>
-    <md-card class="card " ng-repeat="image in images" ng-style="{'background-image':'url({{image.image_url}})'}"
-             ng-click="toDetail($event, image)">
-        <div class="detail-img-bar">
-            <div class="detail-bar-item comment-count">
-                <div class="count count-normal count-small">{{image.comments.length}}</div>
-            </div>
-            <div class="detail-bar-item dislike-count">
-                <div class="count count-normal count-small">4</div>
-            </div>
-            <div class="detail-bar-item like-count">
-                <div class="count count-normal count-small">4</div>
-            </div>
-        </div>
-    </md-card>
     <md-card class="card">
         <div class="height-block-btn">
             <div class="rounded-block-with-plus"></div>
@@ -36,3 +22,48 @@
         </div>
     </md-card>
 </div>
+
+
+<div style="height: 680px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; " id="freewall" >
+    <md-card class="card float" ng-class="[image.width, image.height]" ng-repeat="image in resizingImages" ng-style="{'background-image':'url({{image.image.image_url}})'}"
+             ng-click="toDetail($event, image.image)">
+        <div class="detail-img-bar">
+            <div class="detail-bar-item comment-count">
+                <div class="count count-normal count-small">{{image.image.comments.length}}</div>
+            </div>
+            <div class="detail-bar-item dislike-count">
+                <div class="count count-normal count-small">4</div>
+            </div>
+            <div class="detail-bar-item like-count">
+                <div class="count count-normal count-small">4</div>
+            </div>
+        </div>
+    </md-card>
+    <md-card class="card" ng-click="addImage()">
+        <div class="height-block-btn">
+            <div class="rounded-block-with-plus"></div>
+        </div>
+        <div class="height-block-description">
+            <span class="description-card">Add your Picture</span>
+        </div>
+    </md-card>
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+        var wall = new Freewall("#freewall");
+        wall.reset({
+            selector: '.card',
+            cellW: 238,
+            cellH: 190,
+            onResize: function() {
+                wall.fitHeight($(window).height());
+            }
+        });
+        // caculator height for IE7;
+        wall.fitHeight($(window).height());
+        $(window).trigger("resize");
+    });
+
+</script>

@@ -340,6 +340,28 @@ input[class='nickname-input']:focus{
     text-align: center;
 }
 
+.width-1-col{
+    width: 238px;
+}
+
+.width-2-col{
+    width: 486px;
+}
+
+.height-1-col{
+    height: 190px;
+}
+
+.height-2-col{
+    height: 390px;
+}
+
+.float{
+    display: inline-block;
+    float: left;
+}
+
+
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track
 {
