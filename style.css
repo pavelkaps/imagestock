@@ -236,6 +236,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .send-btn{
+    display: block;
     cursor: pointer;
     width: 50px;
     border-radius: 2px;

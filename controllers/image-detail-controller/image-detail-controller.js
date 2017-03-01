@@ -8,6 +8,7 @@
             $scope.like = false;
             $scope.dislike = false;
 
+
             $scope.image = detailImageService.getImage();
 
             $scope.show = function () {
@@ -24,6 +25,17 @@
 
             $scope.close = function() {
                 $mdDialog.cancel();
+            };
+
+            $scope.addComment = function (nickname, text) {
+                if($scope.commentForm.$valid){
+                    var comment = {};
+                    comment.own = nickname;
+                    comment.text = text;
+                    comment.data = Date.now();
+
+                    $scope.image.comments.push(comment);
+                }
             };
 
         }]);
