@@ -57,8 +57,8 @@ md-dialog.dialog-detail md-dialog-content{
     position: absolute;
     background-color: rgba(245, 247, 245, 0);
     width: 100%;
-    height: 12%;
-    bottom: -12%;
+    height: 60px;
+    bottom: -60px;
     transition: bottom 0.3s, background-color 0.2s,background 0.2s ;
     display: flex;
     justify-content: flex-end;
@@ -66,7 +66,7 @@ md-dialog.dialog-detail md-dialog-content{
 
 .image-actions > div{
     position: relative;
-    width: 15%;
+    width: 70px;
     margin-right: 5px;
 }
 
