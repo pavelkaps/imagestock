@@ -24,9 +24,9 @@
 </div>
 
 
-<div style="height: 680px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; " id="freewall" >
-    <md-card class="card float" ng-class="[image.width, image.height]" ng-repeat="image in resizingImages" ng-style="{'background-image':'url({{image.image.image_url}})'}"
-             ng-click="toDetail($event, image.image)">
+<div style="height: 680px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; " id="freewall" the-freewall="">
+    <md-card class="card float" ng-class="[image.width, image.height]" ng-repeat="image in resizingImages" ng-style="{'background-image':'url({{image.image.image_url}})'}" repeat-brick=""
+             ng-dblclick="toDetail($event, image.image)">
         <div class="detail-img-bar">
             <div class="detail-bar-item comment-count">
                 <div class="count count-normal count-small">{{image.image.comments.length}}</div>
@@ -56,12 +56,13 @@
         wall.reset({
             selector: '.card',
             cellW: 238,
+            draggable: true,
             cellH: 190,
             onResize: function() {
                 wall.fitHeight($(window).height());
             }
         });
-        // caculator height for IE7;
+
         wall.fitHeight($(window).height());
         $(window).trigger("resize");
     });
