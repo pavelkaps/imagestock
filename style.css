@@ -368,6 +368,17 @@ textarea::-webkit-scrollbar-track
     background-color: #d1dae3;
 }
 
+#freewall::-webkit-scrollbar-track{
+    border-radius: 15px;
+    background-color: #d1dae3;
+}
+
+#freewall::-webkit-scrollbar-thumb{
+    border-radius: 15px;
+    background-color: #21b8c6;
+}
+
+
 .comments::-webkit-scrollbar,
 textarea::-webkit-scrollbar
 {
@@ -375,11 +386,16 @@ textarea::-webkit-scrollbar
     background-color: #F5F5F5;
 }
 
+#freewall::-webkit-scrollbar{
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
 .comments::-webkit-scrollbar-thumb,
 textarea::-webkit-scrollbar-thumb
 {
     border-radius: 4px;
-    background-color: #52c6d3;
+    background-color: #21b8c6;
 }
 
 
