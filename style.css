@@ -75,14 +75,6 @@ md-dialog.dialog-detail md-dialog-content{
     opacity: 0;
 }
 
-.dislike {
-    background: rgba(35, 209, 207, 0) url("./assets/img/dislike_icon_active.png") no-repeat center;
-}
-
-.like {
-    background: rgba(35, 209, 207, 0) url("./assets/img/like icon_active.png") no-repeat center;
-}
-
 .image-block:hover .image-actions-bar {
     background-color: rgba(245, 247, 245, 0.95);
     bottom: 0;
@@ -93,27 +85,7 @@ md-dialog.dialog-detail md-dialog-content{
     opacity: 1;
 }
 
-.image-block:hover .image-actions-bar .dislike {
-    background-color: rgba(209, 35, 36, 1);
-}
-
-.image-block:hover .image-actions-bar .like {
-    background-color: rgba(35, 209, 207, 1);
-}
-
-.dislike .gray-background {
-    background: rgba(224, 229, 233, 1) url("./assets/img/dislike_icon_normal.png") no-repeat center;;
-}
-
-.like .gray-background {
-    background: rgba(224, 229, 233, 1) url("./assets/img/like_icon_normal.png") no-repeat center;;
-}
-
-.image-block:hover .gray-background {
-    opacity: 1;
-}
-
-.gray-background {
+.normal-item{
     opacity: 0;
     position: relative;
     top: -5px;
@@ -121,6 +93,26 @@ md-dialog.dialog-detail md-dialog-content{
     z-index: 1;
     background-color: rgba(224, 229, 233, 0);
     transition: top 0.6s;
+}
+
+.dislike.normal-item {
+    background: rgba(224, 229, 233, 1) url("./assets/img/dislike_icon_normal.png") no-repeat center;;
+}
+
+.like.normal-item {
+    background: rgba(224, 229, 233, 1) url("./assets/img/like_icon_normal.png") no-repeat center;;
+}
+
+.image-block:hover .image-actions-bar .dislike.action-active{
+    background: rgba(209, 35, 36, 1) url("./assets/img/dislike_icon_active.png") no-repeat center;
+}
+
+.image-block:hover .image-actions-bar .like.action-active{
+    background: rgba(35, 209, 207, 1) url("./assets/img/like icon_active.png") no-repeat center;
+}
+
+.image-block:hover .normal-item {
+    opacity: 1;
 }
 
 .image-block:hover .action-active {
@@ -142,15 +134,26 @@ md-dialog.dialog-detail md-dialog-content{
     font-size: 10px;
     background-color: white;
     border-radius: 50%;
-}
-
-.count-normal {
     border: 2px solid #a0b0ba;
 }
 
 .count-active {
     border: 2px solid white;
 }
+
+.action-active .count{
+    border: 2px solid white;
+}
+
+
+
+
+
+
+
+
+
+
 
 .comment-header {
     font-size: 10px;

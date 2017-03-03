@@ -4,17 +4,11 @@
             <div class="close-btn" ng-click="close()"></div>
             <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
                 <div class="image-actions-bar">
-                    <div class="action-item dislike" ng-click="setDislike()">
-                        <div class="gray-background" ng-class="{'action-active': dislike}">
-                            <div class="count count-normal">4</div>
-                        </div>
-                        <div class="count count-active">4</div>
+                    <div class="action-item dislike normal-item" ng-click="setDislike()" ng-class="{'action-active': dislike}">
+                            <div class="count">4</div>
                     </div>
-                    <div class="action-item like" ng-click="setLike()">
-                        <div class="gray-background" ng-class="{'action-active': like}">
-                            <div class="count count-normal">5</div>
-                        </div>
-                        <div class="count count-active">5</div>
+                    <div class="action-item like normal-item" ng-click="setLike()" ng-class="{'action-active': like}">
+                        <div class="count">5</div>
                     </div>
                 </div>
             </div>
