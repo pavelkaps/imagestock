@@ -5,7 +5,7 @@
     angular.module('ImageGallery').directive('theFreewall', function($window) {
             return function(scope, element, attrs) {
                 scope.$on('LastBrick', function(event){
-                    var wall = new Freewall("#freewall");
+                    var wall = new Freewall(".galleryGrid");
                     console.log("directive");
                     wall.reset({
                         selector: '.card',

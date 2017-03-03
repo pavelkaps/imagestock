@@ -24,12 +24,12 @@
 </div>-->
 
 
-<div style="height: 600px; width: auto; overflow-x: auto; overflow-y: hidden; padding-bottom: 30px; margin-bottom: 30px" id="freewall" the-freewall="">
-    <md-card class="card float" ng-class="[image.width, image.height]" ng-repeat="image in resizingImages" ng-style="{'background-image':'url({{image.image.image_url}})'}" repeat-brick=""
-             ng-click="toDetail($event, image.image)">
+<div class="galleryGrid" the-freewall>
+    <md-card class="card float" ng-class="[resizeImage.width, resizeImage.height]" ng-repeat="resizeImage in resizingImages" ng-style="{'background-image':'url({{resizeImage.image.image_url}})'}" repeat-brick
+             ng-click="toDetail($event, resizeImage.image)">
         <div class="detail-img-bar">
             <div class="detail-bar-item comment-count">
-                <div class="count count-normal count-small">{{image.image.comments.length}}</div>
+                <div class="count count-normal count-small">{{resizeImage.image.comments.length}}</div>
             </div>
             <div class="detail-bar-item dislike-count">
                 <div class="count count-normal count-small">4</div>

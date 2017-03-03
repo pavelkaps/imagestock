@@ -8,12 +8,7 @@
             $scope.like = false;
             $scope.dislike = false;
 
-
             $scope.image = detailImageService.getImage();
-
-            $scope.show = function () {
-                console.log($scope.image);
-            };
 
             $scope.setLike = function () {
                 $scope.like = !$scope.like;
