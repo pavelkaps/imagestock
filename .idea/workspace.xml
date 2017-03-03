@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d2e009-34c9-4f27-99c2-f4bf59a35d52" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html" afterPath="$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/image-detail-controller/image-detail-controller.html" afterPath="$PROJECT_DIR$/controllers/image-detail-controller/image-detail-controller.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
     </list>
     <ignored path="ImageGallery.iws" />
@@ -65,8 +63,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+                <state relative-caret-position="119">
+                  <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -97,8 +95,8 @@
           <file leaf-file-name="gallery-controller.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="226">
-                  <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+                <state relative-caret-position="291">
+                  <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -111,8 +109,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="361" column="0" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
+                <state relative-caret-position="170">
+                  <caret line="298" column="14" selection-start-line="298" selection-start-column="14" selection-end-line="298" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -159,8 +157,8 @@
         <option value="$PROJECT_DIR$/controllers/image-detail-controller/image-detail-controller.js" />
         <option value="$PROJECT_DIR$/directives/the-freewall.js" />
         <option value="$PROJECT_DIR$/controllers/image-detail-controller/image-detail-controller.html" />
-        <option value="$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html" />
       </list>
     </option>
   </component>
@@ -308,12 +306,12 @@
       <workItem from="1488366756234" duration="3898000" />
       <workItem from="1488379050321" duration="11535000" />
       <workItem from="1488441502827" duration="849000" />
-      <workItem from="1488523167467" duration="5357000" />
+      <workItem from="1488523167467" duration="5790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129127000" />
+    <option name="totallyTimeSpent" value="129560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -680,6 +678,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -688,18 +694,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/gallery-controller/gallery-controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>

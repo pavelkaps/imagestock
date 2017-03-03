@@ -295,7 +295,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 
-.rounded-block-with-plus {
+.plus-icon {
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
@@ -305,20 +305,17 @@ md-dialog.dialog-detail md-dialog-content{
     background: #21b8c6 url("./assets/img/plus_icon.png") no-repeat center;
 }
 
-.description-card {
-    color: #aebcc4;
-    font-size: 14px;
-}
-
-.height-block-btn {
+.centered-plus-icon {
     display: flex;
     height: calc(50% + 25px);
 }
 
-.height-block-description {
+.add-img-card-description {
     margin-left: auto;
     margin-right: auto;
     width: 80px;
+    color: #aebcc4;
+    font-size: 14px;
     text-align: center;
 }
 
