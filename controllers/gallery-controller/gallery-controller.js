@@ -23,7 +23,7 @@
                     height: 'height-2-col'
                 }];
 
-            $scope.getWidthSize = function () {
+            function getWidthSize () {
                 var digit = Math.random();
 
                 if (digit < 0.5) {
@@ -33,7 +33,7 @@
                 }
             };
 
-            $scope.getHeightSize = function () {
+            function getHeightSize () {
                 var digit = Math.random();
                 if (digit < 0.5) {
                     return $scope.stylesCardHeight[0].height;
@@ -53,12 +53,16 @@
             );
 
 
-            function randomResizeImages(data){
+            function randomResizeImages(data) {
                 return data.map(function (data) {
-                   return {width: $scope.getWidthSize(), height: $scope.getHeightSize(), image: data}
+                    return {width: getWidthSize(), height: getHeightSize(), image: data}
                 });
             }
-            
+
+            function randomResizeOneImage(image) {
+                return {width: getWidthSize(), height: getHeightSize(), image: image};
+            }
+
             $scope.toDetail = function (ev, image) {
                 detailImageService.setImage(image);
                 $mdDialog.show({
@@ -67,21 +71,44 @@
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: false
-                })
-                    .then(function (answer) {
-                        $scope.status = 'You said the information was "' + answer + '".';
-                    }, function () {
-                        $scope.status = 'You cancelled the dialog.';
-                    });
+                }).then(function (answer) {
+
+                }, function () {
+                    console.log('cancel dialog');
+                });
             };
 
-            $scope.addImage = function () {
-              var image = [{
-                  image_url: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider1.jpg'
-              }];
+            $scope.addImage = function (ev) {
+                $mdDialog.show({
+                    templateUrl: './controllers/add-image/add-image-controller.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: false
+                }).then(function (imageUrl) {
+                    createImage(imageUrl);
+                }, function () {
+                    console.log('cancel dialog');
+                });
 
-                var resizeImage = randomResizeImages(image);
-                $scope.resizingImages.push(resizeImage[0]);
+
+
+                /*var image = [{
+                 image_url: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider1.jpg'
+                 }];
+
+                 var resizeImage = randomResizeImages(image);
+                 $scope.resizingImages.push(resizeImage[0]);*/
             };
+
+            function createImage(imageUrl){
+                var image = {
+                    image_url : imageUrl,
+                    image_likes : [],
+                    comments: []
+                };
+
+                $scope.resizingImages.push(randomResizeOneImage(image));
+            }
         }]);
 })();

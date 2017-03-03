@@ -252,13 +252,15 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .close-btn {
-    background: url("./assets/img/close icon.png") no-repeat center;
+    background:white url("./assets/img/close icon.png") no-repeat center;
     cursor: pointer;
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     right: 10px;
     top: 10px;
+    border-radius: 50%;
+    z-index: 10;
 }
 
 .detail-img-bar {
@@ -295,7 +297,6 @@ md-dialog.dialog-detail md-dialog-content{
     bottom: 0;
     opacity: 1;
 }
-
 
 .plus-icon {
     margin-top: auto;
@@ -336,6 +337,30 @@ md-dialog.dialog-detail md-dialog-content{
 .height-2-col {
     height: 390px;
 }
+
+md-dialog.dialog-add-image {
+    width: 650px;
+    height: 460px;
+}
+
+.add-image-dialog-content {
+    height: 100%;
+}
+
+.image-url-input{
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.example-image{
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+
 
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
