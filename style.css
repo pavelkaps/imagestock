@@ -155,36 +155,6 @@ md-dialog.dialog-detail md-dialog-content{
     border: 2px solid white;
 }
 
-
-
-
-
-
-
-
-
-
-
-.comment-header {
-    font-size: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 3px;
-}
-
-.comment-owner {
-    align-self: flex-start;
-}
-
-.comment-date {
-    margin-left: auto;
-    align-self: flex-end;
-}
-
-.comment-text {
-    font-size: 14px;
-}
-
 .comments-block {
     padding-top: 15px;
     display: flex;
@@ -201,6 +171,25 @@ md-dialog.dialog-detail md-dialog-content{
     overflow: auto;
     padding-right: calc(8% - 6px);
     height: 70%;
+}
+
+.comment-header {
+    font-size: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+}
+
+.comment-owner {
+    margin-right: auto;
+}
+
+.comment-date {
+    margin-left: auto;
+}
+
+.comment-text {
+    font-size: 14px;
 }
 
 .comments-count {
@@ -242,7 +231,7 @@ md-dialog.dialog-detail md-dialog-content{
     flex-grow: 1;
 }
 
-.add-comment-text {
+.comments-inpunts {
     display: flex;
     width: 92%;
 }
@@ -268,14 +257,6 @@ md-dialog.dialog-detail md-dialog-content{
     width: 20px;
     right: 10px;
     top: 10px;
-}
-
-input[class='nickname-input'] {
-
-}
-
-input[class='nickname-input']:focus {
-
 }
 
 .detail-img-bar {
@@ -313,9 +294,6 @@ input[class='nickname-input']:focus {
     opacity: 1;
 }
 
-.img-add-card {
-    display: flex;
-}
 
 .rounded-block-with-plus {
     margin-top: auto;
@@ -358,11 +336,6 @@ input[class='nickname-input']:focus {
 
 .height-2-col {
     height: 390px;
-}
-
-.float {
-    display: inline-block;
-    float: left;
 }
 
 .comments::-webkit-scrollbar-track,

@@ -37,12 +37,11 @@
                     <form name="commentForm">
                         <input type="text" placeholder="Type your nickname..." class="nickname-input" required
                                ng-model="nickname">
-                        <div class="add-comment-text">
+                        <div class="comments-inpunts">
                             <textarea class="comment-input" placeholder="Write your comment here..." required
                                       ng-model="commentText"></textarea>
                             <div class="send-btn" ng-click="addComment(nickname, commentText)"></div>
                         </div>
-
                     </form>
                 </div>
 
