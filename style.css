@@ -92,7 +92,7 @@ md-dialog.dialog-detail md-dialog-content{
     height: 100%;
     z-index: 1;
     background-color: rgba(224, 229, 233, 0);
-    transition: top 0.6s;
+    transition: top 0.6s, background-color 0.6s;
 }
 
 .dislike.normal-item {
@@ -104,10 +104,12 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .image-block:hover .image-actions-bar .dislike.action-active{
+    transition: top 0.6s, background 0.6s;
     background: rgba(209, 35, 36, 1) url("./assets/img/dislike_icon_active.png") no-repeat center;
 }
 
 .image-block:hover .image-actions-bar .like.action-active{
+    transition: top 0.6s, background 0.6s;
     background: rgba(35, 209, 207, 1) url("./assets/img/like icon_active.png") no-repeat center;
 }
 
