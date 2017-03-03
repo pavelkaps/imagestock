@@ -29,6 +29,8 @@
                     comment.text = text;
                     comment.data = Date.now();
 
+                    $scope.nickname = '';
+                    $scope.commentText = '';
                     $scope.image.comments.push(comment);
                 }
             };

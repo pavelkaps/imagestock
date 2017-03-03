@@ -66,7 +66,7 @@ md-dialog.dialog-detail md-dialog-content{
 
 .image-actions-bar .action-item{
     position: relative;
-    width: 70px;
+    width: 65px;
     margin-right: 5px;
 }
 
@@ -176,7 +176,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .comment-header {
-    font-size: 10px;
+    font-size: 11px;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 3px;
@@ -198,6 +198,7 @@ md-dialog.dialog-detail md-dialog-content{
     font-size: 25px;
     color: #8b9ea9;
     margin: 10px 0;
+    font-weight: 600;
 }
 
 .add-comment-form {
@@ -224,18 +225,31 @@ md-dialog.dialog-detail md-dialog-content{
     border: none;
     border-bottom: 2px solid #f3f5f8;
     margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+.comments-inpunts {
+    width: 92%;
 }
 
 .comment-input {
     border: 2px solid #f3f5f8;
     border-right: none;
-    height: 40px;
+    box-sizing: border-box;
+    padding: 5px;
+    height: 50px;
+    border-radius: 2px;
     flex-grow: 1;
+    transition: border-color 0.3s;
 }
 
-.comments-inpunts {
-    display: flex;
-    width: 92%;
+.nickname-input:focus,
+.comment-input:focus{
+    border-color: #21b8c6 ;
+}
+
+.input-invalid{
+    border-color: #d02828;
 }
 
 .send-btn {
@@ -359,7 +373,6 @@ md-dialog.dialog-add-image {
     height: 320px;
     overflow: hidden;
 }
-
 
 
 .comments::-webkit-scrollbar-track,
