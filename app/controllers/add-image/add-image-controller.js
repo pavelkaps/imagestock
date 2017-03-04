@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('ImageGallery')
-        .controller('AddImageController', ['$scope', 'imageService', 'detailImageService', '$mdDialog', function ($scope, imageService, detailImageService, $mdDialog) {
+        .controller('AddImageController', ['$scope', 'imageService', 'detailImageService', '$mdDialog', function ($scope, $mdDialog) {
             
             $scope.close = function() {
                 $mdDialog.cancel();

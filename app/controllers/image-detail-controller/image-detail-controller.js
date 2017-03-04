@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('ImageGallery')
-        .controller('ImageDetailController', ['$scope', 'imageService', 'detailImageService', '$mdDialog', function ($scope, imageService, detailImageService, $mdDialog) {
+        .controller('ImageDetailController', ['$scope', 'detailImageService', '$mdDialog', function ($scope, detailImageService, $mdDialog) {
 
             $scope.like = false;
             $scope.dislike = false;
