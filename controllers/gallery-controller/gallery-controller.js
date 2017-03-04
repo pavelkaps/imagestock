@@ -90,15 +90,6 @@
                 }, function () {
                     console.log('cancel dialog');
                 });
-
-
-
-                /*var image = [{
-                 image_url: 'https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider1.jpg'
-                 }];
-
-                 var resizeImage = randomResizeImages(image);
-                 $scope.resizingImages.push(resizeImage[0]);*/
             };
 
             function createImage(imageUrl){
@@ -110,5 +101,15 @@
 
                 $scope.resizingImages.push(randomResizeOneImage(image));
             }
+            
+            $scope.countActions = function (image, action) {
+                var count = 0;
+                image.image_likes.forEach(function (el, ind, arr) {
+                    if(el.like_type === action){
+                        count++;
+                    }
+                });
+                return count;
+            };
         }]);
 })();

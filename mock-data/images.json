@@ -143,6 +143,22 @@
       {
         "own": "id",
         "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
+      },
+      {
+        "own": "id",
+        "like_type": "like"
+      },
+      {
+        "own": "id",
+        "like_type": "dislike"
       }
     ],
     "comments": [

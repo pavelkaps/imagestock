@@ -6,10 +6,10 @@
                 <div class="count count-small">{{resizeImage.image.comments.length}}</div>
             </div>
             <div class="detail-bar-item dislike-count">
-                <div class="count count-small">4</div>
+                <div class="count count-small">{{countActions(resizeImage.image, 'dislike')}}</div>
             </div>
             <div class="detail-bar-item like-count">
-                <div class="count count-small">4</div>
+                <div class="count count-small">{{countActions(resizeImage.image, 'like')}}</div>
             </div>
         </div>
     </md-card>

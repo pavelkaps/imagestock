@@ -5,10 +5,10 @@
             <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
                 <div class="image-actions-bar">
                     <div class="action-item dislike normal-item" ng-click="setDislike()" ng-class="{'action-active': dislike}">
-                            <div class="count count-middle">4</div>
+                            <div class="count count-middle">{{countActions(image, 'dislike')}}</div>
                     </div>
                     <div class="action-item like normal-item" ng-click="setLike()" ng-class="{'action-active': like}">
-                        <div class="count count-middle">5</div>
+                        <div class="count count-middle">{{countActions(image, 'like')}}</div>
                     </div>
                 </div>
             </div>

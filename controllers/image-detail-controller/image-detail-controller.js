@@ -35,5 +35,15 @@
                 }
             };
 
+            $scope.countActions = function (image, action) {
+                var count = 0;
+                image.image_likes.forEach(function (el, ind, arr) {
+                    if(el.like_type === action){
+                        count++;
+                    }
+                });
+                return count;
+            };
+
         }]);
 })();
