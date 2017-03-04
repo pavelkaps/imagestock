@@ -2,7 +2,6 @@ class DetailImageService {
 
     constructor() {
         this.image = null;
-        this.init();
     }
 
     setImage(_image){

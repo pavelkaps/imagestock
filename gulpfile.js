@@ -7,6 +7,9 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     babel = require('gulp-babel');
+var babelify = require('babelify');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 gulp.task('styles',function () {
      gulp.src('./assets/styles/*.sass')
@@ -26,5 +29,15 @@ gulp.task('js', function () {
             presets: ['es2015']
         }))
         .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('browserify', function() {
+    return browserify('dist/app.js')
+        .transform(babelify.configure({
+            presets : ["es2015"]
+        }))
+        .bundle()
+        .pipe(source('bundle.js'))
         .pipe(gulp.dest('dist'));
 });

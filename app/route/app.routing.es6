@@ -1,23 +1,18 @@
-class Config {
-    constructor($routeProvider, $locationProvider) {
-        this.init($routeProvider, $locationProvider);
-    }
+function Config($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/', {
+            redirectTo: '/gallery'
+        })
+        .when('/gallery', {
+            templateUrl: 'app/controllers/gallery-controller/gallery-controller.html',
+            controller: 'GalleryController'
+        }).otherwise({
+        redirectTo: '/'
+    });
 
-    init($routeProvider, $locationProvider) {
-        $routeProvider
-            .when('/',{
-                redirectTo: '/gallery'
-            })
-            .when('/gallery', {
-                templateUrl: 'app/controllers/gallery-controller/gallery-controller.html',
-                controller: 'GalleryController'
-            }).otherwise({
-            redirectTo: '/'
-        });
+    $locationProvider.html5Mode(true);
 
-        $locationProvider.html5Mode(true);
-    }
 }
-Config.$inject = ['$routeProvider','$locationProvider'];
+Config.$inject = ['$routeProvider', '$locationProvider'];
 export {Config}
 

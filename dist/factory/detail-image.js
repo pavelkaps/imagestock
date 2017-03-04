@@ -13,7 +13,6 @@ var DetailImageService = function () {
         _classCallCheck(this, DetailImageService);
 
         this.image = null;
-        this.init();
     }
 
     _createClass(DetailImageService, [{

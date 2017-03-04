@@ -1,5 +1,5 @@
-class TheFreeWall{
-    constructor(scope, element, attrs){
+function  TheFreeWall($window){
+    return (scope, element, attrs) => {
         scope.$on('LastBrick', (event)=>{
             var wall = new Freewall(".galleryGrid");
             console.log("directive");
@@ -24,10 +24,7 @@ class TheFreeWall{
 
         });
     }
-
-    static getInstance(){
-        return new TheFreeWall();
-    }
 }
 
+TheFreeWall.$inject = ['$window'];
 export {TheFreeWall}
