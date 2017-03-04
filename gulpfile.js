@@ -6,10 +6,11 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    babel = require('gulp-babel');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
+    babel = require('gulp-babel'),
+    babelify = require('babelify'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    runSequence = require('run-sequence');
 
 gulp.task('styles',function () {
      gulp.src('./assets/styles/*.sass')
@@ -40,4 +41,8 @@ gulp.task('browserify', function() {
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task("build:client", function (callback) {
+    runSequence('js', 'browserify');
 });

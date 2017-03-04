@@ -2,9 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d2e009-34c9-4f27-99c2-f4bf59a35d52" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/app.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/desandro-matches-selector/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/desandro-matches-selector/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/desandro-matches-selector/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/desandro-matches-selector/matches-selector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/ev-emitter/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/ev-emitter/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/ev-emitter/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/ev-emitter/ev-emitter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/ev-emitter/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/fizzy-ui-utils/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/fizzy-ui-utils/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/fizzy-ui-utils/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/fizzy-ui-utils/utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/get-size/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/get-size/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/get-size/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/get-size/get-size.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope-masonry-horizontal/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope-masonry-horizontal/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope-masonry-horizontal/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope-masonry-horizontal/masonry-horizontal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope-masonry-horizontal/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/dist/isotope.pkgd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/dist/isotope.pkgd.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/isotope.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/item.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/layout-mode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/layout-modes/fit-rows.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/layout-modes/masonry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/isotope/js/layout-modes/vertical.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/dist/masonry.pkgd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/dist/masonry.pkgd.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/masonry/masonry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/outlayer/.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/outlayer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/outlayer/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/outlayer/item.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/bower_components/outlayer/outlayer.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/app.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/app.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/bundle.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/add-image/add-image-controller.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/add-image/add-image-controller.js.map" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/gallery-controller/gallery-controller.js" afterPath="" />
@@ -23,24 +68,11 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/filters/reverse.js.map" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/route/app.routing.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/dist/route/app.routing.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log.161174538" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.es6" afterPath="$PROJECT_DIR$/app/app.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/repeat-brick.es6" afterPath="$PROJECT_DIR$/app/directives/repeat-brick.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/the-freewall.es6" afterPath="$PROJECT_DIR$/app/directives/the-freewall.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/factory/detail-image.es6" afterPath="$PROJECT_DIR$/app/factory/detail-image.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/route/app.routing.es6" afterPath="$PROJECT_DIR$/app/route/app.routing.es6" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bower.json" afterPath="$PROJECT_DIR$/app/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/add-image/add-image-controller.js" afterPath="$PROJECT_DIR$/test/add-image-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.js" afterPath="$PROJECT_DIR$/test/gallery-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.js" afterPath="$PROJECT_DIR$/test/image-detail-controller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/repeat-brick.js" afterPath="$PROJECT_DIR$/test/repeat-brick.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/directives/the-freewall.js" afterPath="$PROJECT_DIR$/test/the-freewall.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/factory/detail-image.js" afterPath="$PROJECT_DIR$/test/detail-image.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/factory/image-factory.js" afterPath="$PROJECT_DIR$/test/image-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/filters/reverse.js" afterPath="$PROJECT_DIR$/test/reverse.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/route/app.routing.js" afterPath="$PROJECT_DIR$/test/app.routing.js" />
     </list>
     <ignored path="ImageGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,8 +98,28 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+                <state relative-caret-position="204">
+                  <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/bower.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -79,6 +131,18 @@
                 <state relative-caret-position="289">
                   <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gulpfile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -113,26 +177,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.routing.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/app.routing.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/app.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="app.es6" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/app.es6">
               <provider selected="true" editor-type-id="text-editor">
@@ -162,8 +206,8 @@
           <file leaf-file-name="image-factory.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/image-factory.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#41#0" expanded="false" />
                   </folding>
@@ -231,12 +275,13 @@
         <option value="$PROJECT_DIR$/app/module.es6" />
         <option value="$PROJECT_DIR$/dist/app.js" />
         <option value="$PROJECT_DIR$/app/factory/detail-image.es6" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/directives/repeat-brick.es6" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/route/app.routing.es6" />
         <option value="$PROJECT_DIR$/app/app.es6" />
         <option value="$PROJECT_DIR$/app/directives/the-freewall.es6" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/app/bower.json" />
       </list>
     </option>
   </component>
@@ -306,57 +351,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageGallery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -470,12 +465,12 @@
       <workItem from="1488441502827" duration="849000" />
       <workItem from="1488523167467" duration="7730000" />
       <workItem from="1488549196982" duration="15428000" />
-      <workItem from="1488620723870" duration="15403000" />
+      <workItem from="1488620723870" duration="16822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162331000" />
+    <option name="totallyTimeSpent" value="163750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -515,11 +510,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mock-data/image/Layer4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mock-data/image/Layer3.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -557,14 +547,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/detail_test.html" />
     <entry file="file://$PROJECT_DIR$/material.css" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mock-data/images.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -687,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/image-factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/repeat-brick.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -771,16 +743,6 @@
         <state relative-caret-position="306">
           <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="32" column="3" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,10 +856,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/image-factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="204">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
           <folding />
         </state>
       </provider>
