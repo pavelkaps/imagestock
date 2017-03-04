@@ -66,7 +66,7 @@
             $scope.toDetail = function (ev, image) {
                 detailImageService.setImage(image);
                 $mdDialog.show({
-                    templateUrl: './controllers/image-detail-controller/image-detail-controller.html',
+                    templateUrl: './app/controllers/image-detail-controller/image-detail-controller.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -80,7 +80,7 @@
 
             $scope.addImage = function (ev) {
                 $mdDialog.show({
-                    templateUrl: './controllers/add-image/add-image-controller.html',
+                    templateUrl: './app/controllers/add-image/add-image-controller.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true,

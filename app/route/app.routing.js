@@ -10,7 +10,7 @@
             redirectTo: '/gallery'
         })
         .when('/gallery', {
-            templateUrl: 'controllers/gallery-controller/gallery-controller.html',
+            templateUrl: 'app/controllers/gallery-controller/gallery-controller.html',
             controller: 'GalleryController'
         }).otherwise({
             redirectTo: '/'

@@ -20,9 +20,11 @@ gulp.task('styles',function () {
 );
 
 gulp.task('js', function () {
-    return gulp.src('src/app.js')
+    return gulp.src('app/**/*.es6')
+        .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
         }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'));
 });

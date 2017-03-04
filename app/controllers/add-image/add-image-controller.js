@@ -10,6 +10,7 @@
             };
 
             $scope.addImage = function (imageUrl) {
+                
                 $mdDialog.hide(imageUrl);
             };
 
