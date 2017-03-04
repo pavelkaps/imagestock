@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     babelify = require('babelify'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    del = require("del");
 
 gulp.task('styles',function () {
      gulp.src('./assets/styles/*.sass')
@@ -43,6 +44,10 @@ gulp.task('browserify', function() {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('clean', function(cb) {
+    return del(["dist"], cb);
+});
+
 gulp.task("build:client", function (callback) {
-    runSequence('js', 'browserify');
+    runSequence('clean', 'js', 'browserify', 'styles');
 });
