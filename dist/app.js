@@ -18,5 +18,5 @@ var _repeatBrick = require('./directives/repeat-brick');
 
 var _theFreewall = require('./directives/the-freewall');
 
-angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial']).config(_app.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
+angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster']).config(_app.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
 //# sourceMappingURL=app.js.map

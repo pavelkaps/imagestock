@@ -19,11 +19,11 @@ var _repeatBrick = require('./directives/repeat-brick');
 
 var _theFreewall = require('./directives/the-freewall');
 
-angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial']).config(_app.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
+angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster']).config(_app.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
 
 
 },{"./controllers/add-image/add-image-controller":2,"./controllers/gallery-controller/gallery-controller":3,"./controllers/image-detail-controller/image-detail-controller":4,"./directives/repeat-brick":5,"./directives/the-freewall":6,"./factory/detail-image":7,"./factory/image-factory":8,"./filters/reverse":9,"./route/app.routing":10}],2:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -46,21 +46,24 @@ function _classCallCheck(instance, Constructor) {
 }
 
 var AddImageController = function () {
-    function AddImageController($scope, $mdDialog) {
+    function AddImageController($scope, $mdDialog, toaster) {
         _classCallCheck(this, AddImageController);
 
-        this.init($scope, $mdDialog);
+        this.init($scope, $mdDialog, toaster);
     }
 
     _createClass(AddImageController, [{
-        key: 'init',
-        value: function init($scope, $mdDialog) {
+        key: "init",
+        value: function init($scope, $mdDialog, toaster) {
             $scope.close = function () {
                 $mdDialog.cancel();
             };
 
             $scope.addImage = function (imageUrl) {
-                $mdDialog.hide(imageUrl);
+                if ($scope.addImageForm.$valid) {
+                    $mdDialog.hide(imageUrl);
+                    toaster.pop('info', "Успешно", "Изображение добавленно");
+                }
             };
 
             $scope.$watch('imageUrl', function () {}, true);
@@ -70,7 +73,7 @@ var AddImageController = function () {
     return AddImageController;
 }();
 
-AddImageController.$inject = ['$scope', '$mdDialog'];
+AddImageController.$inject = ['$scope', '$mdDialog', 'toaster'];
 exports.AddImageController = AddImageController;
 
 
@@ -98,15 +101,21 @@ function _classCallCheck(instance, Constructor) {
 }
 
 var GalleryController = function () {
-    function GalleryController($scope, imageService, detailImageService, $mdDialog) {
+    function GalleryController($scope, imageService, detailImageService, $mdDialog, toaster) {
         _classCallCheck(this, GalleryController);
 
-        this.init($scope, imageService, detailImageService, $mdDialog);
+        this.init($scope, imageService, detailImageService, $mdDialog, toaster);
     }
 
     _createClass(GalleryController, [{
         key: 'init',
-        value: function init($scope, imageService, detailImageService, $mdDialog) {
+        value: function init($scope, imageService, detailImageService, $mdDialog, toaster) {
+            toaster.pop({
+                timeout: 20000,
+                showCloseButton: true,
+                limit: 5
+            });
+
             $scope.resizingImages = [];
 
             $scope.stylesCardWidth = [{
@@ -208,7 +217,7 @@ var GalleryController = function () {
     return GalleryController;
 }();
 
-GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog'];
+GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster'];
 exports.GalleryController = GalleryController;
 
 
@@ -236,15 +245,16 @@ function _classCallCheck(instance, Constructor) {
 }
 
 var ImageDetailController = function () {
-    function ImageDetailController($scope, detailImageService, $mdDialog) {
+    function ImageDetailController($scope, detailImageService, $mdDialog, toaster) {
         _classCallCheck(this, ImageDetailController);
 
-        this.init($scope, detailImageService, $mdDialog);
+        this.init($scope, detailImageService, $mdDialog, toaster);
     }
 
     _createClass(ImageDetailController, [{
         key: 'init',
-        value: function init($scope, detailImageService, $mdDialog) {
+        value: function init($scope, detailImageService, $mdDialog, toaster) {
+            $scope.showValid = false;
             $scope.like = false;
             $scope.dislike = false;
 
@@ -272,6 +282,10 @@ var ImageDetailController = function () {
                     $scope.nickname = '';
                     $scope.commentText = '';
                     $scope.image.comments.push(comment);
+                    $scope.showValid = false;
+                } else {
+                    $scope.showValid = true;
+                    toaster.pop('warning', "Ошибка", "Заполните все поля.");
                 }
             };
 
@@ -290,7 +304,7 @@ var ImageDetailController = function () {
     return ImageDetailController;
 }();
 
-ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog'];
+ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster'];
 exports.ImageDetailController = ImageDetailController;
 
 

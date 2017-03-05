@@ -9,15 +9,21 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var GalleryController = function () {
-    function GalleryController($scope, imageService, detailImageService, $mdDialog) {
+    function GalleryController($scope, imageService, detailImageService, $mdDialog, toaster) {
         _classCallCheck(this, GalleryController);
 
-        this.init($scope, imageService, detailImageService, $mdDialog);
+        this.init($scope, imageService, detailImageService, $mdDialog, toaster);
     }
 
     _createClass(GalleryController, [{
         key: 'init',
-        value: function init($scope, imageService, detailImageService, $mdDialog) {
+        value: function init($scope, imageService, detailImageService, $mdDialog, toaster) {
+            toaster.pop({
+                timeout: 20000,
+                showCloseButton: true,
+                limit: 5
+            });
+
             $scope.resizingImages = [];
 
             $scope.stylesCardWidth = [{
@@ -119,6 +125,6 @@ var GalleryController = function () {
     return GalleryController;
 }();
 
-GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog'];
+GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster'];
 exports.GalleryController = GalleryController;
 //# sourceMappingURL=gallery-controller.js.map

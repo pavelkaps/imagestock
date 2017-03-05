@@ -9,15 +9,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ImageDetailController = function () {
-    function ImageDetailController($scope, detailImageService, $mdDialog) {
+    function ImageDetailController($scope, detailImageService, $mdDialog, toaster) {
         _classCallCheck(this, ImageDetailController);
 
-        this.init($scope, detailImageService, $mdDialog);
+        this.init($scope, detailImageService, $mdDialog, toaster);
     }
 
     _createClass(ImageDetailController, [{
         key: 'init',
-        value: function init($scope, detailImageService, $mdDialog) {
+        value: function init($scope, detailImageService, $mdDialog, toaster) {
+            $scope.showValid = false;
             $scope.like = false;
             $scope.dislike = false;
 
@@ -45,6 +46,10 @@ var ImageDetailController = function () {
                     $scope.nickname = '';
                     $scope.commentText = '';
                     $scope.image.comments.push(comment);
+                    $scope.showValid = false;
+                } else {
+                    $scope.showValid = true;
+                    toaster.pop('warning', "Ошибка", "Заполните все поля.");
                 }
             };
 
@@ -63,6 +68,6 @@ var ImageDetailController = function () {
     return ImageDetailController;
 }();
 
-ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog'];
+ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster'];
 exports.ImageDetailController = ImageDetailController;
 //# sourceMappingURL=image-detail-controller.js.map
