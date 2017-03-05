@@ -1,8 +1,14 @@
 class GalleryController {
-    constructor($scope, imageService, detailImageService, $mdDialog) {
-        this.init($scope, imageService, detailImageService, $mdDialog);
+    constructor($scope, imageService, detailImageService, $mdDialog, toaster) {
+        this.init($scope, imageService, detailImageService, $mdDialog, toaster);
     }
-    init($scope, imageService, detailImageService, $mdDialog) {
+    init($scope, imageService, detailImageService, $mdDialog, toaster) {
+        toaster.pop({
+            timeout: 20000,
+            showCloseButton: true,
+            limit: 5
+        });
+        
         $scope.resizingImages = [];
 
         $scope.stylesCardWidth = [
@@ -111,5 +117,5 @@ class GalleryController {
         };
     }
 }
-GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog'];
+GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster'];
 export {GalleryController}

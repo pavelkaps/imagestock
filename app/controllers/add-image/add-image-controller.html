@@ -1,5 +1,7 @@
-<md-dialog ng-controller="AddImageController" class="dialog-add-image">
+<md-dialog ng-controller="AddImageController" toaster-options="{'time-out': 5000}" class="dialog-add-image">
+
     <md-dialog-content class="add-image-dialog-content" layout="column">
+
         <div class="close-btn" ng-click="close()"></div>
         <div class="example-image" ng-style="{'background-image':'url(' + imageUrl + ')'}"></div>
         <div style="width: 90%; margin: 15px auto ">
@@ -13,7 +15,7 @@
 
                 <div layout="row" layout-align="end center" layout-wrap>
                     <md-button class="md-warn" ng-click="close()">Cancel</md-button>
-                    <md-button md-no-ink class="md-primary" ng-click="addImage(imageUrl)">Add</md-button>
+                    <md-button md-no-ink class="md-primary" ng-disabled="!addImageForm.$valid" ng-click="addImage(imageUrl)">Add</md-button>
                 </div>
             </form>
         </div>

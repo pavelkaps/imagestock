@@ -1,8 +1,9 @@
 class ImageDetailController {
-    constructor($scope,  detailImageService, $mdDialog) {
-        this.init($scope,  detailImageService, $mdDialog);
+    constructor($scope,  detailImageService, $mdDialog, toaster) {
+        this.init($scope,  detailImageService, $mdDialog,toaster);
     }
-    init($scope, detailImageService, $mdDialog) {
+    init($scope, detailImageService, $mdDialog, toaster) {
+        $scope.showValid = false;
         $scope.like = false;
         $scope.dislike = false;
 
@@ -30,6 +31,11 @@ class ImageDetailController {
                 $scope.nickname = '';
                 $scope.commentText = '';
                 $scope.image.comments.push(comment);
+                $scope.showValid = false;
+            }else {
+                $scope.showValid = true;
+                toaster.pop('warning', "Ошибка", "Заполните все поля.");
+
             }
         };
 
@@ -42,7 +48,8 @@ class ImageDetailController {
             });
             return count;
         };
+
     }
 }
-ImageDetailController.$inject = ['$scope','detailImageService', '$mdDialog'];
+ImageDetailController.$inject = ['$scope','detailImageService', '$mdDialog', 'toaster'];
 export {ImageDetailController}

@@ -168,6 +168,7 @@ md-dialog.dialog-detail md-dialog-content{
     box-sizing: border-box;
 }
 
+
 .comments {
     border-bottom: 2px solid #f3f5f8;
     overflow: auto;
@@ -192,6 +193,7 @@ md-dialog.dialog-detail md-dialog-content{
 
 .comment-text {
     font-size: 14px;
+    overflow-wrap: break-word;
 }
 
 .comments-count {
@@ -221,7 +223,7 @@ md-dialog.dialog-detail md-dialog-content{
 .nickname-input {
     box-sizing: border-box;
     padding-left: 5px;
-    width: 92%;
+    width: calc(92% - 6px);
     border: none;
     border-bottom: 2px solid #f3f5f8;
     margin-bottom: 10px;
@@ -229,7 +231,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .comments-inpunts {
-    width: 92%;
+    width: calc(92% - 6px);
 }
 
 .comment-input {

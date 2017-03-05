@@ -1,3 +1,4 @@
+<toaster-container toaster-options="{'time-out': 5000}"></toaster-container>
 <div class="galleryGrid" the-freewall>
     <md-card class="card" ng-class="[resizeImage.width, resizeImage.height]" ng-repeat="resizeImage in resizingImages" ng-style="{'background-image':'url({{resizeImage.image.image_url}})'}" repeat-brick
              ng-click="toDetail($event, resizeImage.image)">

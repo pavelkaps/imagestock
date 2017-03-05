@@ -1,6 +1,7 @@
+<toaster-container ng-controller="ImageDetailController" toaster-options="{'time-out': 5000}"></toaster-container>
 <md-dialog ng-controller="ImageDetailController" class="dialog-detail">
     <md-dialog-content>
-        <div class="detail-dialog-content">
+        <div class="detail-dialog-content" >
             <div class="close-btn" ng-click="close()"></div>
             <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
                 <div class="image-actions-bar">
@@ -35,11 +36,11 @@
 
                 <div class="add-comment-form">
                     <form name="commentForm" layout="column">
-                        <input type="text" placeholder="Type your nickname..." class="nickname-input" required
-                               ng-model="nickname">
+                        <input type="text" name="nick" placeholder="Type your nickname..." class="nickname-input" required
+                               ng-model="nickname" >
                         <div class="comments-inpunts" layout="row">
-                            <textarea class="comment-input"  placeholder="Write your comment here..." required
-                                      ng-model="commentText"></textarea>
+                            <textarea class="comment-input"  name="comment" placeholder="Write your comment here..." required
+                                      ng-model="commentText" ></textarea>
                             <div class="send-btn" ng-click="addComment(nickname, commentText)"></div>
                         </div>
                     </form>
