@@ -3,7 +3,7 @@
     <md-dialog-content>
         <div class="detail-dialog-content" >
             <div class="close-btn" ng-click="close()"></div>
-            <div class="image-block" ng-style="{'background-image':'url(' + image.image_url + ')'}">
+            <div class="image-block" ng-style="{'background-image':'url(' + image.imageUrl + ')'}">
                 <div class="image-actions-bar">
                     <div class="action-item dislike normal-item" ng-click="setDislike()" ng-class="{'action-active': dislike}">
                             <div class="count count-middle">{{countActions(image, 'dislike')}}</div>
@@ -25,7 +25,7 @@
                                 By {{comment.own}}
                             </div>
                             <div class="comment-date">
-                                {{comment.data | date: 'shortTime'}}
+                                {{comment.date | date: 'shortTime'}}
                             </div>
                         </div>
                         <div class="comment-text">

@@ -1,14 +1,14 @@
 class GalleryController {
-    constructor($scope, imageService, detailImageService, $mdDialog, toaster) {
-        this.init($scope, imageService, detailImageService, $mdDialog, toaster);
+    constructor($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
+        this.init($scope, imageService, detailImageService, $mdDialog, toaster, $window);
     }
-    init($scope, imageService, detailImageService, $mdDialog, toaster) {
+    init($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
         toaster.pop({
             timeout: 20000,
             showCloseButton: true,
             limit: 5
         });
-        
+
         $scope.resizingImages = [];
 
         $scope.stylesCardWidth = [
@@ -48,8 +48,10 @@ class GalleryController {
 
 
         imageService.getAll().then(
-            (data) => {
-                $scope.resizingImages = randomResizeImages(data.data);
+            function (data) {
+                console.log(data);
+                $scope.resizingImages = randomResizeImages(data);
+                console.log($scope.resizingImages);
             },
             (err) => {
                 console.log(err);
@@ -68,6 +70,7 @@ class GalleryController {
         }
 
         $scope.toDetail = (ev, image) => {
+            console.log(ev);
             detailImageService.setImage(image);
             $mdDialog.show({
                 templateUrl: './app/controllers/image-detail-controller/image-detail-controller.html',
@@ -89,22 +92,13 @@ class GalleryController {
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: false
-            }).then((imageUrl) => {
-                createImage(imageUrl);
+            }).then((image) => {
+                $scope.resizingImages.push(randomResizeOneImage(image))
+                
             }, () => {
                 console.log('cancel dialog');
             });
         };
-
-        function createImage(imageUrl){
-            var image = {
-                image_url : imageUrl,
-                image_likes : [],
-                comments: []
-            };
-
-            $scope.resizingImages.push(randomResizeOneImage(image));
-        }
 
         $scope.countActions = (image, action) => {
             var count = 0;
@@ -117,5 +111,5 @@ class GalleryController {
         };
     }
 }
-GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster'];
+GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster', '$window'];
 export {GalleryController}

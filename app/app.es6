@@ -13,8 +13,10 @@ import {Reverse} from './filters/reverse'
 import {RepeatBrick} from './directives/repeat-brick'
 import {TheFreeWall} from './directives/the-freewall'
 
+import {Back} from './directives/background'
 
-angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster'])
+
+angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster', 'naif.base64', '720kb.background'])
     .config(Config)
     .controller('AddImageController', AddImageController)
     .controller('GalleryController', GalleryController)
@@ -23,5 +25,6 @@ angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster']
     .factory('imageService', ImageService.getInstance)
     .filter('reverse', Reverse)
     .directive('repeatBrick', RepeatBrick)
-    .directive('theFreewall', TheFreeWall);
+    .directive('theFreewall', TheFreeWall)
+    .directive('back', Back);
 

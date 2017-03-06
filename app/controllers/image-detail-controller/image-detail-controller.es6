@@ -1,8 +1,9 @@
 class ImageDetailController {
-    constructor($scope,  detailImageService, $mdDialog, toaster) {
-        this.init($scope,  detailImageService, $mdDialog,toaster);
+    constructor($scope, detailImageService, $mdDialog, toaster, imageService) {
+        this.init($scope, detailImageService, $mdDialog, toaster, imageService);
     }
-    init($scope, detailImageService, $mdDialog, toaster) {
+
+    init($scope, detailImageService, $mdDialog, toaster, imageService) {
         $scope.showValid = false;
         $scope.like = false;
         $scope.dislike = false;
@@ -10,10 +11,16 @@ class ImageDetailController {
         $scope.image = detailImageService.getImage();
 
         $scope.setLike = () => {
+            if ($scope.dislike === true && $scope.like === false) {
+                $scope.dislike = false;
+            }
             $scope.like = !$scope.like;
         };
 
         $scope.setDislike = () => {
+            if ($scope.dislike === false && $scope.like === true) {
+                $scope.like = false;
+            }
             $scope.dislike = !$scope.dislike;
         };
 
@@ -22,17 +29,24 @@ class ImageDetailController {
         };
 
         $scope.addComment = (nickname, text) => {
-            if($scope.commentForm.$valid){
-                var comment = {};
-                comment.own = nickname;
-                comment.text = text;
-                comment.data = Date.now();
 
+            if ($scope.commentForm.$valid) {
                 $scope.nickname = '';
                 $scope.commentText = '';
-                $scope.image.comments.push(comment);
+
+                var comment = {
+                    own: nickname,
+                    text:  text,
+                    date:  Date.now()
+                };
+
+                imageService.addComment($scope.image._id, comment).then((image)=>{
+                    $scope.image.comments.push(comment);
+                });
+
                 $scope.showValid = false;
-            }else {
+            } else {
+
                 $scope.showValid = true;
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
 
@@ -42,7 +56,7 @@ class ImageDetailController {
         $scope.countActions = (image, action) => {
             var count = 0;
             image.image_likes.forEach((el, ind, arr) => {
-                if(el.like_type === action){
+                if (el.like_type === action) {
                     count++;
                 }
             });
@@ -51,5 +65,5 @@ class ImageDetailController {
 
     }
 }
-ImageDetailController.$inject = ['$scope','detailImageService', '$mdDialog', 'toaster'];
+ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster','imageService'];
 export {ImageDetailController}
