@@ -1,3 +1,4 @@
+import { GUID } from '../../additional/GUID'
 
 class AddImageController {
     constructor($scope, $mdDialog, toaster, imageService) {
@@ -8,11 +9,10 @@ class AddImageController {
             $mdDialog.cancel();
         };
 
-
         $scope.addImage = (imageUrl) => {
             if($scope.image){
                 var image = {
-                    _id : guid(),
+                    _id : GUID(2),
                     _attachments: $scope.image,
                     image_likes : [],
                     comments: []
@@ -21,9 +21,9 @@ class AddImageController {
                 imageService.put(image).then((image)=>{
                     console.log(image);
                     $mdDialog.hide(image);
+                    toaster.pop('info', "Успешно", "Изображение добавленно");
                 });
 
-                toaster.pop('info', "Успешно", "Изображение добавленно");
             }
         };
 
@@ -34,19 +34,8 @@ class AddImageController {
                 content_type: fileObj.filetype,
                 data: fileObj.base64
             };
-
             $scope.image = attachment;
         };
-
-        function guid() {
-            return s4() + s4() + '-' + s4() + s4();
-        }
-
-        function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000)
-                .toString(16)
-                .substring(1);
-        }
     }
 }
 AddImageController.$inject = ['$scope', '$mdDialog', 'toaster', 'imageService'];

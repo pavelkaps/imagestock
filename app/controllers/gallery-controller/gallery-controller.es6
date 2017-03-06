@@ -1,8 +1,11 @@
+import {ImageResizer} from '../../additional/ImageResizer'
+
 class GalleryController {
     constructor($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
         this.init($scope, imageService, detailImageService, $mdDialog, toaster, $window);
     }
     init($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
+
         toaster.pop({
             timeout: 20000,
             showCloseButton: true,
@@ -10,42 +13,7 @@ class GalleryController {
         });
 
         $scope.resizingImages = [];
-
-        $scope.stylesCardWidth = [
-            {
-                width: 'width-1-col'
-            },
-            {
-                width: 'width-2-col'
-            }];
-
-        $scope.stylesCardHeight = [
-            {
-                height: 'height-1-col'
-            },
-            {
-                height: 'height-2-col'
-            }];
-
-        function getWidthSize () {
-            var digit = Math.random();
-
-            if (digit < 0.5) {
-                return $scope.stylesCardWidth[0].width;
-            } else {
-                return $scope.stylesCardWidth[1].width;
-            }
-        };
-
-        function getHeightSize () {
-            var digit = Math.random();
-            if (digit < 0.5) {
-                return $scope.stylesCardHeight[0].height;
-            } else {
-                return $scope.stylesCardHeight[1].height;
-            }
-        };
-
+        $scope.resizer = new ImageResizer();
 
         imageService.getAll().then(
             function (data) {
@@ -61,12 +29,12 @@ class GalleryController {
 
         function randomResizeImages(data) {
             return data.map((data) => {
-                return {width: getWidthSize(), height: getHeightSize(), image: data}
+                return randomResizeOneImage(data);
             });
         }
 
         function randomResizeOneImage(image) {
-            return {width: getWidthSize(), height: getHeightSize(), image: image};
+            return {width: $scope.resizer.getWidthSize(), height: $scope.resizer.getHeightSize(), image: image};
         }
 
         $scope.toDetail = (ev, image) => {

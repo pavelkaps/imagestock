@@ -4,17 +4,15 @@ const Q = new WeakMap();
 class ImageService {
     constructor($http, $q) {
         this.db = new PouchDB('imagesnew');
-
         this.imageApiURL = "./mock-data/images.json";
+
         HTTP.set(this, $http);
         Q.set(this, $q);
     }
 
     getAll(){
         //return HTTP.get(this).get(this.imageApiURL);
-
         let defer = Q.get(this).defer();
-
         this.db.allDocs({
             include_docs: true,
             attachments: true
@@ -23,7 +21,6 @@ class ImageService {
             for (let row of data.rows) {
                 images.push(row.doc);
                 for (let filename in row.doc._attachments) {
-                        console.log(filename);
                     this.db.getAttachment(row.id, filename).then(
                         (data)=>{
                             var url = URL.createObjectURL(data);
@@ -34,15 +31,13 @@ class ImageService {
                 defer.resolve(images);
             }
         });
-
         return defer.promise;
     }
 
     addUrlToImage(doc){
         for (let filename in doc._attachments) {
-            console.log(filename);
             this.db.getAttachment(doc._id, filename).then(
-                (data)=>{
+                (data)=> {
                     var url = URL.createObjectURL(data);
                     doc.imageUrl = url;
                 }
@@ -107,7 +102,6 @@ class ImageService {
             }
         ]);
     }
-
 
     static getInstance($http, $q){
         return new ImageService($http, $q);

@@ -4,7 +4,7 @@ class ImageDetailController {
     }
 
     init($scope, detailImageService, $mdDialog, toaster, imageService) {
-        $scope.showValid = false;
+        
         $scope.like = false;
         $scope.dislike = false;
 
@@ -43,11 +43,7 @@ class ImageDetailController {
                 imageService.addComment($scope.image._id, comment).then((image)=>{
                     $scope.image.comments.push(comment);
                 });
-
-                $scope.showValid = false;
             } else {
-
-                $scope.showValid = true;
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
 
             }
@@ -65,5 +61,6 @@ class ImageDetailController {
 
     }
 }
+
 ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster','imageService'];
 export {ImageDetailController}
