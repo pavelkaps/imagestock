@@ -13,15 +13,32 @@ class ImageDetailController {
         $scope.setLike = () => {
             if ($scope.dislike === true && $scope.like === false) {
                 $scope.dislike = false;
+                imageService.addLike($scope.image._id, {
+                    like_type: 'like'
+                }).then((data)=>{
+                    $scope.image.image_likes = data;
+                    console.log(data);
+                });
             }
             $scope.like = !$scope.like;
+
         };
 
         $scope.setDislike = () => {
             if ($scope.dislike === false && $scope.like === true) {
                 $scope.like = false;
+                imageService.addLike($scope.image._id, {
+                    like_type: 'dislike'
+                }).then((data)=>{
+                    $scope.image.image_likes = data;
+                    console.log(data);
+                });
+            }else if($scope.dislike === true){
+
             }
             $scope.dislike = !$scope.dislike;
+            
+
         };
 
         $scope.close = () => {

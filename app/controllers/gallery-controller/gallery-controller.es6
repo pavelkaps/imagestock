@@ -17,9 +17,12 @@ class GalleryController {
 
         imageService.getAll().then(
             function (data) {
-                console.log(data);
-                $scope.resizingImages = randomResizeImages(data);
-                console.log($scope.resizingImages);
+                $scope.$apply(()=>{
+                    console.log(data);
+                    $scope.resizingImages = randomResizeImages(data);
+                    console.log($scope.resizingImages);
+                });
+
             },
             (err) => {
                 console.log(err);

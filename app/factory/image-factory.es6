@@ -1,6 +1,8 @@
 const HTTP = new WeakMap();
 const Q = new WeakMap();
 
+const USER_ID = "user";
+
 class ImageService {
     constructor($http, $q) {
         this.db = new PouchDB('imagesnew');
@@ -12,26 +14,23 @@ class ImageService {
 
     getAll(){
         //return HTTP.get(this).get(this.imageApiURL);
-        let defer = Q.get(this).defer();
-        this.db.allDocs({
+        //let defer = Q.get(this).defer();
+        return this.db.allDocs({
             include_docs: true,
-            attachments: true
+            attachments: false
         }).then((data)=> {
-            let images = [];
-            for (let row of data.rows) {
-                images.push(row.doc);
-                for (let filename in row.doc._attachments) {
-                    this.db.getAttachment(row.id, filename).then(
-                        (data)=>{
-                            var url = URL.createObjectURL(data);
-                            images[images.indexOf(row.doc)].imageUrl = url;
-                        }
-                    );
-                }
-                defer.resolve(images);
-            }
+            console.log(data);
+            return Q.get(this).all((data.rows.map((row)=> {
+                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(( data )=> {
+                    console.log(data);
+                    return {
+                        comments: row.doc.comments,
+                        images_likes: row.doc.image_likes,
+                        imageUrl: URL.createObjectURL(data)
+                    }
+                });
+            })))
         });
-        return defer.promise;
     }
 
     addUrlToImage(doc){
@@ -56,8 +55,26 @@ class ImageService {
         return defer.promise;
     }
 
-    addLike(){
-        
+    addLike(_id, like){
+        like.own = USER_ID;
+        let defer = Q.get(this).defer();
+        this.db.get(_id).then((doc) => {
+
+            doc.image_likes.find((el, ind, arr)=>{
+                if(el.own === USER_ID){
+                    doc.image_likes.splice(ind, 1);
+                    return true;
+                }
+                return false;
+            });
+            
+            doc.image_likes.push(like);
+            this.db.put(doc).then((data)=>{
+                defer.resolve(doc.image_likes);
+            });
+
+        });
+        return defer.promise;
     }
 
     addComment(_id, comment){
