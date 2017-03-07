@@ -4,7 +4,7 @@
 export function GUID(count) {
     var guidKey = '';
     for(var i = 0; i < count; i++){
-        guidKey += s4() + s4() + ' ';
+        guidKey += s4() + s4();
     }
     return guidKey;
 }

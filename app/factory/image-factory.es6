@@ -12,20 +12,20 @@ class ImageService {
         Q.set(this, $q);
     }
 
-    getAll(){
+    getAll() {
         //return HTTP.get(this).get(this.imageApiURL);
-        //let defer = Q.get(this).defer();
         return this.db.allDocs({
             include_docs: true,
             attachments: false
         }).then((data)=> {
             console.log(data);
             return Q.get(this).all((data.rows.map((row)=> {
-                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(( data )=> {
+                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then((data)=> {
                     console.log(data);
                     return {
+                        id: row.id,
                         comments: row.doc.comments,
-                        images_likes: row.doc.image_likes,
+                        image_likes: row.doc.image_likes,
                         imageUrl: URL.createObjectURL(data)
                     }
                 });
@@ -33,7 +33,7 @@ class ImageService {
         });
     }
 
-    addUrlToImage(doc){
+    addUrlToImage(doc) {
         for (let filename in doc._attachments) {
             this.db.getAttachment(doc._id, filename).then(
                 (data)=> {
@@ -45,31 +45,43 @@ class ImageService {
         return doc;
     };
 
-    put(image){
+    put(image) {
         let defer = Q.get(this).defer();
-        this.db.put(image).then((data)=>{
-            this.db.get(data.id).then((doc) => {
-                defer.resolve(this.addUrlToImage(doc));
+        let docId = null;
+        this.db.put(image).then((data)=> {
+            console.log(data, 'data');
+            return this.db.get(data.id)
+        }).then((doc) => {
+            console.log(doc, 'doc');
+            return this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]).then((data)=> {
+                defer.resolve({
+                    id: doc._id,
+                    comments: doc.comments,
+                    image_likes: doc.image_likes,
+                    imageUrl: URL.createObjectURL( data)
+                });
             });
+
+
         });
         return defer.promise;
     }
 
-    addLike(_id, like){
+    addLike(_id, like) {
         like.own = USER_ID;
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
 
-            doc.image_likes.find((el, ind, arr)=>{
-                if(el.own === USER_ID){
+            doc.image_likes.find((el, ind, arr)=> {
+                if (el.own === USER_ID) {
                     doc.image_likes.splice(ind, 1);
                     return true;
                 }
                 return false;
             });
-            
+
             doc.image_likes.push(like);
-            this.db.put(doc).then((data)=>{
+            this.db.put(doc).then((data)=> {
                 defer.resolve(doc.image_likes);
             });
 
@@ -77,30 +89,45 @@ class ImageService {
         return defer.promise;
     }
 
-    addComment(_id, comment){
+    deleteLike(_id) {
+        let defer = Q.get(this).defer();
+        this.db.get(_id).then((doc) => {
+            doc.image_likes.find((el, ind, arr)=> {
+                if (el.own === USER_ID) {
+                    doc.image_likes.splice(ind, 1);
+                    return true;
+                }
+                return false;
+            });
+            defer.resolve(doc.image_likes);
+        });
+        return defer.promise;
+    }
+
+    addComment(_id, comment) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
             doc.comments.push(comment);
-            this.db.put(doc).then((data)=>{
-               defer.resolve(data)
+            this.db.put(doc).then((data)=> {
+                defer.resolve(data)
             });
         });
         return defer.promise;
     }
 
-    getById(_id){
+    getById(_id) {
         this.db.get(_id).then(function (doc) {
             console.log(doc);
         });
     }
 
-    deleteById(_id){
+    deleteById(_id) {
         this.db.get(_id).then(function (doc) {
             return this.db.remove(doc);
         });
     }
 
-    defaultImage(){
+    defaultImage() {
         this.db.bulkDocs([
             {
                 _id: 'mittens',
@@ -120,10 +147,15 @@ class ImageService {
         ]);
     }
 
-    static getInstance($http, $q){
+    static
+    getInstance($http, $q) {
         return new ImageService($http, $q);
     }
 }
 
-ImageService.getInstance.$inject = ['$http', '$q'];
-export {ImageService}
+ImageService
+    .getInstance
+    .$inject = ['$http', '$q'];
+export {
+    ImageService
+}
