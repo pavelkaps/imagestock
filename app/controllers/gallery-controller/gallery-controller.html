@@ -3,8 +3,19 @@
     <md-card class="card" ng-class="[resizeImage.width, resizeImage.height]" ng-repeat="resizeImage in resizingImages" ng-style="{'background-image':'url(' + resizeImage.image.imageUrl + ')'}" repeat-brick
              ng-click="toDetail($event, resizeImage.image)">
         <div class="actions-hover-place">
-            <div class="menu">
-            </div>
+                <md-menu md-position-mode="target-right target">
+                    <div class="menu" ng-click="openMenu($mdMenu, $event); $event.stopPropagation()"></div>
+                    <md-menu-content width="1">
+                        <md-menu-item>
+                            <md-button ng-click="showConfirmForDelete($event, resizeImage.image);">
+                                <div layout="row" flex>
+                                    <p flex>Delete</p>
+                                    <md-icon md-menu-align-target md-svg-icon="call:portable-wifi-off" style="margin: auto 3px auto 0;"></md-icon>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
         </div>
         <div class="detail-img-bar">
             <div class="detail-bar-item comment-count">
@@ -27,4 +38,3 @@
         </div>
     </md-card>
 </div>
-

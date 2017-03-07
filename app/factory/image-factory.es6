@@ -55,7 +55,7 @@ class ImageService {
             return this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]);
         }).then((data)=> {
             defer.resolve({
-                id: docId,
+                id: docId._id,
                 comments: docId.comments,
                 image_likes: docId.image_likes,
                 imageUrl: URL.createObjectURL(data)
@@ -113,13 +113,13 @@ class ImageService {
     }
 
     getById(_id) {
-        this.db.get(_id).then(function (doc) {
+        this.db.get(_id).then((doc) => {
             console.log(doc);
         });
     }
 
-    deleteById(_id) {
-        this.db.get(_id).then(function (doc) {
+    deleteImageById(_id) {
+        return this.db.get(_id).then((doc) => {
             return this.db.remove(doc);
         });
     }

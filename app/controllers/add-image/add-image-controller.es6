@@ -1,24 +1,26 @@
-import { GUID } from '../../additional/GUID'
+import {GUID} from '../../additional/GUID'
 
 class AddImageController {
     constructor($scope, $mdDialog, toaster, imageService) {
         this.init($scope, $mdDialog, toaster, imageService);
     }
+
     init($scope, $mdDialog, toaster, imageService) {
         $scope.close = () => {
             $mdDialog.cancel();
         };
+        $scope.image = null;
 
         $scope.addImage = (imageUrl) => {
-            if($scope.image){
+            if ($scope.image) {
                 var image = {
-                    _id : GUID(2),
+                    _id: GUID(2),
                     _attachments: $scope.image,
-                    image_likes : [],
+                    image_likes: [],
                     comments: []
                 };
 
-                imageService.put(image).then((image)=>{
+                imageService.put(image).then((image)=> {
                     console.log(image);
                     $mdDialog.hide(image);
                     toaster.pop('info', "Успешно", "Изображение добавленно");
@@ -35,7 +37,15 @@ class AddImageController {
                 data: fileObj.base64
             };
             $scope.image = attachment;
+            console.log($scope.image);
+            console.log(Object.keys($scope.image)[0]);
         };
+
+        $scope.getImageData = function () {
+            if ($scope.image) {
+                return $scope.image[Object.keys($scope.image)[0]];
+            }
+        }
     }
 }
 AddImageController.$inject = ['$scope', '$mdDialog', 'toaster', 'imageService'];

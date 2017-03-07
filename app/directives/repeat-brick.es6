@@ -1,7 +1,7 @@
 function RepeatBrick(){
     return (scope, element, attrs) => {
+        console.log('repeat directive');
         if (scope.$last){
-            console.log("emmit");
             scope.$emit('LastBrick');
         }
     }

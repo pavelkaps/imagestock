@@ -13,13 +13,12 @@ function  TheFreeWall($window){
                 onResize: function() {
                     wall.fitHeight(590);
                 }
-
             });
-
+            
+            scope.wall = wall;
             wall.container.find('.card').on('load', (() => {
                 wall.fitHeight(590);
             }));
-
             $window.dispatchEvent(new Event('resize'));
 
         });

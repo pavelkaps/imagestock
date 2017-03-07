@@ -4,6 +4,7 @@ class GalleryController {
     constructor($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
         this.init($scope, imageService, detailImageService, $mdDialog, toaster, $window);
     }
+
     init($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
 
         toaster.pop({
@@ -17,7 +18,7 @@ class GalleryController {
 
         imageService.getAll().then(
             function (data) {
-                $scope.$apply(()=>{
+                $scope.$apply(()=> {
                     console.log(data);
                     $scope.resizingImages = randomResizeImages(data);
                     console.log($scope.resizingImages);
@@ -28,6 +29,42 @@ class GalleryController {
                 console.log(err);
             }
         );
+        var originatorEv;
+        $scope.openMenu = ($mdMenu, event) => {
+            originatorEv = event;
+            $mdMenu.open(event);
+        };
+
+        $scope.showConfirmForDelete = (ev, image) => {
+            console.log('delete dialog');
+            var confirm = $mdDialog.confirm()
+                .title('Do you want to delete this image?')
+                .targetEvent(ev)
+                .ok('Delete')
+                .cancel('Cancel');
+            $mdDialog.show(confirm).then(()=> {
+                $scope.deleteImage(image);
+            }, () => {
+
+            });
+        };
+
+        $scope.deleteImage = (image) => {
+            console.log(image);
+            imageService.deleteImageById(image.id).then((data)=> {
+                if (data.ok === true) {
+                    $scope.resizingImages.find((el, index, arr)=> {
+                        if (el.image.id === image.id) {
+                            $scope.resizingImages.splice(index, 1);
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+                toaster.pop('info', "Успешно", "Изображение удавленно");
+                $scope.$apply();
+            });
+        };
 
 
         function randomResizeImages(data) {
@@ -65,7 +102,7 @@ class GalleryController {
                 fullscreen: false
             }).then((image) => {
                 $scope.resizingImages.push(randomResizeOneImage(image))
-                
+
             }, () => {
                 console.log('cancel dialog');
             });
@@ -74,7 +111,7 @@ class GalleryController {
         $scope.countActions = (image, action) => {
             var count = 0;
             image.image_likes.forEach((el, ind, arr) => {
-                if(el.like_type === action){
+                if (el.like_type === action) {
                     count++;
                 }
             });

@@ -34,7 +34,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('browserify', function() {
+gulp.task('bundle', function() {
     return browserify('dist/app.js')
         .transform(babelify.configure({
             presets : ["es2015"]
@@ -48,6 +48,16 @@ gulp.task('clean', function(cb) {
     return del(["dist"], cb);
 });
 
+
 gulp.task("build:client", function (callback) {
-    runSequence('clean', 'js', 'browserify', 'styles');
+    runSequence('clean', 'js', 'bundle', 'styles');
 });
+
+gulp.task('watch:js', function() {
+    gulp.watch('app/**/*.es6', ['build:client']);
+});
+
+gulp.task('watch:css', function() {
+    gulp.watch('app/**/*.sass', ['styles']);
+});
+
