@@ -49,20 +49,17 @@ class ImageService {
         let defer = Q.get(this).defer();
         let docId = null;
         this.db.put(image).then((data)=> {
-            console.log(data, 'data');
             return this.db.get(data.id)
         }).then((doc) => {
-            console.log(doc, 'doc');
-            return this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]).then((data)=> {
-                defer.resolve({
-                    id: doc._id,
-                    comments: doc.comments,
-                    image_likes: doc.image_likes,
-                    imageUrl: URL.createObjectURL( data)
-                });
+            docId = doc;
+            return this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]);
+        }).then((data)=> {
+            defer.resolve({
+                id: docId,
+                comments: docId.comments,
+                image_likes: docId.image_likes,
+                imageUrl: URL.createObjectURL(data)
             });
-
-
         });
         return defer.promise;
     }

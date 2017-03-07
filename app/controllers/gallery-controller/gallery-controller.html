@@ -2,6 +2,10 @@
 <div class="galleryGrid" the-freewall>
     <md-card class="card" ng-class="[resizeImage.width, resizeImage.height]" ng-repeat="resizeImage in resizingImages" ng-style="{'background-image':'url(' + resizeImage.image.imageUrl + ')'}" repeat-brick
              ng-click="toDetail($event, resizeImage.image)">
+        <div class="actions-hover-place">
+            <div class="menu">
+            </div>
+        </div>
         <div class="detail-img-bar">
             <div class="detail-bar-item comment-count">
                 <div class="count count-small">{{resizeImage.image.comments.length}}</div>

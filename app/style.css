@@ -32,6 +32,31 @@ body {
     height: 190px;
 }
 
+.actions-hover-place{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+}
+
+.menu{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 2px solid gray;
+    background-color: whitesmoke;
+    height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    transform: scale(0);
+    transition: transform 0.2s;
+}
+
+.actions-hover-place:hover .menu{
+    transform: scale(1);
+}
+
 md-dialog.dialog-detail {
     width: 752px;
     height: 550px;
