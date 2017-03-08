@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d2e009-34c9-4f27-99c2-f4bf59a35d52" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6" afterPath="$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" afterPath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" afterPath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/factory/image-factory.es6" afterPath="$PROJECT_DIR$/app/factory/image-factory.es6" />
     </list>
     <ignored path="ImageGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,14 +23,14 @@
     <favorites_list name="ImageGallery" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37096775">
+    <splitter split-orientation="horizontal" split-proportion="0.5246679">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="image-factory.es6" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/factory/image-factory.es6">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="918">
-                  <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+                <state relative-caret-position="-272">
+                  <caret line="66" column="25" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -62,8 +59,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+                <state relative-caret-position="374">
+                  <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -144,8 +141,8 @@
           <file leaf-file-name="image-detail-controller.es6" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="334">
-                  <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+                <state relative-caret-position="255">
+                  <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
                   <folding />
                 </state>
               </provider>
@@ -266,11 +263,11 @@
         <option value="$PROJECT_DIR$/app/controllers/add-image/add-image-controller.html" />
         <option value="$PROJECT_DIR$/app/style.css" />
         <option value="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html" />
-        <option value="$PROJECT_DIR$/app/factory/image-factory.es6" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6" />
         <option value="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" />
         <option value="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" />
+        <option value="$PROJECT_DIR$/app/factory/image-factory.es6" />
       </list>
     </option>
   </component>
@@ -565,12 +562,12 @@
       <workItem from="1488854273731" duration="4333000" />
       <workItem from="1488859719520" duration="415000" />
       <workItem from="1488890873984" duration="14438000" />
-      <workItem from="1488946728544" duration="3936000" />
+      <workItem from="1488946728544" duration="4393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233038000" />
+    <option name="totallyTimeSpent" value="233495000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -856,18 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="98" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -876,36 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#md-icon#0;n#div#0;n#md-button#0;n#md-menu-item#0;n#md-menu-content#0;n#md-menu#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/factory/image-factory.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/additional/ImageResizer.es6">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -926,18 +885,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="385">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="98" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#md-dialog-content#0;n#md-dialog#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#md-icon#0;n#div#0;n#md-button#0;n#md-menu-item#0;n#md-menu-content#0;n#md-menu#0;n#div#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        <state relative-caret-position="255">
+          <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/factory/image-factory.es6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="66" column="25" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
           <folding />
         </state>
       </provider>

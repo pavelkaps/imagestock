@@ -73,11 +73,12 @@ class ImageDetailController {
 
         function AddLike(type) {
             imageService.addLike($scope.image.id, {
-                like_type: type
+                like_type: type,
+                own: USER_ID
             }).then((data)=>{
                 $scope.image.image_likes = data;
                 console.log(data);
-            });
+            }).catch(ErrorHandler);
         }
 
         function DeleteLike(imageId, userId) {

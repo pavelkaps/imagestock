@@ -64,13 +64,12 @@ class ImageService {
         return defer.promise;
     }
 
-    addLike(_id, like) {
-        like.own = USER_ID;
+    addLike(_id,  like) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
 
             doc.image_likes.find((el, ind, arr)=> {
-                if (el.own === USER_ID) {
+                if (el.own ===  like.own) {
                     doc.image_likes.splice(ind, 1);
                     return true;
                 }
@@ -86,11 +85,11 @@ class ImageService {
         return defer.promise;
     }
 
-    deleteLike(_id) {
+    deleteLike(_id, userId) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
             doc.image_likes.find((el, ind, arr)=> {
-                if (el.own === USER_ID) {
+                if (el.own === userId) {
                     doc.image_likes.splice(ind, 1);
                     return true;
                 }
