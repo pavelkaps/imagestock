@@ -33,18 +33,6 @@ class ImageService {
         });
     }
 
-    addUrlToImage(doc) {
-        for (let filename in doc._attachments) {
-            this.db.getAttachment(doc._id, filename).then(
-                (data)=> {
-                    var url = URL.createObjectURL(data);
-                    doc.imageUrl = url;
-                }
-            );
-        }
-        return doc;
-    };
-
     put(image) {
         let defer = Q.get(this).defer();
         let docId = null;
@@ -67,15 +55,7 @@ class ImageService {
     addLike(_id,  like) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
-
-            doc.image_likes.find((el, ind, arr)=> {
-                if (el.own ===  like.own) {
-                    doc.image_likes.splice(ind, 1);
-                    return true;
-                }
-                return false;
-            });
-
+            this.deleteLikeFromDoc(doc, like.own);
             doc.image_likes.push(like);
             this.db.put(doc).then((data)=> {
                 defer.resolve(doc.image_likes);
@@ -88,16 +68,20 @@ class ImageService {
     deleteLike(_id, userId) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
-            doc.image_likes.find((el, ind, arr)=> {
-                if (el.own === userId) {
-                    doc.image_likes.splice(ind, 1);
-                    return true;
-                }
-                return false;
-            });
+            this.deleteLikeFromDoc(doc, userId);
             defer.resolve(doc.image_likes);
         });
         return defer.promise;
+    }
+
+    deleteLikeFromDoc(doc, userId){
+        doc.image_likes.find((el, ind, arr)=> {
+            if (el.own ===  userId) {
+                doc.image_likes.splice(ind, 1);
+                return true;
+            }
+            return false;
+        });
     }
 
     addComment(_id, comment) {
@@ -143,8 +127,7 @@ class ImageService {
         ]);
     }
 
-    static
-    getInstance($http, $q) {
+    static getInstance($http, $q) {
         return new ImageService($http, $q);
     }
 }
