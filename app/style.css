@@ -90,6 +90,7 @@ md-dialog.dialog-detail md-dialog-content{
     transition: bottom 0.3s, background-color 0.2s, background 0.2s;
 }
 
+
 .image-actions-bar .action-item{
     position: relative;
     width: 65px;
@@ -402,7 +403,15 @@ md-dialog.dialog-add-image {
     overflow: hidden;
 }
 
+.actions-block{
+    width: 90%;
+    height: 15%;
+    margin: 0 auto;
+}
 
+.full-height{
+    height: 100%;
+}
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -447,6 +456,10 @@ html {
 md-backdrop.md-opaque {
     opacity: .70;
     background-color: ghostwhite;
+}
+
+md-icon{
+    margin: auto 3px auto 0;
 }
 
 *:focus {

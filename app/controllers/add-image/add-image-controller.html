@@ -1,12 +1,13 @@
-<md-dialog ng-controller="AddImageController" toaster-options="{'time-out': 5000}" class="dialog-add-image">
+<toaster-container toaster-options="{'time-out': 5000}"></toaster-container>
+<md-dialog ng-controller="AddImageController" class="dialog-add-image">
 
     <md-dialog-content class="add-image-dialog-content" layout="column">
 
         <div class="close-btn" ng-click="close()"></div>
         <div class="example-image" ng-style="{'background-image':'url(data:' + getImageData().content_type +';base64,' + getImageData().data + ')'}"></div>
-        <div style="width: 90%; height: 15%; margin: 0 auto;">
-            <form name="addImageForm" style="height: 100%; ">
-                <div layout="row"  layout-align="center center" style="height: 100%;" layout-wrap>
+        <div class="actions-block">
+            <form name="addImageForm" class="full-height">
+                <div layout="row"  layout-align="center center" class="full-height" layout-wrap>
                     <input class="ng-hide" id="input-file-id" type="file" base-sixty-four-input onload="onLoad" accept="image/*" ng-model="file" name="file"/>
                     <label for="input-file-id" class="md-button md-raised md-primary">Choose Image</label>
 
