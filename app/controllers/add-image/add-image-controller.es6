@@ -9,9 +9,10 @@ class AddImageController {
         $scope.close = () => {
             $mdDialog.cancel();
         };
+
         $scope.image = null;
 
-        $scope.addImage = (imageUrl) => {
+        $scope.addImage = () => {
             if ($scope.image) {
                 var image = {
                     _id: GUID(2),
@@ -19,16 +20,14 @@ class AddImageController {
                     image_likes: [],
                     comments: []
                 };
-
+                
                 imageService.put(image).then((image)=> {
                     console.log(image);
                     $mdDialog.hide(image);
                     toaster.pop('info', "Успешно", "Изображение добавленно");
-                });
-
+                }).catch(ErrorHandler);
             }
         };
-
 
         $scope.onLoad = function (e, reader, file, fileList, fileObjects, fileObj) {
             var attachment = {};
@@ -37,14 +36,17 @@ class AddImageController {
                 data: fileObj.base64
             };
             $scope.image = attachment;
-            console.log($scope.image);
-            console.log(Object.keys($scope.image)[0]);
         };
 
         $scope.getImageData = function () {
             if ($scope.image) {
                 return $scope.image[Object.keys($scope.image)[0]];
             }
+        };
+
+        function ErrorHandler(err){
+            console.log(err);
+            toaster.pop('info', "Ошибка", "Произошла ошибка");
         }
     }
 }

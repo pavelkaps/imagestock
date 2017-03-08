@@ -11,36 +11,16 @@ class ImageDetailController {
         $scope.dislike = false;
 
         $scope.image = detailImageService.getImage();
-
-        SetLike($scope.image);
-        
-        function SetLike(image) {
-            $scope.image.image_likes.forEach((el, ind, arr)=>{
-               if(el.like_type === 'like' && el.own === USER_ID){
-                   $scope.like = true;
-               }else if(el.like_type === 'dislike' && el.own === USER_ID){
-                   $scope.dislike = true;
-               }
-            });
-        }
+        SetLikeToImage($scope.image);
 
         $scope.setLike = () => {
             if($scope.like === false){
-                imageService.addLike($scope.image.id, {
-                    like_type: 'like'
-                }).then((data)=>{
-                    $scope.image.image_likes = data;
-                    console.log(data);
-                });
+                AddLike('like');
             }
             if ($scope.dislike === true && $scope.like === false) {
                 $scope.dislike = false;
-
             }else if($scope.like === true){
-                console.log($scope.image);
-                imageService.deleteLike($scope.image.id).then((data)=>{
-                    $scope.image.image_likes = data;
-                });
+                DeleteLike($scope.image.id, USER_ID);
             }
             $scope.like = !$scope.like;
 
@@ -48,36 +28,17 @@ class ImageDetailController {
 
         $scope.setDislike = () => {
             if($scope.dislike === false){
-                imageService.addLike($scope.image.id, {
-                    like_type: 'dislike'
-                }).then((data)=>{
-                    $scope.image.image_likes = data;
-                    console.log(data);
-                });
+                AddLike('dislike');
             }
             if ($scope.dislike === false && $scope.like === true) {
                 $scope.like = false;
-                imageService.addLike($scope.image.id, {
-                    like_type: 'dislike'
-                }).then((data)=>{
-                    $scope.image.image_likes = data;
-                    console.log(data);
-                });
             }else if($scope.dislike === true){
-                console.log($scope.image);
-                imageService.deleteLike($scope.image.id).then((data)=>{
-                    $scope.image.image_likes = data;
-                });
+                DeleteLike($scope.image.id, USER_ID);
             }
             $scope.dislike = !$scope.dislike;
         };
 
-        $scope.close = () => {
-            $mdDialog.cancel();
-        };
-
         $scope.addComment = (nickname, text) => {
-
             if ($scope.commentForm.$valid) {
                 $scope.nickname = '';
                 $scope.commentText = '';
@@ -90,10 +51,9 @@ class ImageDetailController {
 
                 imageService.addComment($scope.image.id, comment).then((image)=>{
                     $scope.image.comments.push(comment);
-                });
+                }).catch(ErrorHandler);
             } else {
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
-
             }
         };
 
@@ -107,6 +67,39 @@ class ImageDetailController {
             return count;
         };
 
+        $scope.close = () => {
+            $mdDialog.cancel();
+        };
+
+        function AddLike(type) {
+            imageService.addLike($scope.image.id, {
+                like_type: type
+            }).then((data)=>{
+                $scope.image.image_likes = data;
+                console.log(data);
+            });
+        }
+
+        function DeleteLike(imageId, userId) {
+            imageService.deleteLike(imageId, userId).then((data)=>{
+                $scope.image.image_likes = data;
+            }).catch(ErrorHandler);
+        }
+
+        function SetLikeToImage(image) {
+            image.image_likes.forEach((el, ind, arr)=>{
+                if(el.like_type === 'like' && el.own === USER_ID){
+                    $scope.like = true;
+                }else if(el.like_type === 'dislike' && el.own === USER_ID){
+                    $scope.dislike = true;
+                }
+            });
+        }
+
+        function ErrorHandler(err){
+            console.log(err);
+            toaster.pop('info', "Ошибка", "Произошла ошибка");
+        }
     }
 }
 

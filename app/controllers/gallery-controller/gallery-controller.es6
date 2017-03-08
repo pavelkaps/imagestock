@@ -23,15 +23,11 @@ class GalleryController {
                     $scope.resizingImages = randomResizeImages(data);
                     console.log($scope.resizingImages);
                 });
-
-            },
-            (err) => {
-                console.log(err);
             }
-        );
-        var originatorEv;
+        ).catch(ErrorHandler);
+
         $scope.openMenu = ($mdMenu, event) => {
-            originatorEv = event;
+            var originatorEv = event;
             $mdMenu.open(event);
         };
 
@@ -53,29 +49,12 @@ class GalleryController {
             console.log(image);
             imageService.deleteImageById(image.id).then((data)=> {
                 if (data.ok === true) {
-                    $scope.resizingImages.find((el, index, arr)=> {
-                        if (el.image.id === image.id) {
-                            $scope.resizingImages.splice(index, 1);
-                            return true;
-                        }
-                        return false;
-                    });
+                    DeleteFromResizingImages(image.id);
                 }
-                toaster.pop('info', "Успешно", "Изображение удавленно");
+                toaster.pop('info', "Успешно", "Изображение удалено");
                 $scope.$apply();
-            });
+            }).catch(ErrorHandler);
         };
-
-
-        function randomResizeImages(data) {
-            return data.map((data) => {
-                return randomResizeOneImage(data);
-            });
-        }
-
-        function randomResizeOneImage(image) {
-            return {width: $scope.resizer.getWidthSize(), height: $scope.resizer.getHeightSize(), image: image};
-        }
 
         $scope.toDetail = (ev, image) => {
             console.log(ev);
@@ -89,7 +68,7 @@ class GalleryController {
             }).then((answer) => {
 
             }, () => {
-                console.log('cancel dialog');
+
             });
         };
 
@@ -102,7 +81,6 @@ class GalleryController {
                 fullscreen: false
             }).then((image) => {
                 $scope.resizingImages.push(randomResizeOneImage(image))
-
             }, () => {
                 console.log('cancel dialog');
             });
@@ -117,6 +95,32 @@ class GalleryController {
             });
             return count;
         };
+
+        function DeleteFromResizingImages(_id) {
+            $scope.resizingImages.find((el, index, arr)=> {
+                if (el.image.id === _id) {
+                    $scope.resizingImages.splice(index, 1);
+                    return true;
+                }
+                return false;
+            });
+        }
+
+        function randomResizeImages(data) {
+            return data.map((data) => {
+                return randomResizeOneImage(data);
+            });
+        }
+
+        function randomResizeOneImage(image) {
+            return {width: $scope.resizer.getWidthSize(), height: $scope.resizer.getHeightSize(), image: image};
+        }
+
+
+        function ErrorHandler(err){
+            console.log(err);
+            toaster.pop('info', "Ошибка", "Произошла ошибка");
+        }
     }
 }
 GalleryController.$inject = ['$scope', 'imageService', 'detailImageService', '$mdDialog', 'toaster', '$window'];

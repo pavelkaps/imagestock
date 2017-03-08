@@ -49,12 +49,13 @@ gulp.task('clean', function(cb) {
 });
 
 
+
 gulp.task("build:client", function (callback) {
     runSequence('clean', 'js', 'bundle', 'styles');
 });
 
 gulp.task('watch:js', function() {
-    gulp.watch('app/**/*.es6', ['build:client']);
+    gulp.watch('app/**/*.es6', runSequence('clean', 'js', 'bundle'));
 });
 
 gulp.task('watch:css', function() {
