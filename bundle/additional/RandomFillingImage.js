@@ -27,6 +27,7 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
             var comments = [];
             for (var i = 0; i < count; i++) {
                 var comment = {
+                    own_id: (0, _GUID.GUID)(2),
                     own: this.nicknames[Math.floor(Math.random() * this.nicknames.length)],
                     text: this.comments[Math.floor(Math.random() * this.comments.length)],
                     date: this.randomDate(new Date(2012, 0, 1), new Date())

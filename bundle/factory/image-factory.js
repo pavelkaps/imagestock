@@ -46,6 +46,11 @@ var ImageService = function () {
             return this.repository.getById(_id);
         }
     }, {
+        key: 'deleteComment',
+        value: function deleteComment(idImage, idComment) {
+            return this.repository.deleteComment(idImage, idComment);
+        }
+    }, {
         key: 'deleteImageById',
         value: function deleteImageById(_id) {
             return this.repository.deleteImageById(_id);

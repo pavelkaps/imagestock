@@ -44,6 +44,7 @@ class ImageDetailController {
                 $scope.commentText = '';
 
                 var comment = {
+                    own_id: USER_ID,
                     own: nickname,
                     text:  text,
                     date:  Date.now()

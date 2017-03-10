@@ -130,6 +130,7 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
             var comments = [];
             for (var i = 0; i < count; i++) {
                 var comment = {
+                    own_id: (0, _GUID.GUID)(2),
                     own: this.nicknames[Math.floor(Math.random() * this.nicknames.length)],
                     text: this.comments[Math.floor(Math.random() * this.comments.length)],
                     date: this.randomDate(new Date(2012, 0, 1), new Date())
@@ -537,6 +538,7 @@ var ImageDetailController = function () {
                     $scope.commentText = '';
 
                     var comment = {
+                        own_id: USER_ID,
                         own: nickname,
                         text: text,
                         date: Date.now()
@@ -773,6 +775,11 @@ var ImageService = function () {
             return this.repository.getById(_id);
         }
     }, {
+        key: 'deleteComment',
+        value: function deleteComment(idImage, idComment) {
+            return this.repository.deleteComment(idImage, idComment);
+        }
+    }, {
         key: 'deleteImageById',
         value: function deleteImageById(_id) {
             return this.repository.deleteImageById(_id);
@@ -941,7 +948,24 @@ var ImageRepository = exports.ImageRepository = function () {
         }
     }, {
         key: 'deleteComment',
-        value: function deleteComment(_id) {}
+        value: function deleteComment(idImage, idComment) {
+            var _this6 = this;
+
+            var defer = Q.get(this).defer();
+            this.db.get(idImage).then(function (doc) {
+                doc.comments.find(function (el, index, arr) {
+                    if (el.own_id === idComment) {
+                        doc.comments.splice(index, 1);
+                        return true;
+                    }
+                    return false;
+                });
+                _this6.db.put(doc).then(function (data) {
+                    defer.resolve(data);
+                });
+            });
+            return defer.promise;
+        }
     }, {
         key: 'getById',
         value: function getById(_id) {
@@ -952,10 +976,10 @@ var ImageRepository = exports.ImageRepository = function () {
     }, {
         key: 'deleteImageById',
         value: function deleteImageById(_id) {
-            var _this6 = this;
+            var _this7 = this;
 
             return this.db.get(_id).then(function (doc) {
-                return _this6.db.remove(doc);
+                return _this7.db.remove(doc);
             });
         }
     }], [{

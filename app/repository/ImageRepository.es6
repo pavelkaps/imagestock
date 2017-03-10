@@ -91,8 +91,21 @@ export class ImageRepository {
         return defer.promise;
     }
 
-    deleteComment(_id){
-        
+    deleteComment(idImage, idComment){
+        let defer = Q.get(this).defer();
+        this.db.get(idImage).then((doc) => {
+            doc.comments.find((el, index, arr)=>{
+                if(el.own_id === idComment){
+                    doc.comments.splice(index, 1);
+                    return true;
+                }
+                return false;
+            });
+            this.db.put(doc).then((data)=> {
+                defer.resolve(data)
+            });
+        });
+        return defer.promise;
     }
 
     getById(_id) {

@@ -26,6 +26,10 @@ class ImageService {
         return this.repository.getById(_id);
     }
 
+    deleteComment(idImage, idComment){
+        return this.repository.deleteComment(idImage, idComment);
+    }
+
     deleteImageById(_id) {
         return this.repository.deleteImageById(_id);
     }
