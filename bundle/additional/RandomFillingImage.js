@@ -23,10 +23,9 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
     _createClass(RandomFillingImage, [{
         key: 'setComment',
         value: function setComment(image) {
-            var count = Math.floor(Math.random() * 12 - 2) + 2;
+            var count = Math.floor(Math.random() * (12 - 2)) + 2;
             var comments = [];
-            console.log(count);
-            for (var i = 1; i < count; i++) {
+            for (var i = 0; i < count; i++) {
                 var comment = {
                     own: this.nicknames[Math.floor(Math.random() * this.nicknames.length)],
                     text: this.comments[Math.floor(Math.random() * this.comments.length)],
@@ -35,15 +34,14 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
                 comments.push(comment);
             }
             image.comments = comments;
-            return image;
         }
     }, {
         key: 'setLikes',
         value: function setLikes(image) {
-            var count = Math.floor(Math.random() * 12 - 2) + 2;
-            console.log(count);
+            var count = Math.floor(Math.random() * (12 - 2)) + 2;
+
             var likes = [];
-            for (var i = 1; i < count; i++) {
+            for (var i = 0; i < count; i++) {
                 var like = {
                     own: (0, _GUID.GUID)(2)
                 };
@@ -56,7 +54,6 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
                 likes.push(like);
             }
             image.image_likes = likes;
-            return image;
         }
     }, {
         key: 'randomDate',

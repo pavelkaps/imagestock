@@ -7,12 +7,16 @@
              ng-click="toDetail($event, resizeImage.image)">
         <div class="actions-hover-place">
                 <md-menu md-position-mode="target-right target">
-                    <div class="menu" ng-click="openMenu($mdMenu, $event); $event.stopPropagation()"></div>
-                    <md-menu-content width="1">
+                    <md-button class="md-fab md-mini menu" aria-label="Actions" ng-click="openMenu($mdMenu, $event); $event.stopPropagation()">
+                        <md-icon md-svg-src="app/assets/svg/three.svg" ></md-icon>
+                    </md-button>
+
+                    <md-menu-content width="2">
                         <md-menu-item>
                             <md-button ng-click="showConfirmForDelete($event, resizeImage.image);">
                                 <div layout="row" flex>
                                     <p flex>Delete</p>
+                                    <md-icon md-menu-align-target md-svg-icon="app/assets/svg/delete.svg" style="margin: auto 3px auto 0;"></md-icon>
                                 </div>
                             </md-button>
                         </md-menu-item>

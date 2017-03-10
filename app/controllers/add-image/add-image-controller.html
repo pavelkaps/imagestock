@@ -1,13 +1,31 @@
 <toaster-container toaster-options="{'time-out': 5000}"></toaster-container>
-<md-dialog ng-controller="AddImageController" class="dialog-add-image">
+<md-dialog ng-controller="AddImageController as ctrl" class="dialog-add-image">
 
     <md-dialog-content class="add-image-dialog-content" layout="column">
 
-        <div class="close-btn" ng-click="close()"></div>
+        <button class="close-btn" ng-click="close()"></button>
         <div class="example-image" ng-style="{'background-image':'url(data:' + getImageData().content_type +';base64,' + getImageData().data + ')'}"></div>
         <div class="actions-block">
             <form name="addImageForm" class="full-height">
                 <div layout="row"  layout-align="center center" class="full-height" layout-wrap>
+                    <md-menu md-position-mode="target-right target">
+                        <md-button class="md-icon-button" ng-click="openMenu($mdMenu, $event)" aria-label="More">
+                            <md-icon md-svg-icon="app/assets/svg/three.svg"></md-icon>
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-checkbox ng-model="ctrl.randomLikes" aria-label="Checkbox Likes" style="margin-left: 5px">
+                                    <p flex>Random likes</p>
+                                </md-checkbox>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-checkbox ng-model="ctrl.randomComments" aria-label="Checkbox Comments" style="margin-left: 5px">
+                                    Random comments
+                                </md-checkbox>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+
                     <input class="ng-hide" id="input-file-id" type="file" base-sixty-four-input onload="onLoad" accept="image/*" ng-model="file" name="file"/>
                     <label for="input-file-id" class="md-button md-raised md-primary">Choose Image</label>
 

@@ -2,7 +2,7 @@
 <md-dialog ng-controller="ImageDetailController" class="dialog-detail">
     <md-dialog-content>
         <div class="detail-dialog-content" >
-            <div class="close-btn" ng-click="close()"></div>
+            <button class="close-btn" ng-click="close()"></button>
             <div class="image-block" ng-style="{'background-image':'url(' + image.imageUrl + ')'}">
                 <div class="image-actions-bar">
                     <div class="action-item dislike normal-item" ng-click="setDislike()" ng-class="{'action-active': dislike}">
@@ -41,7 +41,8 @@
                         <div class="comments-inpunts" layout="row">
                             <textarea class="comment-input"  name="comment" placeholder="Write your comment here..." required
                                       ng-model="commentText" ></textarea>
-                            <div class="send-btn" ng-click="addComment(nickname, commentText)"></div>
+                            <button class="send-btn" ng-click="addComment(nickname, commentText)"></button>
+
                         </div>
                     </form>
                 </div>

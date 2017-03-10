@@ -126,10 +126,9 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
     _createClass(RandomFillingImage, [{
         key: 'setComment',
         value: function setComment(image) {
-            var count = Math.floor(Math.random() * 12 - 2) + 2;
+            var count = Math.floor(Math.random() * (12 - 2)) + 2;
             var comments = [];
-            console.log(count);
-            for (var i = 1; i < count; i++) {
+            for (var i = 0; i < count; i++) {
                 var comment = {
                     own: this.nicknames[Math.floor(Math.random() * this.nicknames.length)],
                     text: this.comments[Math.floor(Math.random() * this.comments.length)],
@@ -138,15 +137,14 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
                 comments.push(comment);
             }
             image.comments = comments;
-            return image;
         }
     }, {
         key: 'setLikes',
         value: function setLikes(image) {
-            var count = Math.floor(Math.random() * 12 - 2) + 2;
-            console.log(count);
+            var count = Math.floor(Math.random() * (12 - 2)) + 2;
+
             var likes = [];
-            for (var i = 1; i < count; i++) {
+            for (var i = 0; i < count; i++) {
                 var like = {
                     own: (0, _GUID.GUID)(2)
                 };
@@ -159,7 +157,6 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
                 likes.push(like);
             }
             image.image_likes = likes;
-            return image;
         }
     }, {
         key: 'randomDate',
@@ -193,10 +190,12 @@ var _repeatBrick = require('./directives/repeat-brick');
 
 var _theFreewall = require('./directives/the-freewall');
 
-angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment']).config(_config.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
+var _ImageRepository = require('./repository/ImageRepository');
+
+angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment']).config(_config.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).factory('imageRepository', _ImageRepository.ImageRepository.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
 
 
-},{"./config":5,"./controllers/add-image/add-image-controller":6,"./controllers/gallery-controller/gallery-controller":7,"./controllers/image-detail-controller/image-detail-controller":8,"./directives/repeat-brick":9,"./directives/the-freewall":10,"./factory/detail-image":11,"./factory/image-factory":12,"./filters/reverse":13}],5:[function(require,module,exports){
+},{"./config":5,"./controllers/add-image/add-image-controller":6,"./controllers/gallery-controller/gallery-controller":7,"./controllers/image-detail-controller/image-detail-controller":8,"./directives/repeat-brick":9,"./directives/the-freewall":10,"./factory/detail-image":11,"./factory/image-factory":12,"./filters/reverse":13,"./repository/ImageRepository":14}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -256,14 +255,16 @@ var AddImageController = function () {
     _createClass(AddImageController, [{
         key: 'init',
         value: function init($scope, $mdDialog, toaster, imageService) {
+            var _this = this;
+
             $scope.close = function () {
                 $mdDialog.cancel();
             };
 
             var randomFillingImage = new _RandomFillingImage.RandomFillingImage();
 
-            $scope.randomLikes = true;
-            $scope.randomComments = true;
+            this.randomLikes = false;
+            this.randomComments = false;
             $scope.image = null;
 
             $scope.addImage = function () {
@@ -274,10 +275,10 @@ var AddImageController = function () {
                         image_likes: [],
                         comments: []
                     };
-                    if ($scope.randomLikes) {
+                    if (_this.randomLikes === true) {
                         randomFillingImage.setLikes(image);
                     }
-                    if ($scope.randomComments) {
+                    if (_this.randomComments === true) {
                         randomFillingImage.setComment(image);
                     }
                     imageService.put(image).then(function (image) {
@@ -301,6 +302,11 @@ var AddImageController = function () {
                 if ($scope.image) {
                     return $scope.image[Object.keys($scope.image)[0]];
                 }
+            };
+
+            $scope.openMenu = function ($mdMenu, event) {
+                var originatorEv = event;
+                $mdMenu.open(event);
             };
 
             function ErrorHandler(err) {
@@ -353,12 +359,6 @@ var GalleryController = function () {
     _createClass(GalleryController, [{
         key: 'init',
         value: function init($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
-
-            toaster.pop({
-                timeout: 20000,
-                showCloseButton: true,
-                limit: 5
-            });
 
             $scope.resizingImages = [];
             $scope.resizer = new _ImageResizer.ImageResizer();
@@ -439,13 +439,6 @@ var GalleryController = function () {
                 });
 
                 console.log($scope.resizingImages);
-                /* $scope.resizingImages.find((el, index, arr)=> {
-                     if (el.image.id === _id) {
-                         $scope.resizingImages.splice(index, 1);
-                         return true;
-                     }
-                     return false;
-                 });*/
             }
 
             function randomResizeImages(data) {
@@ -720,7 +713,7 @@ exports.DetailImageService = DetailImageService;
 
 
 },{}],12:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -742,36 +735,126 @@ function _classCallCheck(instance, Constructor) {
     }
 }
 
+var ImageService = function () {
+    function ImageService(repository) {
+        _classCallCheck(this, ImageService);
+
+        this.repository = repository;
+    }
+
+    _createClass(ImageService, [{
+        key: 'getAll',
+        value: function getAll() {
+            return this.repository.getAll();
+        }
+    }, {
+        key: 'put',
+        value: function put(image) {
+            return this.repository.put(image);
+        }
+    }, {
+        key: 'addLike',
+        value: function addLike(_id, like) {
+            return this.repository.addLike(_id, like);
+        }
+    }, {
+        key: 'deleteLike',
+        value: function deleteLike(_id, userId) {
+            return this.repository.deleteLike(_id, userId);
+        }
+    }, {
+        key: 'addComment',
+        value: function addComment(_id, comment) {
+            return this.repository.addComment(_id, comment);
+        }
+    }, {
+        key: 'getById',
+        value: function getById(_id) {
+            return this.repository.getById(_id);
+        }
+    }, {
+        key: 'deleteImageById',
+        value: function deleteImageById(_id) {
+            return this.repository.deleteImageById(_id);
+        }
+    }], [{
+        key: 'getInstance',
+        value: function getInstance(repository) {
+            return new ImageService(repository);
+        }
+    }]);
+
+    return ImageService;
+}();
+
+ImageService.getInstance.$inject = ['imageRepository'];
+exports.ImageService = ImageService;
+
+
+},{}],13:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function Reverse() {
+    return function (items) {
+        return items.slice().reverse();
+    };
+}
+
+exports.Reverse = Reverse;
+
+
+},{}],14:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+    };
+}();
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+/**
+ * Created by Паша on 10.03.2017.
+ */
 var HTTP = new WeakMap();
 var Q = new WeakMap();
 
-var USER_ID = "user";
-
-var ImageService = function () {
-    function ImageService($http, $q) {
-        _classCallCheck(this, ImageService);
+var ImageRepository = exports.ImageRepository = function () {
+    function ImageRepository($http, $q) {
+        _classCallCheck(this, ImageRepository);
 
         this.db = new PouchDB('imagesnew');
-        this.imageApiURL = "./mock-data/images.json";
-
         HTTP.set(this, $http);
         Q.set(this, $q);
     }
 
-    _createClass(ImageService, [{
-        key: "getAll",
+    _createClass(ImageRepository, [{
+        key: 'getAll',
         value: function getAll() {
             var _this = this;
 
-            //return HTTP.get(this).get(this.imageApiURL);
             return this.db.allDocs({
                 include_docs: true,
                 attachments: false
             }).then(function (data) {
-                console.log(data);
                 return Q.get(_this).all(data.rows.map(function (row) {
                     return _this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(function (data) {
-                        console.log(data);
                         return {
                             id: row.id,
                             comments: row.doc.comments,
@@ -783,7 +866,7 @@ var ImageService = function () {
             });
         }
     }, {
-        key: "put",
+        key: 'put',
         value: function put(image) {
             var _this2 = this;
 
@@ -805,7 +888,7 @@ var ImageService = function () {
             return defer.promise;
         }
     }, {
-        key: "addLike",
+        key: 'addLike',
         value: function addLike(_id, like) {
             var _this3 = this;
 
@@ -820,7 +903,7 @@ var ImageService = function () {
             return defer.promise;
         }
     }, {
-        key: "deleteLike",
+        key: 'deleteLike',
         value: function deleteLike(_id, userId) {
             var _this4 = this;
 
@@ -832,7 +915,7 @@ var ImageService = function () {
             return defer.promise;
         }
     }, {
-        key: "deleteLikeFromDoc",
+        key: 'deleteLikeFromDoc',
         value: function deleteLikeFromDoc(doc, userId) {
             doc.image_likes.find(function (el, ind, arr) {
                 if (el.own === userId) {
@@ -843,7 +926,7 @@ var ImageService = function () {
             });
         }
     }, {
-        key: "addComment",
+        key: 'addComment',
         value: function addComment(_id, comment) {
             var _this5 = this;
 
@@ -857,14 +940,17 @@ var ImageService = function () {
             return defer.promise;
         }
     }, {
-        key: "getById",
+        key: 'deleteComment',
+        value: function deleteComment(_id) {}
+    }, {
+        key: 'getById',
         value: function getById(_id) {
             this.db.get(_id).then(function (doc) {
                 console.log(doc);
             });
         }
     }, {
-        key: "deleteImageById",
+        key: 'deleteImageById',
         value: function deleteImageById(_id) {
             var _this6 = this;
 
@@ -872,50 +958,17 @@ var ImageService = function () {
                 return _this6.db.remove(doc);
             });
         }
-    }, {
-        key: "defaultImage",
-        value: function defaultImage() {
-            this.db.bulkDocs([{
-                _id: 'mittens',
-                occupation: 'kitten',
-                cuteness: 9.0
-            }, {
-                _id: 'katie',
-                occupation: 'kitten',
-                cuteness: 7.0
-            }, {
-                _id: 'felix',
-                occupation: 'kitten',
-                cuteness: 8.0
-            }]);
-        }
     }], [{
-        key: "getInstance",
+        key: 'getInstance',
         value: function getInstance($http, $q) {
-            return new ImageService($http, $q);
+            return new ImageRepository($http, $q);
         }
     }]);
 
-    return ImageService;
+    return ImageRepository;
 }();
 
-ImageService.getInstance.$inject = ['$http', '$q'];
-exports.ImageService = ImageService;
-
-
-},{}],13:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-function Reverse() {
-    return function (items) {
-        return items.slice().reverse();
-    };
-}
-
-exports.Reverse = Reverse;
+ImageRepository.getInstance.$inject = ['$http', '$q'];
 
 
 },{}]},{},[4]);

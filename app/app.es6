@@ -10,6 +10,7 @@ import {ImageService} from './factory/image-factory'
 import {Reverse} from './filters/reverse'
 import {RepeatBrick} from './directives/repeat-brick'
 import {TheFreeWall} from './directives/the-freewall'
+import {ImageRepository} from './repository/ImageRepository'
 
 angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment'])
     .config(Config)
@@ -18,6 +19,7 @@ angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster',
     .controller('ImageDetailController', ImageDetailController)
     .factory('detailImageService', DetailImageService.getInstance)
     .factory('imageService', ImageService.getInstance)
+    .factory('imageRepository', ImageRepository.getInstance)
     .filter('reverse', Reverse)
     .directive('repeatBrick', RepeatBrick)
     .directive('theFreewall', TheFreeWall);

@@ -23,14 +23,16 @@ var AddImageController = function () {
     _createClass(AddImageController, [{
         key: 'init',
         value: function init($scope, $mdDialog, toaster, imageService) {
+            var _this = this;
+
             $scope.close = function () {
                 $mdDialog.cancel();
             };
 
             var randomFillingImage = new _RandomFillingImage.RandomFillingImage();
 
-            $scope.randomLikes = true;
-            $scope.randomComments = true;
+            this.randomLikes = false;
+            this.randomComments = false;
             $scope.image = null;
 
             $scope.addImage = function () {
@@ -41,10 +43,10 @@ var AddImageController = function () {
                         image_likes: [],
                         comments: []
                     };
-                    if ($scope.randomLikes) {
+                    if (_this.randomLikes === true) {
                         randomFillingImage.setLikes(image);
                     }
-                    if ($scope.randomComments) {
+                    if (_this.randomComments === true) {
                         randomFillingImage.setComment(image);
                     }
                     imageService.put(image).then(function (image) {
@@ -68,6 +70,11 @@ var AddImageController = function () {
                 if ($scope.image) {
                     return $scope.image[Object.keys($scope.image)[0]];
                 }
+            };
+
+            $scope.openMenu = function ($mdMenu, event) {
+                var originatorEv = event;
+                $mdMenu.open(event);
             };
 
             function ErrorHandler(err) {

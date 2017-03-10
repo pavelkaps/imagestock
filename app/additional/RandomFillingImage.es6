@@ -9,11 +9,10 @@ export class RandomFillingImage {
     }
 
     setComment(image) {
-        var count = Math.floor(Math.random() * 12 - 2) + 2;
-        var comments = [];
-        console.log(count);
-        for (var i = 1; i < count; i++) {
-            var comment = {
+        let count = Math.floor(Math.random() * (12 - 2)) + 2;
+        let comments = [];
+        for (let i = 0; i < count; i++) {
+            let comment = {
                 own: this.nicknames[Math.floor(Math.random() * this.nicknames.length) ],
                 text: this.comments[Math.floor(Math.random() * this.comments.length)],
                 date: this.randomDate(new Date(2012, 0, 1), new Date())
@@ -21,18 +20,17 @@ export class RandomFillingImage {
             comments.push(comment);
         }
         image.comments = comments;
-        return image;
     }
 
     setLikes(image) {
-        var count = Math.floor(Math.random() * 12 - 2) + 2;
-        console.log(count);
-        var likes = [];
-        for (var i = 1; i < count; i++) {
-            var like = {
+        let count = Math.floor(Math.random() * (12 - 2)) + 2;
+
+        let likes = [];
+        for (let i = 0; i < count; i++) {
+            let like = {
                 own: GUID(2)
             };
-            var o = Math.floor(Math.random() * 10);
+            let o = Math.floor(Math.random() * 10);
             if(o <= 5){
                 like.like_type = 'like';
             }else if( o > 5 ){
@@ -41,7 +39,6 @@ export class RandomFillingImage {
             likes.push(like);
         }
         image.image_likes = likes;
-        return image;
     }
 
     randomDate(start, end) {

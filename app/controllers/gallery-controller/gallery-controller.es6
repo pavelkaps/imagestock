@@ -7,12 +7,6 @@ class GalleryController {
 
     init($scope, imageService, detailImageService, $mdDialog, toaster, $window) {
 
-        toaster.pop({
-            timeout: 20000,
-            showCloseButton: true,
-            limit: 5
-        });
-
         $scope.resizingImages = [];
         $scope.resizer = new ImageResizer();
 
@@ -106,13 +100,6 @@ class GalleryController {
             });
 
             console.log($scope.resizingImages);
-           /* $scope.resizingImages.find((el, index, arr)=> {
-                if (el.image.id === _id) {
-                    $scope.resizingImages.splice(index, 1);
-                    return true;
-                }
-                return false;
-            });*/
         }
 
         function randomResizeImages(data) {

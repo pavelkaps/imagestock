@@ -52,14 +52,13 @@ body {
     position: absolute;
     top: 8px;
     right: 8px;
-    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
     opacity: 0.95;
     height: 30px;
     border-radius: 50%;
     width: 30px;
-    background: whitesmoke url("./assets/img/button-of-three-vertical-squares.png") no-repeat center;
+    background-color: whitesmoke;
     transform: scale(0);
-    transition: transform 0.2s;
+    transition: transform 0.1s;
 }
 
 .actions-hover-place:hover .menu {
@@ -467,6 +466,9 @@ md-backdrop.md-opaque {
     background-color: ghostwhite;
 }
 
+button{
+    border: none;
+}
 
 *:focus {
     outline: none;

@@ -13,8 +13,8 @@ class AddImageController {
 
         var randomFillingImage = new RandomFillingImage();
 
-        $scope.randomLikes = true;
-        $scope.randomComments = true;
+        this.randomLikes = false;
+        this.randomComments = false;
         $scope.image = null;
 
         $scope.addImage = () => {
@@ -25,10 +25,10 @@ class AddImageController {
                     image_likes: [],
                     comments: []
                 };
-                if($scope.randomLikes){
+                if(this.randomLikes === true){
                     randomFillingImage.setLikes(image);
                 }
-                if($scope.randomComments){
+                if(this.randomComments === true){
                     randomFillingImage.setComment(image);
                 }
                 imageService.put(image).then((image)=> {
@@ -38,6 +38,7 @@ class AddImageController {
                 }).catch(ErrorHandler);
             }
         };
+
 
         $scope.onLoad = function (e, reader, file, fileList, fileObjects, fileObj) {
             var attachment = {};
@@ -52,6 +53,11 @@ class AddImageController {
             if ($scope.image) {
                 return $scope.image[Object.keys($scope.image)[0]];
             }
+        };
+
+        $scope.openMenu = ($mdMenu, event) => {
+            var originatorEv = event;
+            $mdMenu.open(event);
         };
 
         function ErrorHandler(err){
