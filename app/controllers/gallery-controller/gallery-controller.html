@@ -1,5 +1,8 @@
 <toaster-container toaster-options="{'time-out': 5000}"></toaster-container>
-<div class="galleryGrid" the-freewall>
+<div class="title-app">
+    <span class="gray-font">Welcome to Viseven <span class="blue-font">ImageStock</span></span>
+</div>
+<div class="galleryGrid" the-freewall id="galleryGrid">
     <md-card class="card" ng-class="[resizeImage.width, resizeImage.height]" ng-repeat="resizeImage in resizingImages" ng-style="{'background-image':'url(' + resizeImage.image.imageUrl + ')'}" repeat-brick
              ng-click="toDetail($event, resizeImage.image)">
         <div class="actions-hover-place">
@@ -10,7 +13,6 @@
                             <md-button ng-click="showConfirmForDelete($event, resizeImage.image);">
                                 <div layout="row" flex>
                                     <p flex>Delete</p>
-                                    <md-icon md-menu-align-target md-svg-icon="call:portable-wifi-off" ></md-icon>
                                 </div>
                             </md-button>
                         </md-menu-item>
@@ -38,3 +40,24 @@
         </div>
     </md-card>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+
+        var container = document.querySelector('.galleryGrid');
+
+        if (!container) {
+            return;
+        }
+
+        new MutationObserver(function(mutations) {
+            console.log('resize');
+            $(window).trigger("resize");
+        }).observe(container, {
+            childList: true
+        });
+
+
+    });
+</script>

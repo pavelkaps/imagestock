@@ -11,7 +11,6 @@ class ImageService {
         HTTP.set(this, $http);
         Q.set(this, $q);
     }
-
     getAll() {
         //return HTTP.get(this).get(this.imageApiURL);
         return this.db.allDocs({

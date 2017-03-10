@@ -6,14 +6,22 @@ body {
 .title-app {
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 24px;
     letter-spacing: -1px;
+    margin-left: 28px;
+    margin-top: 18px;
 }
 
-.title-app span {
+.title-app .blue-font {
     color: #21b8c6;
 }
 
+.title-app .gray-font {
+    color: #8499a7;
+}
+
 .galleryGrid {
+    margin: 0 20px;
     height: 600px;
     width: auto;
     overflow-x: auto;
@@ -32,7 +40,7 @@ body {
     height: 190px;
 }
 
-.actions-hover-place{
+.actions-hover-place {
     position: absolute;
     top: 0;
     right: 0;
@@ -40,21 +48,21 @@ body {
     height: 50%;
 }
 
-.menu{
+.menu {
     position: absolute;
     top: 8px;
     right: 8px;
-    border: 1px solid gray;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
     opacity: 0.95;
-    background-color: whitesmoke;
     height: 30px;
     border-radius: 50%;
     width: 30px;
+    background: whitesmoke url("./assets/img/button-of-three-vertical-squares.png") no-repeat center;
     transform: scale(0);
     transition: transform 0.2s;
 }
 
-.actions-hover-place:hover .menu{
+.actions-hover-place:hover .menu {
     transform: scale(1);
 }
 
@@ -63,7 +71,7 @@ md-dialog.dialog-detail {
     height: 550px;
 }
 
-md-dialog.dialog-detail md-dialog-content{
+md-dialog.dialog-detail md-dialog-content {
     height: 100%;
 }
 
@@ -90,14 +98,13 @@ md-dialog.dialog-detail md-dialog-content{
     transition: bottom 0.3s, background-color 0.2s, background 0.2s;
 }
 
-
-.image-actions-bar .action-item{
+.image-actions-bar .action-item {
     position: relative;
     width: 65px;
     margin-right: 5px;
 }
 
-.action-item{
+.action-item {
     cursor: pointer;
     opacity: 0;
 }
@@ -107,12 +114,12 @@ md-dialog.dialog-detail md-dialog-content{
     bottom: 0;
 }
 
-.image-block:hover .image-actions-bar .action-item{
+.image-block:hover .image-actions-bar .action-item {
     bottom: 0;
     opacity: 1;
 }
 
-.normal-item{
+.normal-item {
     opacity: 0;
     position: relative;
     top: -5px;
@@ -130,12 +137,12 @@ md-dialog.dialog-detail md-dialog-content{
     background: rgba(224, 229, 233, 1) url("./assets/img/like_icon_normal.png") no-repeat center;;
 }
 
-.image-block:hover .image-actions-bar .dislike.action-active{
+.image-block:hover .image-actions-bar .dislike.action-active {
     transition: top 0.6s, background 0.6s;
     background: rgba(209, 35, 36, 1) url("./assets/img/dislike_icon_active.png") no-repeat center;
 }
 
-.image-block:hover .image-actions-bar .like.action-active{
+.image-block:hover .image-actions-bar .like.action-active {
     transition: top 0.6s, background 0.6s;
     background: rgba(35, 209, 207, 1) url("./assets/img/like icon_active.png") no-repeat center;
 }
@@ -162,7 +169,7 @@ md-dialog.dialog-detail md-dialog-content{
     border: 2px solid #a0b0ba;
 }
 
-.count-middle{
+.count-middle {
     line-height: 16px;
     height: 16px;
     width: 16px;
@@ -180,7 +187,7 @@ md-dialog.dialog-detail md-dialog-content{
     border: 2px solid white;
 }
 
-.action-active .count{
+.action-active .count {
     border: 2px solid white;
 }
 
@@ -195,7 +202,6 @@ md-dialog.dialog-detail md-dialog-content{
     box-sizing: border-box;
 }
 
-
 .comments {
     border-bottom: 2px solid #f3f5f8;
     overflow: auto;
@@ -208,6 +214,7 @@ md-dialog.dialog-detail md-dialog-content{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 3px;
+    color: #b5c1c9;
 }
 
 .comment-owner {
@@ -239,7 +246,7 @@ md-dialog.dialog-detail md-dialog-content{
     padding: 5px;
     box-sizing: border-box;
     border-radius: 2px;
-    border: 2px solid #eff3f6;
+    border: 2px solid #f0f3f6;
 }
 
 .comment {
@@ -250,7 +257,7 @@ md-dialog.dialog-detail md-dialog-content{
 .nickname-input {
     box-sizing: border-box;
     padding-left: 5px;
-    width: calc(92% - 6px);
+    width: calc(96% - 6px);
     border: none;
     border-bottom: 2px solid #f3f5f8;
     margin-bottom: 10px;
@@ -258,7 +265,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .comments-inpunts {
-    width: calc(92% - 6px);
+    width: calc(96% - 6px);
 }
 
 .comment-input {
@@ -273,11 +280,11 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .nickname-input:focus,
-.comment-input:focus{
-    border-color: #21b8c6 ;
+.comment-input:focus {
+    border-color: #21b8c6;
 }
 
-.input-invalid{
+.input-invalid {
     border-color: #d02828;
 }
 
@@ -295,7 +302,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .close-btn {
-    background:white url("./assets/img/close icon.png") no-repeat center;
+    background: white url("./assets/img/close icon.png") no-repeat center;
     cursor: pointer;
     position: absolute;
     height: 30px;
@@ -357,6 +364,7 @@ md-dialog.dialog-detail md-dialog-content{
 }
 
 .add-img-card-description {
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 80px;
@@ -390,12 +398,12 @@ md-dialog.dialog-add-image {
     height: 100%;
 }
 
-.image-url-input{
+.image-url-input {
     width: 100%;
     margin-bottom: 0;
 }
 
-.example-image{
+.example-image {
     background-size: cover;
     position: relative;
     width: 100%;
@@ -403,15 +411,16 @@ md-dialog.dialog-add-image {
     overflow: hidden;
 }
 
-.actions-block{
+.actions-block {
     width: 90%;
     height: 15%;
     margin: 0 auto;
 }
 
-.full-height{
+.full-height {
     height: 100%;
 }
+
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -458,9 +467,6 @@ md-backdrop.md-opaque {
     background-color: ghostwhite;
 }
 
-md-icon{
-    margin: auto 3px auto 0;
-}
 
 *:focus {
     outline: none;

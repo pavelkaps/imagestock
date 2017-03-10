@@ -48,11 +48,13 @@ class GalleryController {
         $scope.deleteImage = (image) => {
             console.log(image);
             imageService.deleteImageById(image.id).then((data)=> {
+
                 if (data.ok === true) {
                     DeleteFromResizingImages(image.id);
+                    toaster.pop('info', "Успешно", "Изображение удалено");
                 }
-                toaster.pop('info', "Успешно", "Изображение удалено");
-                $scope.$apply();
+
+
             }).catch(ErrorHandler);
         };
 
@@ -97,13 +99,20 @@ class GalleryController {
         };
 
         function DeleteFromResizingImages(_id) {
-            $scope.resizingImages.find((el, index, arr)=> {
+            $scope.$apply(()=>{
+                $scope.resizingImages = $scope.resizingImages.filter((data)=>{
+                    return data.image.id !== _id;
+                });
+            });
+
+            console.log($scope.resizingImages);
+           /* $scope.resizingImages.find((el, index, arr)=> {
                 if (el.image.id === _id) {
                     $scope.resizingImages.splice(index, 1);
                     return true;
                 }
                 return false;
-            });
+            });*/
         }
 
         function randomResizeImages(data) {

@@ -25,7 +25,7 @@
                                 By {{comment.own}}
                             </div>
                             <div class="comment-date">
-                                {{comment.date | date: 'shortTime'}}
+                                <span am-time-ago="comment.date"></span> {{comment.date | date: 'shortTime'}}
                             </div>
                         </div>
                         <div class="comment-text">

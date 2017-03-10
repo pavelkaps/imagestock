@@ -1,4 +1,5 @@
 import {GUID} from '../../additional/GUID'
+import {RandomFillingImage} from '../../additional/RandomFillingImage'
 
 class AddImageController {
     constructor($scope, $mdDialog, toaster, imageService) {
@@ -10,6 +11,10 @@ class AddImageController {
             $mdDialog.cancel();
         };
 
+        var randomFillingImage = new RandomFillingImage();
+
+        $scope.randomLikes = true;
+        $scope.randomComments = true;
         $scope.image = null;
 
         $scope.addImage = () => {
@@ -20,7 +25,12 @@ class AddImageController {
                     image_likes: [],
                     comments: []
                 };
-                
+                if($scope.randomLikes){
+                    randomFillingImage.setLikes(image);
+                }
+                if($scope.randomComments){
+                    randomFillingImage.setComment(image);
+                }
                 imageService.put(image).then((image)=> {
                     console.log(image);
                     $mdDialog.hide(image);

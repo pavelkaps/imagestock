@@ -20,7 +20,7 @@ gulp.task('styles',function () {
              browsers: ['last 2 versions'],
              cascade: false
          }))
-         .pipe(gulp.dest('dist'));
+         .pipe(gulp.dest('bundle'));
     }
 );
 
@@ -31,31 +31,33 @@ gulp.task('js', function () {
             presets: ['es2015']
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('bundle'));
 });
 
 gulp.task('bundle', function() {
-    return browserify('dist/app.js')
+    return browserify('bundle/app.js')
         .transform(babelify.configure({
             presets : ["es2015"]
         }))
         .bundle()
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('bundle'));
 });
 
 gulp.task('clean', function(cb) {
-    return del(["dist"], cb);
+    return del(["bundle"], cb);
 });
 
-
+gulp.task("build:js", function (callback) {
+    runSequence('clean', 'js', 'bundle');
+});
 
 gulp.task("build:client", function (callback) {
-    runSequence('clean', 'js', 'bundle', 'styles');
+    runSequence('build:js', 'styles');
 });
 
 gulp.task('watch:js', function() {
-    gulp.watch('app/**/*.es6', runSequence('clean', 'js', 'bundle'));
+    gulp.watch('app/**/*.es6', ['build:js']);
 });
 
 gulp.task('watch:css', function() {
