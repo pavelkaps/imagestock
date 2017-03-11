@@ -69,6 +69,7 @@ class ImageDetailController {
                         }
                         return false;
                     });
+                    toaster.pop('info', "Успешно", "Коментарий удален.");
                 }
             }).catch(ErrorHandler);
         };

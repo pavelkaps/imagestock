@@ -84,6 +84,7 @@ var ImageDetailController = function () {
                             }
                             return false;
                         });
+                        toaster.pop('info', "Успешно", "Коментарий удален.");
                     }
                 }).catch(ErrorHandler);
             };

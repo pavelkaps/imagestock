@@ -14,13 +14,13 @@ var gulp = require('gulp'),
     del = require("del");
 
 gulp.task('styles',function () {
-     gulp.src('./assets/styles/*.sass')
+     gulp.src('app/assets/styles/*.scss')
          .pipe(sass().on('error', sass.logError))
          .pipe(autoprefixer({
              browsers: ['last 2 versions'],
              cascade: false
          }))
-         .pipe(gulp.dest('bundle'));
+         .pipe(gulp.dest('app/assets/styles'));
     }
 );
 
@@ -53,7 +53,7 @@ gulp.task("build:js", function (callback) {
 });
 
 gulp.task("build:client", function (callback) {
-    runSequence('build:js', 'styles');
+    runSequence('clean', 'js', 'bundle', 'styles');
 });
 
 gulp.task('watch:js', function() {
@@ -61,6 +61,6 @@ gulp.task('watch:js', function() {
 });
 
 gulp.task('watch:css', function() {
-    gulp.watch('app/**/*.sass', ['styles']);
+    gulp.watch('app/**/*.scss', ['styles']);
 });
 

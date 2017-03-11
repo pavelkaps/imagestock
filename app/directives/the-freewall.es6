@@ -4,7 +4,7 @@ function  TheFreeWall($window){
             var wall = new Freewall(".galleryGrid");
             console.log("directive");
             wall.reset({
-                selector: '.card',
+                selector: '.image-card',
                 animate: true,
                 cellW: 238,
                 cellH: 190,
