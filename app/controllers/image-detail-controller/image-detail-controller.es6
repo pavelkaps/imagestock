@@ -8,7 +8,7 @@ class ImageDetailController {
     }
 
     init($scope, detailImageService, $mdDialog, toaster, imageService) {
-        
+
         $scope.like = false;
         $scope.dislike = false;
 
@@ -16,24 +16,24 @@ class ImageDetailController {
         SetLikeToImage($scope.image);
 
         $scope.setLike = () => {
-            if($scope.like === false){
+            if ($scope.like === false) {
                 AddLike('like');
             }
             if ($scope.dislike === true && $scope.like === false) {
                 $scope.dislike = false;
-            }else if($scope.like === true){
+            } else if ($scope.like === true) {
                 DeleteLike($scope.image.id, USER_ID);
             }
             $scope.like = !$scope.like;
         };
 
         $scope.setDislike = () => {
-            if($scope.dislike === false){
+            if ($scope.dislike === false) {
                 AddLike('dislike');
             }
             if ($scope.dislike === false && $scope.like === true) {
                 $scope.like = false;
-            }else if($scope.dislike === true){
+            } else if ($scope.dislike === true) {
                 DeleteLike($scope.image.id, USER_ID);
             }
             $scope.dislike = !$scope.dislike;
@@ -47,28 +47,22 @@ class ImageDetailController {
                 var comment = {
                     id: GUID(2),
                     own: nickname,
-                    text:  text,
-                    date:  Date.now()
+                    text: text,
+                    date: Date.now()
                 };
 
-                imageService.addComment($scope.image.id, comment).then((image)=>{
+                imageService.addComment($scope.image.id, comment).then((image)=> {
                     $scope.image.comments.push(comment);
                 }).catch(ErrorHandler);
             } else {
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
             }
         };
-        
-        $scope.deleteComment = (image, comment) =>{
-            imageService.deleteComment(image.id, comment.id).then((data)=>{
-                if(data.ok === true){
-                    image.comments.find((el, index, arr)=>{
-                        if(el.id === comment.id){
-                            image.comments.splice(index, 1);
-                            return true;
-                        }
-                        return false;
-                    });
+
+        $scope.deleteComment = (image, comment) => {
+            imageService.deleteComment(image.id, comment.id).then((data)=> {
+                if (data.ok === true) {
+                    $scope.image.comments = image.comments.filter( _comment => _comment.id !== comment.id);
                     toaster.pop('info', "Успешно", "Коментарий удален.");
                     $scope.$apply();
                 }
@@ -76,13 +70,9 @@ class ImageDetailController {
         };
 
         $scope.countActions = (image, action) => {
-            var count = 0;
-            image.image_likes.forEach((el, ind, arr) => {
-                if (el.like_type === action) {
-                    count++;
-                }
-            });
-            return count;
+            return image.image_likes
+                .filter(like => like.like_type === action)
+                .length;
         };
 
         $scope.close = () => {
@@ -93,8 +83,8 @@ class ImageDetailController {
             imageService.addLike($scope.image.id, {
                 like_type: type,
                 own: USER_ID
-            }).then((data)=>{
-                    $scope.image.image_likes = data.image_likes;
+            }).then((data)=> {
+                $scope.image.image_likes = data.image_likes;
                 $scope.$apply();
             }).catch(ErrorHandler);
         }
@@ -107,21 +97,21 @@ class ImageDetailController {
         }
 
         function SetLikeToImage(image) {
-            image.image_likes.forEach((el, ind, arr)=>{
-                if(el.like_type === 'like' && el.own === USER_ID){
+            image.image_likes.forEach((el, ind, arr)=> {
+                if (el.like_type === 'like' && el.own === USER_ID) {
                     $scope.like = true;
-                }else if(el.like_type === 'dislike' && el.own === USER_ID){
+                } else if (el.like_type === 'dislike' && el.own === USER_ID) {
                     $scope.dislike = true;
                 }
             });
         }
 
-        function ErrorHandler(err){
+        function ErrorHandler(err) {
             console.log(err);
             toaster.pop('info', "Ошибка", "Произошла ошибка");
         }
     }
 }
 
-ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster','imageService'];
+ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 'toaster', 'imageService'];
 export {ImageDetailController}

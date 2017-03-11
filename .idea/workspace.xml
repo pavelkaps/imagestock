@@ -2,27 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d2e009-34c9-4f27-99c2-f4bf59a35d52" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mock-data/images.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/styles/styles.css" afterPath="$PROJECT_DIR$/app/assets/styles/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/styles/styles.scss" afterPath="$PROJECT_DIR$/app/assets/styles/styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" afterPath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html" afterPath="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" afterPath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.html" afterPath="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/factory/image-factory.es6" afterPath="$PROJECT_DIR$/app/factory/image-factory.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repository/ImageRepository.es6" afterPath="$PROJECT_DIR$/app/repository/ImageRepository.es6" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/style.css" afterPath="$PROJECT_DIR$/app/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/bundle.js" afterPath="$PROJECT_DIR$/bundle/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/controllers/gallery-controller/gallery-controller.js" afterPath="$PROJECT_DIR$/bundle/controllers/gallery-controller/gallery-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/controllers/gallery-controller/gallery-controller.js.map" afterPath="$PROJECT_DIR$/bundle/controllers/gallery-controller/gallery-controller.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/controllers/image-detail-controller/image-detail-controller.js" afterPath="$PROJECT_DIR$/bundle/controllers/image-detail-controller/image-detail-controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/controllers/image-detail-controller/image-detail-controller.js.map" afterPath="$PROJECT_DIR$/bundle/controllers/image-detail-controller/image-detail-controller.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/factory/image-factory.js" afterPath="$PROJECT_DIR$/bundle/factory/image-factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/factory/image-factory.js.map" afterPath="$PROJECT_DIR$/bundle/factory/image-factory.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/repository/ImageRepository.js" afterPath="$PROJECT_DIR$/bundle/repository/ImageRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle/repository/ImageRepository.js.map" afterPath="$PROJECT_DIR$/bundle/repository/ImageRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer123.jpg" afterPath="$PROJECT_DIR$/images/Layer123.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer21.jpg" afterPath="$PROJECT_DIR$/images/Layer21.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer22.jpg" afterPath="$PROJECT_DIR$/images/Layer22.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer3.jpg" afterPath="$PROJECT_DIR$/images/Layer3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer4.jpg" afterPath="$PROJECT_DIR$/images/Layer4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mock-data/image/Layer41.jpg" afterPath="$PROJECT_DIR$/images/Layer41.jpg" />
     </list>
     <ignored path="ImageGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +37,8 @@
       <file leaf-file-name="gallery-controller.es6" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-231">
-              <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+            <state relative-caret-position="407">
+              <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="80" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -56,21 +47,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="292">
+              <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageRepository.es6" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/repository/ImageRepository.es6">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="46" column="90" selection-start-line="46" selection-start-column="90" selection-end-line="46" selection-end-column="90" />
-              <folding>
-                <element signature="n#!!doc;n#ImageRepository#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -78,8 +57,18 @@
       <file leaf-file-name="image-detail-controller.es6" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
+            <state relative-caret-position="420">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomFillingImage.es6" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/additional/RandomFillingImage.es6">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -118,8 +107,8 @@
       <file leaf-file-name="add-image-controller.es6" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-294">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+            <state relative-caret-position="165">
+              <caret line="17" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,12 +196,12 @@
         <option value="$PROJECT_DIR$/app/factory/image-factory.es6" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/repository/ImageRepository.es6" />
-        <option value="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" />
         <option value="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6" />
         <option value="$PROJECT_DIR$/app/style.css" />
         <option value="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.html" />
         <option value="$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.html" />
         <option value="$PROJECT_DIR$/app/assets/styles/styles.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6" />
       </list>
     </option>
   </component>
@@ -224,7 +213,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1371" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -320,7 +309,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image-detail-controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -338,11 +331,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
+              <option name="myItemId" value="gallery-controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ImageGallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,18 +372,18 @@
     <property name="last_opened_file_path" value="D:/freewall-master" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ImageGallery\images" />
+      <recent name="D:\ImageGallery\app" />
+      <recent name="D:\ImageGallery\test" />
+      <recent name="D:\ImageGallery" />
+      <recent name="D:\ImageGallery\assets\styles" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\ImageGallery\app\assets\svg" />
       <recent name="D:\ImageGallery\app" />
       <recent name="D:\ImageGallery\assets\js" />
       <recent name="D:\ImageGallery" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\ImageGallery\app" />
-      <recent name="D:\ImageGallery\test" />
-      <recent name="D:\ImageGallery" />
-      <recent name="D:\ImageGallery\assets\styles" />
-      <recent name="D:\ImageGallery\controllers\gallery-controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -474,18 +485,18 @@
       <workItem from="1489114941125" duration="3567000" />
       <workItem from="1489128838525" duration="1623000" />
       <workItem from="1489161731809" duration="9971000" />
-      <workItem from="1489214937306" duration="19960000" />
+      <workItem from="1489214937306" duration="20958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293894000" />
+    <option name="totallyTimeSpent" value="294892000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1370" height="728" extended-state="0" />
+    <frame x="-8" y="0" width="1371" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22895126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22878228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -730,14 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/additional/RandomFillingImage.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/repository/ImageRepository.es6">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -745,30 +748,6 @@
           <folding>
             <element signature="n#!!doc;n#ImageRepository#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-294">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,10 +791,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/add-image/add-image-controller.es6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/gallery-controller/gallery-controller.es6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="80" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/additional/RandomFillingImage.es6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/image-detail-controller/image-detail-controller.es6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        <state relative-caret-position="292">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
           <folding />
         </state>
       </provider>

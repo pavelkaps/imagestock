@@ -544,12 +544,8 @@ var ImageDetailController = function () {
             $scope.deleteComment = function (image, comment) {
                 imageService.deleteComment(image.id, comment.id).then(function (data) {
                     if (data.ok === true) {
-                        image.comments.find(function (el, index, arr) {
-                            if (el.id === comment.id) {
-                                image.comments.splice(index, 1);
-                                return true;
-                            }
-                            return false;
+                        $scope.image.comments = image.comments.filter(function (_comment) {
+                            return _comment.id !== comment.id;
                         });
                         toaster.pop('info', "Успешно", "Коментарий удален.");
                         $scope.$apply();
@@ -558,13 +554,9 @@ var ImageDetailController = function () {
             };
 
             $scope.countActions = function (image, action) {
-                var count = 0;
-                image.image_likes.forEach(function (el, ind, arr) {
-                    if (el.like_type === action) {
-                        count++;
-                    }
-                });
-                return count;
+                return image.image_likes.filter(function (like) {
+                    return like.like_type === action;
+                }).length;
             };
 
             $scope.close = function () {
