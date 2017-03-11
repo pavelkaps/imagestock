@@ -53,6 +53,7 @@ class ImageDetailController {
 
                 imageService.addComment($scope.image.id, comment).then((image)=> {
                     $scope.image.comments.push(comment);
+                    $scope.$apply();
                 }).catch(ErrorHandler);
             } else {
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");

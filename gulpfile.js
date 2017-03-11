@@ -57,11 +57,9 @@ gulp.task("build:client", function (callback) {
     runSequence('clean', 'js', 'bundle', 'styles');
 });
 
-gulp.task('watch:js', function() {
+gulp.task('watch', function() {
     gulp.watch('app/**/*.es6', ['build:js']);
-});
-
-gulp.task('watch:css', function() {
     gulp.watch('app/**/*.scss', ['styles']);
 });
+
 
