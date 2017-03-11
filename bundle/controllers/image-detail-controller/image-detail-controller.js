@@ -3,8 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.ImageDetailController = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _GUID = require('../../additional/GUID');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -57,7 +60,7 @@ var ImageDetailController = function () {
                     $scope.commentText = '';
 
                     var comment = {
-                        own_id: USER_ID,
+                        id: (0, _GUID.GUID)(2),
                         own: nickname,
                         text: text,
                         date: Date.now()
@@ -69,6 +72,20 @@ var ImageDetailController = function () {
                 } else {
                     toaster.pop('warning', "Ошибка", "Заполните все поля.");
                 }
+            };
+
+            $scope.deleteComment = function (image, comment) {
+                imageService.deleteComment(image.id, comment.id).then(function (data) {
+                    if (data.ok === true) {
+                        image.comments.find(function (el, index, arr) {
+                            if (el.id === comment.id) {
+                                image.comments.splice(index, 1);
+                                return true;
+                            }
+                            return false;
+                        });
+                    }
+                }).catch(ErrorHandler);
             };
 
             $scope.countActions = function (image, action) {

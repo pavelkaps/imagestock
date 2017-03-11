@@ -1,3 +1,5 @@
+import {GUID} from '../../additional/GUID'
+
 const USER_ID = 'user';
 
 class ImageDetailController {
@@ -23,7 +25,6 @@ class ImageDetailController {
                 DeleteLike($scope.image.id, USER_ID);
             }
             $scope.like = !$scope.like;
-
         };
 
         $scope.setDislike = () => {
@@ -44,7 +45,7 @@ class ImageDetailController {
                 $scope.commentText = '';
 
                 var comment = {
-                    own_id: USER_ID,
+                    id: GUID(2),
                     own: nickname,
                     text:  text,
                     date:  Date.now()
@@ -56,6 +57,20 @@ class ImageDetailController {
             } else {
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
             }
+        };
+        
+        $scope.deleteComment = (image, comment) =>{
+            imageService.deleteComment(image.id, comment.id).then((data)=>{
+                if(data.ok === true){
+                    image.comments.find((el, index, arr)=>{
+                        if(el.id === comment.id){
+                            image.comments.splice(index, 1);
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+            }).catch(ErrorHandler);
         };
 
         $scope.countActions = (image, action) => {

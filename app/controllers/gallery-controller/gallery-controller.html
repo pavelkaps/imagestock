@@ -16,7 +16,7 @@
                             <md-button ng-click="showConfirmForDelete($event, resizeImage.image);">
                                 <div layout="row" flex>
                                     <p flex>Delete</p>
-                                    <md-icon md-menu-align-target md-svg-icon="app/assets/svg/delete.svg" style="margin: auto 3px auto 0;"></md-icon>
+                                    <md-icon md-menu-align-target md-svg-icon="app/assets/svg/delete.svg" style="margin: auto 0"></md-icon>
                                 </div>
                             </md-button>
                         </md-menu-item>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </md-card>
-    <md-card class="card" ng-click="addImage($event)" data-position="0-0" >
+    <md-card class="card" id="add-card" ng-click="addImage($event)"  data-position="0-0">
         <div class="centered-plus-icon">
             <div class="plus-icon"></div>
         </div>
@@ -48,20 +48,14 @@
 <script>
     $(document).ready(function () {
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-
         var container = document.querySelector('.galleryGrid');
-
         if (!container) {
             return;
         }
-
         new MutationObserver(function(mutations) {
-            console.log('resize');
             $(window).trigger("resize");
         }).observe(container, {
             childList: true
         });
-
-
     });
 </script>

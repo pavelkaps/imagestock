@@ -42,14 +42,13 @@ var GalleryController = function () {
                 console.log('delete dialog');
                 var confirm = $mdDialog.confirm().title('Do you want to delete this image?').targetEvent(ev).ok('Delete').cancel('Cancel');
                 $mdDialog.show(confirm).then(function () {
-                    $scope.deleteImage(image);
+                    deleteImage(image);
                 }, function () {});
             };
 
-            $scope.deleteImage = function (image) {
+            function deleteImage(image) {
                 console.log(image);
                 imageService.deleteImageById(image.id).then(function (data) {
-
                     if (data.ok === true) {
                         DeleteFromResizingImages(image.id);
                         toaster.pop('info', "Успешно", "Изображение удалено");
@@ -58,7 +57,6 @@ var GalleryController = function () {
             };
 
             $scope.toDetail = function (ev, image) {
-                console.log(ev);
                 detailImageService.setImage(image);
                 $mdDialog.show({
                     templateUrl: './app/controllers/image-detail-controller/image-detail-controller.html',
@@ -99,8 +97,6 @@ var GalleryController = function () {
                         return data.image.id !== _id;
                     });
                 });
-
-                console.log($scope.resizingImages);
             }
 
             function randomResizeImages(data) {

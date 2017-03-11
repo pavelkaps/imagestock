@@ -13,7 +13,7 @@ export class RandomFillingImage {
         let comments = [];
         for (let i = 0; i < count; i++) {
             let comment = {
-                own_id: GUID(2),
+                id: GUID(2),
                 own: this.nicknames[Math.floor(Math.random() * this.nicknames.length) ],
                 text: this.comments[Math.floor(Math.random() * this.comments.length)],
                 date: this.randomDate(new Date(2012, 0, 1), new Date())

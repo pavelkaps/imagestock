@@ -41,7 +41,9 @@ var ImageRepository = exports.ImageRepository = function () {
                             imageUrl: URL.createObjectURL(data)
                         };
                     });
-                }));
+                })).catch(function (err) {
+                    console.log(err);
+                });
             });
         }
     }, {
@@ -63,6 +65,8 @@ var ImageRepository = exports.ImageRepository = function () {
                     image_likes: docId.image_likes,
                     imageUrl: URL.createObjectURL(data)
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }
@@ -78,7 +82,9 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this3.db.put(doc).then(function (data) {
                     defer.resolve(doc.image_likes);
                 });
-            });
+            }).catch(function (err) {
+                defer.reject(err);
+            });;
             return defer.promise;
         }
     }, {
@@ -90,7 +96,9 @@ var ImageRepository = exports.ImageRepository = function () {
             this.db.get(_id).then(function (doc) {
                 _this4.deleteLikeFromDoc(doc, userId);
                 defer.resolve(doc.image_likes);
-            });
+            }).catch(function (err) {
+                defer.reject(err);
+            });;
             return defer.promise;
         }
     }, {
@@ -115,6 +123,8 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this5.db.put(doc).then(function (data) {
                     defer.resolve(data);
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }
@@ -126,7 +136,7 @@ var ImageRepository = exports.ImageRepository = function () {
             var defer = Q.get(this).defer();
             this.db.get(idImage).then(function (doc) {
                 doc.comments.find(function (el, index, arr) {
-                    if (el.own_id === idComment) {
+                    if (el.id === idComment) {
                         doc.comments.splice(index, 1);
                         return true;
                     }
@@ -135,6 +145,8 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this6.db.put(doc).then(function (data) {
                     defer.resolve(data);
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }

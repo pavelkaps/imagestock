@@ -25,7 +25,9 @@ export class ImageRepository {
                         imageUrl: URL.createObjectURL(data)
                     }
                 });
-            })))
+            }))).catch((err)=> {
+                console.log(err);
+            });
         });
     }
 
@@ -44,11 +46,13 @@ export class ImageRepository {
                 image_likes: docId.image_likes,
                 imageUrl: URL.createObjectURL(data)
             });
-        });
+        }).catch((err)=> {
+                defer.reject(err);
+            });
         return defer.promise;
     }
 
-    addLike(_id,  like) {
+    addLike(_id, like) {
         let defer = Q.get(this).defer();
         this.db.get(_id).then((doc) => {
             this.deleteLikeFromDoc(doc, like.own);
@@ -57,7 +61,9 @@ export class ImageRepository {
                 defer.resolve(doc.image_likes);
             });
 
-        });
+        }).catch((err)=> {
+            defer.reject(err);
+        });;
         return defer.promise;
     }
 
@@ -66,13 +72,15 @@ export class ImageRepository {
         this.db.get(_id).then((doc) => {
             this.deleteLikeFromDoc(doc, userId);
             defer.resolve(doc.image_likes);
-        });
+        }).catch((err)=> {
+            defer.reject(err);
+        });;
         return defer.promise;
     }
 
-    deleteLikeFromDoc(doc, userId){
+    deleteLikeFromDoc(doc, userId) {
         doc.image_likes.find((el, ind, arr)=> {
-            if (el.own ===  userId) {
+            if (el.own === userId) {
                 doc.image_likes.splice(ind, 1);
                 return true;
             }
@@ -87,15 +95,17 @@ export class ImageRepository {
             this.db.put(doc).then((data)=> {
                 defer.resolve(data)
             });
+        }).catch((err)=> {
+            defer.reject(err);
         });
         return defer.promise;
     }
 
-    deleteComment(idImage, idComment){
+    deleteComment(idImage, idComment) {
         let defer = Q.get(this).defer();
         this.db.get(idImage).then((doc) => {
-            doc.comments.find((el, index, arr)=>{
-                if(el.own_id === idComment){
+            doc.comments.find((el, index, arr)=> {
+                if (el.id === idComment) {
                     doc.comments.splice(index, 1);
                     return true;
                 }
@@ -104,6 +114,8 @@ export class ImageRepository {
             this.db.put(doc).then((data)=> {
                 defer.resolve(data)
             });
+        }).catch((err)=> {
+            defer.reject(err);
         });
         return defer.promise;
     }
@@ -117,7 +129,7 @@ export class ImageRepository {
     deleteImageById(_id) {
         return this.db.get(_id).then((doc) => {
             return this.db.remove(doc);
-        });
+        })
     }
 
     static getInstance($http, $q) {

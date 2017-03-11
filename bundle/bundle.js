@@ -130,7 +130,7 @@ var RandomFillingImage = exports.RandomFillingImage = function () {
             var comments = [];
             for (var i = 0; i < count; i++) {
                 var comment = {
-                    own_id: (0, _GUID.GUID)(2),
+                    id: (0, _GUID.GUID)(2),
                     own: this.nicknames[Math.floor(Math.random() * this.nicknames.length)],
                     text: this.comments[Math.floor(Math.random() * this.comments.length)],
                     date: this.randomDate(new Date(2012, 0, 1), new Date())
@@ -381,14 +381,13 @@ var GalleryController = function () {
                 console.log('delete dialog');
                 var confirm = $mdDialog.confirm().title('Do you want to delete this image?').targetEvent(ev).ok('Delete').cancel('Cancel');
                 $mdDialog.show(confirm).then(function () {
-                    $scope.deleteImage(image);
+                    deleteImage(image);
                 }, function () {});
             };
 
-            $scope.deleteImage = function (image) {
+            function deleteImage(image) {
                 console.log(image);
                 imageService.deleteImageById(image.id).then(function (data) {
-
                     if (data.ok === true) {
                         DeleteFromResizingImages(image.id);
                         toaster.pop('info', "Успешно", "Изображение удалено");
@@ -397,7 +396,6 @@ var GalleryController = function () {
             };
 
             $scope.toDetail = function (ev, image) {
-                console.log(ev);
                 detailImageService.setImage(image);
                 $mdDialog.show({
                     templateUrl: './app/controllers/image-detail-controller/image-detail-controller.html',
@@ -438,8 +436,6 @@ var GalleryController = function () {
                         return data.image.id !== _id;
                     });
                 });
-
-                console.log($scope.resizingImages);
             }
 
             function randomResizeImages(data) {
@@ -472,6 +468,7 @@ exports.GalleryController = GalleryController;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.ImageDetailController = undefined;
 
 var _createClass = function () {
     function defineProperties(target, props) {
@@ -482,6 +479,8 @@ var _createClass = function () {
         if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
     };
 }();
+
+var _GUID = require('../../additional/GUID');
 
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -538,7 +537,7 @@ var ImageDetailController = function () {
                     $scope.commentText = '';
 
                     var comment = {
-                        own_id: USER_ID,
+                        id: (0, _GUID.GUID)(2),
                         own: nickname,
                         text: text,
                         date: Date.now()
@@ -550,6 +549,20 @@ var ImageDetailController = function () {
                 } else {
                     toaster.pop('warning', "Ошибка", "Заполните все поля.");
                 }
+            };
+
+            $scope.deleteComment = function (image, comment) {
+                imageService.deleteComment(image.id, comment.id).then(function (data) {
+                    if (data.ok === true) {
+                        image.comments.find(function (el, index, arr) {
+                            if (el.id === comment.id) {
+                                image.comments.splice(index, 1);
+                                return true;
+                            }
+                            return false;
+                        });
+                    }
+                }).catch(ErrorHandler);
             };
 
             $scope.countActions = function (image, action) {
@@ -606,7 +619,7 @@ ImageDetailController.$inject = ['$scope', 'detailImageService', '$mdDialog', 't
 exports.ImageDetailController = ImageDetailController;
 
 
-},{}],9:[function(require,module,exports){
+},{"../../additional/GUID":1}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -869,7 +882,9 @@ var ImageRepository = exports.ImageRepository = function () {
                             imageUrl: URL.createObjectURL(data)
                         };
                     });
-                }));
+                })).catch(function (err) {
+                    console.log(err);
+                });
             });
         }
     }, {
@@ -891,6 +906,8 @@ var ImageRepository = exports.ImageRepository = function () {
                     image_likes: docId.image_likes,
                     imageUrl: URL.createObjectURL(data)
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }
@@ -906,7 +923,9 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this3.db.put(doc).then(function (data) {
                     defer.resolve(doc.image_likes);
                 });
-            });
+            }).catch(function (err) {
+                defer.reject(err);
+            });;
             return defer.promise;
         }
     }, {
@@ -918,7 +937,9 @@ var ImageRepository = exports.ImageRepository = function () {
             this.db.get(_id).then(function (doc) {
                 _this4.deleteLikeFromDoc(doc, userId);
                 defer.resolve(doc.image_likes);
-            });
+            }).catch(function (err) {
+                defer.reject(err);
+            });;
             return defer.promise;
         }
     }, {
@@ -943,6 +964,8 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this5.db.put(doc).then(function (data) {
                     defer.resolve(data);
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }
@@ -954,7 +977,7 @@ var ImageRepository = exports.ImageRepository = function () {
             var defer = Q.get(this).defer();
             this.db.get(idImage).then(function (doc) {
                 doc.comments.find(function (el, index, arr) {
-                    if (el.own_id === idComment) {
+                    if (el.id === idComment) {
                         doc.comments.splice(index, 1);
                         return true;
                     }
@@ -963,6 +986,8 @@ var ImageRepository = exports.ImageRepository = function () {
                 _this6.db.put(doc).then(function (data) {
                     defer.resolve(data);
                 });
+            }).catch(function (err) {
+                defer.reject(err);
             });
             return defer.promise;
         }

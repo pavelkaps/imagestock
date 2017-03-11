@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="comments">
-                    <div ng-repeat="comment in image.comments | reverse" class="comment">
+                    <div ng-repeat="comment in image.comments | reverse" class="comment" ng-click="deleteComment(image, comment)">
                         <div class="comment-header">
                             <div class="comment-owner">
                                 By {{comment.own}}
