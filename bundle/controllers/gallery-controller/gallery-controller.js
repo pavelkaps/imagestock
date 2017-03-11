@@ -26,11 +26,8 @@ var GalleryController = function () {
             $scope.resizer = new _ImageResizer.ImageResizer();
 
             imageService.getAll().then(function (data) {
-                $scope.$apply(function () {
-                    console.log(data);
-                    $scope.resizingImages = randomResizeImages(data);
-                    console.log($scope.resizingImages);
-                });
+                $scope.resizingImages = randomResizeImages(data);
+                $scope.$apply();
             }).catch(ErrorHandler);
 
             $scope.openMenu = function ($mdMenu, event) {
@@ -39,7 +36,6 @@ var GalleryController = function () {
             };
 
             $scope.showConfirmForDelete = function (ev, image) {
-                console.log('delete dialog');
                 var confirm = $mdDialog.confirm().title('Do you want to delete this image?').targetEvent(ev).ok('Delete').cancel('Cancel');
                 $mdDialog.show(confirm).then(function () {
                     deleteImage(image);
@@ -52,6 +48,7 @@ var GalleryController = function () {
                     if (data.ok === true) {
                         DeleteFromResizingImages(image.id);
                         toaster.pop('info', "Успешно", "Изображение удалено");
+                        $scope.$apply();
                     }
                 }).catch(ErrorHandler);
             };
@@ -76,26 +73,19 @@ var GalleryController = function () {
                     fullscreen: false
                 }).then(function (image) {
                     $scope.resizingImages.push(randomResizeOneImage(image));
-                }, function () {
-                    console.log('cancel dialog');
-                });
+                    $scope.$apply();
+                }, function () {});
             };
 
             $scope.countActions = function (image, action) {
-                var count = 0;
-                image.image_likes.forEach(function (el, ind, arr) {
-                    if (el.like_type === action) {
-                        count++;
-                    }
-                });
-                return count;
+                return image.image_likes.filter(function (like) {
+                    return like.like_type === action;
+                }).length;
             };
 
             function DeleteFromResizingImages(_id) {
-                $scope.$apply(function () {
-                    $scope.resizingImages = $scope.resizingImages.filter(function (data) {
-                        return data.image.id !== _id;
-                    });
+                $scope.resizingImages = $scope.resizingImages.filter(function (data) {
+                    return data.image.id !== _id;
                 });
             }
 

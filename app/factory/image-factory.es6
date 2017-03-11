@@ -1,6 +1,8 @@
+import {ImageRepository} from '../repository/ImageRepository'
+
 class ImageService {
-    constructor(repository) {
-        this.repository = repository;
+    constructor() {
+        this.repository = new ImageRepository();
     }
     getAll() {
         return this.repository.getAll();
@@ -22,10 +24,6 @@ class ImageService {
         return this.repository.addComment(_id, comment);
     }
 
-    getById(_id) {
-        return this.repository.getById(_id);
-    }
-
     deleteComment(idImage, idComment){
         return this.repository.deleteComment(idImage, idComment);
     }
@@ -34,12 +32,11 @@ class ImageService {
         return this.repository.deleteImageById(_id);
     }
 
-    static getInstance(repository) {
-        return new ImageService(repository);
+    static getInstance() {
+        return new ImageService();
     }
 }
 
-ImageService.getInstance.$inject = ['imageRepository'];
 export {
     ImageService
 }

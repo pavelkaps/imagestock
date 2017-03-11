@@ -7,9 +7,7 @@
              ng-click="toDetail($event, resizeImage.image)">
         <div class="actions-hover-place">
                 <md-menu md-position-mode="target-right target">
-                    <md-button class="md-fab md-mini menu" aria-label="Actions" ng-click="openMenu($mdMenu, $event); $event.stopPropagation()">
-                        <md-icon md-svg-src="app/assets/svg/three.svg" ></md-icon>
-                    </md-button>
+                    <button class="menu" aria-label="Actions" ng-click="openMenu($mdMenu, $event); $event.stopPropagation()"></button>
 
                     <md-menu-content width="2">
                         <md-menu-item>

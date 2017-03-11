@@ -70,6 +70,7 @@ class ImageDetailController {
                         return false;
                     });
                     toaster.pop('info', "Успешно", "Коментарий удален.");
+                    $scope.$apply();
                 }
             }).catch(ErrorHandler);
         };
@@ -93,14 +94,15 @@ class ImageDetailController {
                 like_type: type,
                 own: USER_ID
             }).then((data)=>{
-                $scope.image.image_likes = data;
-                console.log(data);
+                    $scope.image.image_likes = data.image_likes;
+                $scope.$apply();
             }).catch(ErrorHandler);
         }
 
         function DeleteLike(imageId, userId) {
-            imageService.deleteLike(imageId, userId).then((data)=>{
-                $scope.image.image_likes = data;
+            imageService.deleteLike(imageId, userId).then((data)=> {
+                $scope.image.image_likes = data.image_likes;
+                $scope.$apply();
             }).catch(ErrorHandler);
         }
 

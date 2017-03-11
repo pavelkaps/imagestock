@@ -1,8 +1,10 @@
 $light_blue: #21b8c6;
+$darken_white:  #f0f3f6;
+$gray: #d1dae3;
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f0f3f6;
+  background-color: $darken_white;
 }
 
 .title-app {
@@ -50,13 +52,14 @@ body {
 
   .menu {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 8px;
     opacity: 0.95;
     height: 30px;
+    border: 1px solid #a0b0ba;
     border-radius: 50%;
     width: 30px;
-    background-color: whitesmoke;
+    background: whitesmoke url("../img/button-of-three-vertical-squares.png") no-repeat center;
     transform: scale(0);
     transition: transform 0.1s;
   }
@@ -113,11 +116,11 @@ md-dialog.dialog-detail {
           }
 
           .dislike.normal-item {
-            background: rgba(224, 229, 233, 1) url("../img/dislike_icon_normal.png") no-repeat center;;
+            background: rgba(224, 229, 233, 1) url("../img/dislike_icon_normal.png") no-repeat center;
           }
 
           .like.normal-item {
-            background: rgba(224, 229, 233, 1) url("../img/like_icon_normal.png") no-repeat center;;
+            background: rgba(224, 229, 233, 1) url("../img/like_icon_normal.png") no-repeat center;
           }
 
           .action-active{
@@ -206,9 +209,23 @@ md-dialog.dialog-detail {
     height: 70%;
 
     .comment {
+      position: relative;
       margin-top: 5px;
       margin-bottom: 5px;
 
+      .delete-button{
+        background: whitesmoke url("../img/rubbish-bin.png") no-repeat center;
+        background-size: 13px;
+        border: 1px solid #b5c1c9;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -10px;
+        border-radius: 50%;
+        bottom: -10px;
+        transform: scale(0);
+        transition: transform 0.2s;
+      }
       .comment-header {
         font-size: 11px;
         display: flex;
@@ -225,11 +242,20 @@ md-dialog.dialog-detail {
         }
 
       }
+      &:hover{
+        .delete-button{
+          transform: scale(1);
+        }
+      }
     }
 
     .comment-text {
       font-size: 14px;
       overflow-wrap: break-word;
+      padding: 5px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: 2px solid $darken_white;
     }
   }
 
@@ -411,17 +437,17 @@ md-dialog.dialog-add-image {
 .comments::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #d1dae3;
+  background-color: $gray;
 }
 
 .galleryGrid::-webkit-scrollbar-track {
   border-radius: 15px;
-  background-color: #d1dae3;
+  background-color: $gray;
 }
 
 .galleryGrid::-webkit-scrollbar-thumb {
   border-radius: 15px;
-  background-color: #21b8c6;
+  background-color: $light_blue;
 }
 
 .comments::-webkit-scrollbar,
@@ -438,7 +464,7 @@ textarea::-webkit-scrollbar {
 .comments::-webkit-scrollbar-thumb,
 textarea::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #21b8c6;
+  background-color: $light_blue;
 }
 
 textarea {

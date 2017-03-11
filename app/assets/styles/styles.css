@@ -39,13 +39,14 @@ body {
   height: 50%; }
   .actions-hover-place .menu {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 8px;
     opacity: 0.95;
     height: 30px;
+    border: 1px solid #a0b0ba;
     border-radius: 50%;
     width: 30px;
-    background-color: whitesmoke;
+    background: whitesmoke url("../img/button-of-three-vertical-squares.png") no-repeat center;
     transform: scale(0);
     transition: transform 0.1s; }
   .actions-hover-place:hover .menu {
@@ -156,8 +157,21 @@ md-dialog.dialog-detail {
     padding-right: calc(8% - 6px);
     height: 70%; }
     .comments-block .comments .comment {
+      position: relative;
       margin-top: 5px;
       margin-bottom: 5px; }
+      .comments-block .comments .comment .delete-button {
+        background: whitesmoke url("../img/rubbish-bin.png") no-repeat center;
+        background-size: 13px;
+        border: 1px solid #b5c1c9;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -10px;
+        border-radius: 50%;
+        bottom: -10px;
+        transform: scale(0);
+        transition: transform 0.2s; }
       .comments-block .comments .comment .comment-header {
         font-size: 11px;
         display: -ms-flexbox;
@@ -170,9 +184,15 @@ md-dialog.dialog-detail {
           margin-right: auto; }
         .comments-block .comments .comment .comment-header .comment-date {
           margin-left: auto; }
+      .comments-block .comments .comment:hover .delete-button {
+        transform: scale(1); }
     .comments-block .comments .comment-text {
       font-size: 14px;
-      overflow-wrap: break-word; }
+      overflow-wrap: break-word;
+      padding: 5px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: 2px solid #f0f3f6; }
   .comments-block .comments-count {
     font-size: 25px;
     color: #8b9ea9;

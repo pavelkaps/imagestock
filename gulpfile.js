@@ -28,7 +28,8 @@ gulp.task('js', function () {
     return gulp.src('app/**/*.es6')
         .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['es2015'],
+            plugins: ['transform-object-rest-spread']
         }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('bundle'));

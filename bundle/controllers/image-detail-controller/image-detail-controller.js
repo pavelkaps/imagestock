@@ -85,6 +85,7 @@ var ImageDetailController = function () {
                             return false;
                         });
                         toaster.pop('info', "Успешно", "Коментарий удален.");
+                        $scope.$apply();
                     }
                 }).catch(ErrorHandler);
             };
@@ -108,14 +109,15 @@ var ImageDetailController = function () {
                     like_type: type,
                     own: USER_ID
                 }).then(function (data) {
-                    $scope.image.image_likes = data;
-                    console.log(data);
+                    $scope.image.image_likes = data.image_likes;
+                    $scope.$apply();
                 }).catch(ErrorHandler);
             }
 
             function DeleteLike(imageId, userId) {
                 imageService.deleteLike(imageId, userId).then(function (data) {
-                    $scope.image.image_likes = data;
+                    $scope.image.image_likes = data.image_likes;
+                    $scope.$apply();
                 }).catch(ErrorHandler);
             }
 

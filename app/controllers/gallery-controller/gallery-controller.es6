@@ -12,11 +12,8 @@ class GalleryController {
 
         imageService.getAll().then(
             function (data) {
-                $scope.$apply(()=> {
-                    console.log(data);
-                    $scope.resizingImages = randomResizeImages(data);
-                    console.log($scope.resizingImages);
-                });
+                $scope.resizingImages = randomResizeImages(data);
+                $scope.$apply();
             }
         ).catch(ErrorHandler);
 
@@ -26,7 +23,6 @@ class GalleryController {
         };
 
         $scope.showConfirmForDelete = (ev, image) => {
-            console.log('delete dialog');
             var confirm = $mdDialog.confirm()
                 .title('Do you want to delete this image?')
                 .targetEvent(ev)
@@ -45,6 +41,7 @@ class GalleryController {
                 if (data.ok === true) {
                     DeleteFromResizingImages(image.id);
                     toaster.pop('info', "Успешно", "Изображение удалено");
+                    $scope.$apply();
                 }
             }).catch(ErrorHandler);
         };
@@ -60,7 +57,7 @@ class GalleryController {
             }).then((answer) => {
 
             }, () => {
-
+                
             });
         };
 
@@ -72,27 +69,21 @@ class GalleryController {
                 clickOutsideToClose: true,
                 fullscreen: false
             }).then((image) => {
-                $scope.resizingImages.push(randomResizeOneImage(image))
+                $scope.resizingImages.push(randomResizeOneImage(image));
+                $scope.$apply();
             }, () => {
-                console.log('cancel dialog');
             });
         };
 
         $scope.countActions = (image, action) => {
-            var count = 0;
-            image.image_likes.forEach((el, ind, arr) => {
-                if (el.like_type === action) {
-                    count++;
-                }
-            });
-            return count;
+            return image.image_likes
+                .filter(like => like.like_type === action)
+                .length;
         };
 
         function DeleteFromResizingImages(_id) {
-            $scope.$apply(()=>{
-                $scope.resizingImages = $scope.resizingImages.filter((data)=>{
-                    return data.image.id !== _id;
-                });
+            $scope.resizingImages = $scope.resizingImages.filter((data)=> {
+                return data.image.id !== _id;
             });
         }
 
@@ -107,7 +98,7 @@ class GalleryController {
         }
 
 
-        function ErrorHandler(err){
+        function ErrorHandler(err) {
             console.log(err);
             toaster.pop('info', "Ошибка", "Произошла ошибка");
         }

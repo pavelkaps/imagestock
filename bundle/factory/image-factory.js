@@ -3,16 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.ImageService = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ImageRepository = require('../repository/ImageRepository');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ImageService = function () {
-    function ImageService(repository) {
+    function ImageService() {
         _classCallCheck(this, ImageService);
 
-        this.repository = repository;
+        this.repository = new _ImageRepository.ImageRepository();
     }
 
     _createClass(ImageService, [{
@@ -41,11 +44,6 @@ var ImageService = function () {
             return this.repository.addComment(_id, comment);
         }
     }, {
-        key: 'getById',
-        value: function getById(_id) {
-            return this.repository.getById(_id);
-        }
-    }, {
         key: 'deleteComment',
         value: function deleteComment(idImage, idComment) {
             return this.repository.deleteComment(idImage, idComment);
@@ -57,14 +55,13 @@ var ImageService = function () {
         }
     }], [{
         key: 'getInstance',
-        value: function getInstance(repository) {
-            return new ImageService(repository);
+        value: function getInstance() {
+            return new ImageService();
         }
     }]);
 
     return ImageService;
 }();
 
-ImageService.getInstance.$inject = ['imageRepository'];
 exports.ImageService = ImageService;
 //# sourceMappingURL=image-factory.js.map
