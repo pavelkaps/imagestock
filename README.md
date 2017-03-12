@@ -4,7 +4,9 @@ In this project was realised an image stock, in which we can add images and dele
 
 ## Examples
 
-
+![alt tag](screenshots/gallery.png "Description")
+![alt tag](screenshots/add-image.png "Description")
+![alt tag](screenshots/detail.png "Description")
 
 ### Features
 * Adding/deleting images
@@ -61,5 +63,3 @@ gulp watch
  * [Material Design](https://material.angularjs.org/latest/)
  * [jQuery](https://jquery.com/)
  * [freeWall.js](https://github.com/kombai/freewall) grid
-
-The architecture was designed using the pattern of Repository.
