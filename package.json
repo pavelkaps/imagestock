@@ -5,7 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Poberezhniy Pavel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pavelkaps/imagestock.git"
+  },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",

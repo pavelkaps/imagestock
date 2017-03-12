@@ -412,7 +412,6 @@ var GalleryController = function () {
                     fullscreen: false
                 }).then(function (image) {
                     $scope.resizingImages.push(randomResizeOneImage(image));
-                    $scope.$apply();
                 });
             };
 

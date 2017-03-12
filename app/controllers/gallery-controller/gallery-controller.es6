@@ -64,7 +64,6 @@ class GalleryController {
                 fullscreen: false
             }).then((image) => {
                 $scope.resizingImages.push(randomResizeOneImage(image));
-                $scope.$apply();
             });
         };
 
