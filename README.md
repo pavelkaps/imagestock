@@ -46,4 +46,4 @@ $ bower install
  * [jQuery](https://jquery.com/)
  * [freeWall.js](https://github.com/kombai/freewall) grid
 
-The architecture was projected using the pattern of repositories.
+The architecture was designed using the pattern of Repository.
