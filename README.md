@@ -18,7 +18,6 @@ In this project was realised an image stock, in which we can add images and dele
 
 ## Getting started
 
-
 ### Prerequisites
 
 Before installing the project it is needed to install the [NodeJS](https://nodejs.org/uk/) and npm.
