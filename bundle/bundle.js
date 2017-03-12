@@ -378,7 +378,7 @@ var GalleryController = function () {
                 var confirm = $mdDialog.confirm().title('Do you want to delete this image?').targetEvent(ev).ok('Delete').cancel('Cancel');
                 $mdDialog.show(confirm).then(function () {
                     deleteImage(image);
-                }, function () {});
+                });
             };
 
             function deleteImage(image) {
@@ -400,7 +400,7 @@ var GalleryController = function () {
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: false
-                }).then(function (answer) {}, function () {});
+                });
             };
 
             $scope.addImage = function (ev) {
@@ -413,7 +413,7 @@ var GalleryController = function () {
                 }).then(function (image) {
                     $scope.resizingImages.push(randomResizeOneImage(image));
                     $scope.$apply();
-                }, function () {});
+                });
             };
 
             $scope.countActions = function (image, action) {

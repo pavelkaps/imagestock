@@ -30,8 +30,6 @@ class GalleryController {
                 .cancel('Cancel');
             $mdDialog.show(confirm).then(()=> {
                 deleteImage(image);
-            }, () => {
-
             });
         };
 
@@ -54,10 +52,6 @@ class GalleryController {
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: false
-            }).then((answer) => {
-
-            }, () => {
-                
             });
         };
 
@@ -71,7 +65,6 @@ class GalleryController {
             }).then((image) => {
                 $scope.resizingImages.push(randomResizeOneImage(image));
                 $scope.$apply();
-            }, () => {
             });
         };
 

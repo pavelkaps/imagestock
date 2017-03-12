@@ -43,7 +43,7 @@
                         <div class="comments-inpunts" layout="row">
                             <textarea class="comment-input"  name="comment" placeholder="Write your comment here..." required
                                       ng-model="commentText" ></textarea>
-                            <button type="submit" class="send-btn" ng-click="addComment(nickname, commentText)"></button>
+                            <button type="submit" class="send-btn" ng-click="addComment(nickname, commentText); event.preventDefault()"></button>
                         </div>
                     </form>
                 </div>
