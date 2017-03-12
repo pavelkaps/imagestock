@@ -4,6 +4,8 @@ In this project was realised an image stock, in which we can add images and dele
 
 ## Examples
 
+
+
 ### Features
 * Adding/deleting images
 * Adding/deleting comments
@@ -36,6 +38,20 @@ In the directory "app/"
 
 ```
 $ bower install
+```
+
+#### Build
+
+For build project
+
+```
+gulp build:client
+```
+
+For watch
+
+```
+gulp watch
 ```
 
 ### Built With
