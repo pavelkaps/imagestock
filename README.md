@@ -22,9 +22,10 @@ In this project was realised an image stock, in which we can add images and dele
 
 Before installing the project it is needed to install the [NodeJS](https://nodejs.org/uk/) and npm.
 
-And also the [bower](https://bower.io/).
+And also the [bower](https://bower.io/), [gulp](http://gulpjs.com/).
 ```
 $ npm install -g bower
+$ npm install -g gulp
 ```
 
 ### Installing
@@ -63,3 +64,4 @@ gulp watch
  * [jQuery](https://jquery.com/)
  * [freeWall.js](https://github.com/kombai/freewall) grid
  * SASS/SCSS
+ * [Gulp](http://gulpjs.com/)
