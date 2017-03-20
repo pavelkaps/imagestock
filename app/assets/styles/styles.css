@@ -266,7 +266,7 @@ md-dialog.dialog-detail {
     margin-left: auto;
     background: url("../img/dislike_icon_normal.png") no-repeat center; }
   .detail-img-bar .comment-count {
-    background: url("../img/comment icon.png") no-repeat center; }
+    background: url("..img/comment icon.png") no-repeat center; }
 
 .image-card:hover .detail-img-bar {
   background-color: rgba(245, 247, 245, 0.95);

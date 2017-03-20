@@ -1,6 +1,7 @@
 $light_blue: #21b8c6;
 $darken_white:  #f0f3f6;
 $gray: #d1dae3;
+$whitegray: #f3f5f8;
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -203,7 +204,7 @@ md-dialog.dialog-detail {
   box-sizing: border-box;
 
   .comments {
-    border-bottom: 2px solid #f3f5f8;
+    border-bottom: 2px solid $whitegray;
     overflow: auto;
     padding-right: calc(8% - 6px);
     height: 70%;
@@ -275,7 +276,7 @@ md-dialog.dialog-detail {
       padding-left: 5px;
       width: calc(96% - 6px);
       border: none;
-      border-bottom: 2px solid #f3f5f8;
+      border-bottom: 2px solid $whitegray;
       margin-bottom: 10px;
       transition: border-color 0.3s;
 
@@ -288,7 +289,7 @@ md-dialog.dialog-detail {
       width: calc(96% - 6px);
 
       .comment-input {
-        border: 2px solid #f3f5f8;
+        border: 2px solid $whitegray;
         border-right: none;
         box-sizing: border-box;
         padding: 5px;
