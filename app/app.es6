@@ -12,7 +12,7 @@ import {RepeatBrick} from './directives/repeat-brick'
 import {TheFreeWall} from './directives/the-freewall'
 import {ImageRepository} from './repository/ImageRepository'
 
-angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment'])
+angular.module('ImageGallery', ['ngRoute','angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment', 'rx'])
     .config(Config)
     .controller('AddImageController', AddImageController)
     .controller('GalleryController', GalleryController)

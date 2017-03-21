@@ -193,7 +193,7 @@ var _theFreewall = require('./directives/the-freewall');
 
 var _ImageRepository = require('./repository/ImageRepository');
 
-angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment']).config(_config.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).factory('imageRepository', _ImageRepository.ImageRepository.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
+angular.module('ImageGallery', ['ngRoute', 'angularCSS', 'ngMaterial', 'toaster', 'naif.base64', 'angularMoment', 'rx']).config(_config.Config).controller('AddImageController', _addImageController.AddImageController).controller('GalleryController', _galleryController.GalleryController).controller('ImageDetailController', _imageDetailController.ImageDetailController).factory('detailImageService', _detailImage.DetailImageService.getInstance).factory('imageService', _imageFactory.ImageService.getInstance).factory('imageRepository', _ImageRepository.ImageRepository.getInstance).filter('reverse', _reverse.Reverse).directive('repeatBrick', _repeatBrick.RepeatBrick).directive('theFreewall', _theFreewall.TheFreeWall);
 
 
 },{"./config":5,"./controllers/add-image/add-image-controller":6,"./controllers/gallery-controller/gallery-controller":7,"./controllers/image-detail-controller/image-detail-controller":8,"./directives/repeat-brick":9,"./directives/the-freewall":10,"./factory/detail-image":11,"./factory/image-factory":12,"./filters/reverse":13,"./repository/ImageRepository":14}],5:[function(require,module,exports){
@@ -364,10 +364,11 @@ var GalleryController = function () {
             $scope.resizingImages = [];
             $scope.resizer = new _ImageResizer.ImageResizer();
 
-            imageService.getAll().then(function (data) {
+            imageService.getAll().subscribe(function (data) {
+                console.log(data);
                 $scope.resizingImages = randomResizeImages(data);
                 $scope.$apply();
-            }).catch(ErrorHandler);
+            });
 
             $scope.openMenu = function ($mdMenu, event) {
                 var originatorEv = event;
@@ -866,11 +867,11 @@ var ImageRepository = exports.ImageRepository = function () {
         value: function getAll() {
             var _this = this;
 
-            return this.db.allDocs({
+            return Rx.Observable.fromPromise(this.db.allDocs({
                 include_docs: true,
                 attachments: false
-            }).then(function (data) {
-                return Promise.all(data.rows.map(function (row) {
+            })).flatMap(function (data) {
+                return Rx.Observable.forkJoin(data.rows.map(function (row) {
                     return _this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(function (data) {
                         return {
                             id: row.id,

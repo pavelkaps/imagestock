@@ -7,12 +7,14 @@ export class ImageRepository {
     }
 
     getAll() {
-        return this.db.allDocs({
+        return Rx.Observable.fromPromise(this.db.allDocs({
             include_docs: true,
             attachments: false
-        }).then((data)=> {
-            return Promise.all((data.rows.map((row)=> {
-                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then((data)=> {
+        }))
+        .flatMap(((data)=> {
+            return Rx.Observable.forkJoin((data.rows.map((row)=> {
+                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0])
+                .then((data)=> {
                     return {
                         id: row.id,
                         comments: row.doc.comments,
@@ -23,7 +25,7 @@ export class ImageRepository {
             }))).catch((err)=> {
                 console.log(err);
             });
-        });
+        }))
     }
 
     put(image) {

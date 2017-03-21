@@ -27,11 +27,11 @@ var ImageRepository = exports.ImageRepository = function () {
         value: function getAll() {
             var _this = this;
 
-            return this.db.allDocs({
+            return Rx.Observable.fromPromise(this.db.allDocs({
                 include_docs: true,
                 attachments: false
-            }).then(function (data) {
-                return Promise.all(data.rows.map(function (row) {
+            })).flatMap(function (data) {
+                return Rx.Observable.forkJoin(data.rows.map(function (row) {
                     return _this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(function (data) {
                         return {
                             id: row.id,

@@ -25,10 +25,11 @@ var GalleryController = function () {
             $scope.resizingImages = [];
             $scope.resizer = new _ImageResizer.ImageResizer();
 
-            imageService.getAll().then(function (data) {
+            imageService.getAll().subscribe(function (data) {
+                console.log(data);
                 $scope.resizingImages = randomResizeImages(data);
                 $scope.$apply();
-            }).catch(ErrorHandler);
+            });
 
             $scope.openMenu = function ($mdMenu, event) {
                 var originatorEv = event;
