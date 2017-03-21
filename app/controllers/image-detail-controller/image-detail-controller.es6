@@ -53,11 +53,9 @@ class ImageDetailController {
 
                 imageService.addComment($scope.image.id, comment)
                 .subscribe((image)=> {
-                        console.log('add comment: ', image );
                         $scope.image.comments.push(comment);
                         $scope.$apply();
-                    },
-                    ErrorHandler);
+                    }, ErrorHandler);
             } else {
                 toaster.pop('warning', "Ошибка", "Заполните все поля.");
             }
@@ -66,7 +64,6 @@ class ImageDetailController {
         $scope.deleteComment = (image, comment) => {
             imageService.deleteComment(image.id, comment.id)
             .subscribe((data)=> {
-                console.log('delete - ', data);
                 if (data.ok === true) {
                     $scope.image.comments = image.comments.filter( _comment => _comment.id !== comment.id);
                     toaster.pop('info', "Успешно", "Коментарий удален.");
@@ -92,7 +89,6 @@ class ImageDetailController {
                 like_type: type,
                 own: USER_ID
             }).subscribe((data)=> {
-                console.log('add like: ', data);
                 $scope.image.image_likes = data.image_likes;
                 $scope.$apply();
             },ErrorHandler);
@@ -101,7 +97,6 @@ class ImageDetailController {
         function DeleteLike(imageId, userId) {
             imageService.deleteLike(imageId, userId)
             .subscribe((data)=> {
-                console.log('delete like: ', data)
                 $scope.image.image_likes = data.image_likes;
                 $scope.$apply();
             },ErrorHandler);

@@ -35,7 +35,6 @@ class GalleryController {
         };
 
         function deleteImage(image) {
-            console.log(image);
             imageService.deleteImageById(image.id)
                 .subscribe((data)=> {
                 if (data.ok === true) {
@@ -71,19 +70,16 @@ class GalleryController {
 
         $scope.countActions = (image, action) => {
             return image.image_likes
-                .filter(like => like.like_type === action)
-                .length;
+                        .filter(like => like.like_type === action)
+                        .length;
         };
 
         function DeleteFromResizingImages(_id) {
-            $scope.resizingImages = $scope.resizingImages
-            .filter(data =>  data.image.id !== _id);
+            $scope.resizingImages = $scope.resizingImages.filter(data =>  data.image.id !== _id);
         }
 
         function randomResizeImages(data) {
-            return data.map((data) => {
-                return randomResizeOneImage(data);
-            });
+            return data.map( data =>  randomResizeOneImage(data));
         }
 
         function randomResizeOneImage(image) {
