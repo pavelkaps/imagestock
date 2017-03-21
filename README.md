@@ -56,6 +56,12 @@ For watch
 gulp watch
 ```
 
+#### Build
+
+For run project
+```
+npm start
+```
 ### Built With
 
  * [AngularJS(ES6)](https://angularjs.org/)
