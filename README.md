@@ -60,6 +60,7 @@ gulp watch
 
  * [AngularJS(ES6)](https://angularjs.org/)
  * [PouchDB](https://pouchdb.com/)
+ * RxJS
  * [Material Design](https://material.angularjs.org/latest/)
  * [jQuery](https://jquery.com/)
  * [freeWall.js](https://github.com/kombai/freewall) grid
