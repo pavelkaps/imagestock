@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -23,7 +23,7 @@ var ImageRepository = exports.ImageRepository = function () {
     }
 
     _createClass(ImageRepository, [{
-        key: "getAll",
+        key: 'getAll',
         value: function getAll() {
             var _this = this;
 
@@ -32,7 +32,7 @@ var ImageRepository = exports.ImageRepository = function () {
                 attachments: false
             })).flatMap(function (data) {
                 return Rx.Observable.forkJoin(data.rows.map(function (row) {
-                    return _this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]).then(function (data) {
+                    return Rx.Observable.fromPromise(_this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0])).map(function (data) {
                         return {
                             id: row.id,
                             comments: row.doc.comments,
@@ -40,20 +40,20 @@ var ImageRepository = exports.ImageRepository = function () {
                             imageUrl: URL.createObjectURL(data)
                         };
                     });
-                })).catch(function (err) {
-                    console.log(err);
-                });
+                }));
+            }).catch(function (err) {
+                console.log(err);
             });
         }
     }, {
-        key: "put",
+        key: 'put',
         value: function put(image) {
             var _this2 = this;
 
-            return this.db.put(image).then(function (data) {
-                return _this2.db.get(data.id);
-            }).then(function (doc) {
-                return _this2.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]).then(function (attachment) {
+            return Rx.Observable.fromPromise(this.db.put(image)).flatMap(function (data) {
+                return Rx.Observable.fromPromise(_this2.db.get(data.id));
+            }).flatMap(function (doc) {
+                return Rx.Observable.fromPromise(_this2.db.getAttachment(doc._id, Object.keys(doc._attachments)[0])).map(function (attachment) {
                     return {
                         id: doc._id,
                         comments: doc.comments,
@@ -64,64 +64,62 @@ var ImageRepository = exports.ImageRepository = function () {
             });
         }
     }, {
-        key: "addLike",
+        key: 'addLike',
         value: function addLike(_id, like) {
             var _this3 = this;
 
-            return this.db.get(_id).then(function (doc) {
+            return Rx.Observable.fromPromise(this.db.get(_id)).flatMap(function (doc) {
                 var image = _extends({}, doc, { image_likes: [].concat(_toConsumableArray(doc.image_likes.filter(function (_like) {
                         return _like.own !== like.own;
                     })), [like]) });
-                return _this3.db.put(image).then(function (res) {
+                return Rx.Observable.fromPromise(_this3.db.put(image)).map(function (res) {
                     return image;
                 });
             });
         }
     }, {
-        key: "deleteLike",
+        key: 'deleteLike',
         value: function deleteLike(_id, userId) {
             var _this4 = this;
 
-            return this.db.get(_id).then(function (doc) {
-                console.log(doc, "doc");
+            return Rx.Observable.fromPromise(this.db.get(_id)).flatMap(function (doc) {
                 var image = _extends({}, doc, { image_likes: doc.image_likes.filter(function (like) {
                         return like.own !== userId;
                     }) });
-                console.log(image, "image");
-                return _this4.db.put(image).then(function (res) {
+                return Rx.Observable.fromPromise(_this4.db.put(image)).map(function (res) {
                     return image;
                 });
             });
         }
     }, {
-        key: "addComment",
+        key: 'addComment',
         value: function addComment(_id, comment) {
             var _this5 = this;
 
-            return this.db.get(_id).then(function (doc) {
+            return Rx.Observable.fromPromise(this.db.get(_id)).flatMap(function (doc) {
                 var image = _extends({}, doc, { comments: [].concat(_toConsumableArray(doc.comments), [comment]) });
-                return _this5.db.put(image);
+                return Rx.Observable.fromPromise(_this5.db.put(image));
             });
         }
     }, {
-        key: "deleteComment",
+        key: 'deleteComment',
         value: function deleteComment(idImage, commentId) {
             var _this6 = this;
 
-            return this.db.get(idImage).then(function (doc) {
+            return Rx.Observable.fromPromise(this.db.get(idImage)).flatMap(function (doc) {
                 var image = _extends({}, doc, { comments: doc.comments.filter(function (comment) {
                         return comment.id !== commentId;
                     }) });
-                return _this6.db.put(image);
+                return Rx.Observable.fromPromise(_this6.db.put(image));
             });
         }
     }, {
-        key: "deleteImageById",
+        key: 'deleteImageById',
         value: function deleteImageById(_id) {
             var _this7 = this;
 
-            return this.db.get(_id).then(function (doc) {
-                return _this7.db.remove(doc);
+            return Rx.Observable.fromPromise(this.db.get(_id)).flatMap(function (doc) {
+                return Rx.Observable.fromPromise(_this7.db.remove(doc));
             });
         }
     }]);

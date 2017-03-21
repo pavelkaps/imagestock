@@ -12,9 +12,10 @@ export class ImageRepository {
             attachments: false
         }))
         .flatMap(((data)=> {
-            return Rx.Observable.forkJoin((data.rows.map((row)=> {
-                return this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0])
-                .then((data)=> {
+            return Rx.Observable.forkJoin((
+                data.rows.map((row)=> {
+                return Rx.Observable.fromPromise(this.db.getAttachment(row.id, Object.keys(row.doc._attachments)[0]))
+                .map((data)=> {
                     return {
                         id: row.id,
                         comments: row.doc.comments,
@@ -22,18 +23,21 @@ export class ImageRepository {
                         imageUrl: URL.createObjectURL(data)
                     }
                 });
-            }))).catch((err)=> {
-                console.log(err);
-            });
+            })));
         }))
+        .catch((err)=> {
+            console.log(err);
+        })
     }
 
     put(image) {
-        return this.db.put(image).then((data)=> {
-            return this.db.get(data.id)
-        }).then((doc) => {
-            return this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0])
-                .then(attachment => {
+        return Rx.Observable.fromPromise(this.db.put(image))
+        .flatMap((data)=> {
+            return Rx.Observable.fromPromise(this.db.get(data.id))
+        })
+        .flatMap((doc) => {
+            return Rx.Observable.fromPromise(this.db.getAttachment(doc._id, Object.keys(doc._attachments)[0]))
+                .map(attachment => {
                     return {
                         id: doc._id,
                         comments: doc.comments,
@@ -45,39 +49,43 @@ export class ImageRepository {
     }
 
     addLike(_id, like) {
-        return this.db.get(_id).then((doc) => {
+        return Rx.Observable.fromPromise(this.db.get(_id))
+        .flatMap((doc) => {
             let image = {...doc, image_likes: [...doc.image_likes.filter(_like => _like.own !== like.own), like]};
-            return this.db.put(image).then(res => image);
+            return Rx.Observable.fromPromise(this.db.put(image))
+                                .map(res => image);
         });
     }
 
     deleteLike(_id, userId) {
-        return this.db.get(_id).then((doc) => {
-            console.log(doc, "doc");
+        return Rx.Observable.fromPromise(this.db.get(_id))
+        .flatMap((doc) => {
             let image = {...doc, image_likes: doc.image_likes.filter(like => like.own !== userId)};
-            console.log(image, "image");
-            return this.db.put(image).then(res => image);
-
+            return Rx.Observable.fromPromise(this.db.put(image))
+                                .map(res => image);
         });
     }
 
     addComment(_id, comment) {
-        return this.db.get(_id).then((doc) => {
+        return Rx.Observable.fromPromise(this.db.get(_id))
+        .flatMap((doc) => {
             let image = {...doc, comments: [...doc.comments, comment]};
-            return this.db.put(image);
+            return Rx.Observable.fromPromise(this.db.put(image));
         });
     }
 
     deleteComment(idImage, commentId) {
-        return this.db.get(idImage).then((doc) => {
+        return Rx.Observable.fromPromise(this.db.get(idImage))
+        .flatMap((doc) => {
             let image = {...doc, comments: doc.comments.filter(comment => comment.id !== commentId)};
-            return this.db.put(image);
+            return Rx.Observable.fromPromise(this.db.put(image));
         });
     }
 
     deleteImageById(_id) {
-        return this.db.get(_id).then((doc) => {
-            return this.db.remove(doc);
+        return Rx.Observable.fromPromise(this.db.get(_id))
+        .flatMap((doc) => {
+            return Rx.Observable.fromPromise(this.db.remove(doc));
         })
     }
 }

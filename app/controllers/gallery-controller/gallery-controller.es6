@@ -36,13 +36,14 @@ class GalleryController {
 
         function deleteImage(image) {
             console.log(image);
-            imageService.deleteImageById(image.id).then((data)=> {
+            imageService.deleteImageById(image.id)
+                .subscribe((data)=> {
                 if (data.ok === true) {
                     DeleteFromResizingImages(image.id);
                     toaster.pop('info', "Успешно", "Изображение удалено");
                     $scope.$apply();
                 }
-            }).catch(ErrorHandler);
+            }, ErrorHandler);
         };
 
         $scope.toDetail = (ev, image) => {

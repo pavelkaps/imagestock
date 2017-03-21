@@ -31,11 +31,12 @@ class AddImageController {
                 if(this.randomComments === true){
                     randomFillingImage.setComment(image);
                 }
-                imageService.put(image).then((image)=> {
-                    console.log(image);
-                    $mdDialog.hide(image);
-                    toaster.pop('info', "Успешно", "Изображение добавленно");
-                }).catch(ErrorHandler);
+                imageService.put(image)
+                    .subscribe((image)=> {
+                        console.log(image);
+                        $mdDialog.hide(image);
+                        toaster.pop('info', "Успешно", "Изображение добавленно");
+                    }, ErrorHandler);
             }
         };
 

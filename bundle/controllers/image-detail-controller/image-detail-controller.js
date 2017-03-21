@@ -66,17 +66,19 @@ var ImageDetailController = function () {
                         date: Date.now()
                     };
 
-                    imageService.addComment($scope.image.id, comment).then(function (image) {
+                    imageService.addComment($scope.image.id, comment).subscribe(function (image) {
+                        console.log('add comment: ', image);
                         $scope.image.comments.push(comment);
                         $scope.$apply();
-                    }).catch(ErrorHandler);
+                    }, ErrorHandler);
                 } else {
                     toaster.pop('warning', "Ошибка", "Заполните все поля.");
                 }
             };
 
             $scope.deleteComment = function (image, comment) {
-                imageService.deleteComment(image.id, comment.id).then(function (data) {
+                imageService.deleteComment(image.id, comment.id).subscribe(function (data) {
+                    console.log('delete - ', data);
                     if (data.ok === true) {
                         $scope.image.comments = image.comments.filter(function (_comment) {
                             return _comment.id !== comment.id;
@@ -84,7 +86,7 @@ var ImageDetailController = function () {
                         toaster.pop('info', "Успешно", "Коментарий удален.");
                         $scope.$apply();
                     }
-                }).catch(ErrorHandler);
+                }, ErrorHandler);
             };
 
             $scope.countActions = function (image, action) {
@@ -101,27 +103,28 @@ var ImageDetailController = function () {
                 imageService.addLike($scope.image.id, {
                     like_type: type,
                     own: USER_ID
-                }).then(function (data) {
+                }).subscribe(function (data) {
+                    console.log('add like: ', data);
                     $scope.image.image_likes = data.image_likes;
                     $scope.$apply();
-                }).catch(ErrorHandler);
+                }, ErrorHandler);
             }
 
             function DeleteLike(imageId, userId) {
-                imageService.deleteLike(imageId, userId).then(function (data) {
+                imageService.deleteLike(imageId, userId).subscribe(function (data) {
+                    console.log('delete like: ', data);
                     $scope.image.image_likes = data.image_likes;
                     $scope.$apply();
-                }).catch(ErrorHandler);
+                }, ErrorHandler);
             }
 
             function SetLikeToImage(image) {
-                image.image_likes.forEach(function (el, ind, arr) {
-                    if (el.like_type === 'like' && el.own === USER_ID) {
-                        $scope.like = true;
-                    } else if (el.like_type === 'dislike' && el.own === USER_ID) {
-                        $scope.dislike = true;
-                    }
-                });
+                $scope.like = !!image.image_likes.filter(function (like) {
+                    return like.like_type === 'like' && like.own === USER_ID;
+                }).length;
+                $scope.dislike = !!image.image_likes.filter(function (like) {
+                    return like.like_type === 'dislike' && like.own === USER_ID;
+                }).length;
             }
 
             function ErrorHandler(err) {

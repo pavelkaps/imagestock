@@ -49,11 +49,11 @@ var AddImageController = function () {
                     if (_this.randomComments === true) {
                         randomFillingImage.setComment(image);
                     }
-                    imageService.put(image).then(function (image) {
+                    imageService.put(image).subscribe(function (image) {
                         console.log(image);
                         $mdDialog.hide(image);
                         toaster.pop('info', "Успешно", "Изображение добавленно");
-                    }).catch(ErrorHandler);
+                    }, ErrorHandler);
                 }
             };
 

@@ -45,13 +45,13 @@ var GalleryController = function () {
 
             function deleteImage(image) {
                 console.log(image);
-                imageService.deleteImageById(image.id).then(function (data) {
+                imageService.deleteImageById(image.id).subscribe(function (data) {
                     if (data.ok === true) {
                         DeleteFromResizingImages(image.id);
                         toaster.pop('info', "Успешно", "Изображение удалено");
                         $scope.$apply();
                     }
-                }).catch(ErrorHandler);
+                }, ErrorHandler);
             };
 
             $scope.toDetail = function (ev, image) {
