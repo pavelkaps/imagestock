@@ -56,7 +56,7 @@ For watch
 gulp watch
 ```
 
-#### Build
+#### Starting
 
 For run project
 ```
