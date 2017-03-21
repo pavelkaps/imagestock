@@ -33,7 +33,6 @@ class AddImageController {
                 }
                 imageService.put(image)
                     .subscribe((image)=> {
-                        console.log(image);
                         $mdDialog.hide(image);
                         toaster.pop('info', "Успешно", "Изображение добавленно");
                     }, ErrorHandler);

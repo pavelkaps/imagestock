@@ -76,9 +76,8 @@ class GalleryController {
         };
 
         function DeleteFromResizingImages(_id) {
-            $scope.resizingImages = $scope.resizingImages.filter((data)=> {
-                return data.image.id !== _id;
-            });
+            $scope.resizingImages = $scope.resizingImages
+            .filter(data =>  data.image.id !== _id);
         }
 
         function randomResizeImages(data) {
